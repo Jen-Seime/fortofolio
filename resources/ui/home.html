@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>DevPortfolio</title>
+
+    <!-- Scripts & Fonts -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0040e0",
+                        "primary-container": "#2e5bff",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#efefff",
+                        "primary-fixed": "#dde1ff",
+                        "primary-fixed-dim": "#b8c3ff",
+                        "on-primary-fixed": "#001356",
+                        "on-primary-fixed-variant": "#0035be",
+
+                        "secondary": "#565e74",
+                        "secondary-container": "#dae2fd",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#5c647a",
+                        "secondary-fixed": "#dae2fd",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "on-secondary-fixed": "#131b2e",
+                        "on-secondary-fixed-variant": "#3f465c",
+
+                        "tertiary": "#46566c",
+                        "tertiary-container": "#5e6e85",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#e9f0ff",
+                        "tertiary-fixed": "#d3e4fe",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "on-tertiary-fixed-variant": "#38485d",
+
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+
+                        "background": "#f9f9f9",
+                        "on-background": "#1a1c1c",
+                        "surface": "#f9f9f9",
+                        "on-surface": "#1a1c1c",
+                        "surface-variant": "#e2e2e2",
+                        "on-surface-variant": "#434656",
+                        "outline": "#747688",
+                        "outline-variant": "#c4c5d9",
+
+                        "surface-bright": "#f9f9f9",
+                        "surface-dim": "#dadada",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f3f3f3",
+                        "surface-container": "#eeeeee",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-container-highest": "#e2e2e2",
+
+                        "inverse-surface": "#2f3131",
+                        "inverse-on-surface": "#f0f1f1",
+                        "inverse-primary": "#b8c3ff",
+                        "surface-tint": "#124af0"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "margin-mobile": "16px",
+                        "margin-desktop": "48px",
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "stack-md": "24px",
+                        "stack-lg": "48px",
+                        "section-gap": "120px"
+                    },
+                    fontFamily: {
+                        "headline-lg": ["Geist"],
+                        "headline-lg-mobile": ["Geist"],
+                        "headline-xl": ["Geist"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-mono": ["JetBrains Mono"]
+                    },
+                    fontSize: {
+                        "headline-xl": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600" }],
+                        "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "600" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "label-mono": ["12px", { lineHeight: "16px", fontWeight: "500" }]
+                    }
+                },
+            },
+        }
+    </script>
+
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .glow-button {
+            transition: all 0.3s ease;
+        }
+
+        .glow-button:hover {
+            box-shadow: 0 0 20px rgba(0, 64, 224, 0.3);
+        }
+
+        .radial-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 64, 224, 0.05) 0%, rgba(249, 249, 249, 0) 70%);
+            border-radius: 50%;
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background min-h-screen relative overflow-x-hidden font-body-md text-body-md">
+    <!-- Background Glows -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none -z-10" aria-hidden="true">
+        <div class="radial-glow top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="radial-glow bottom-0 right-0 translate-x-1/2 translate-y-1/2" style="background: radial-gradient(circle, rgba(0, 64, 224, 0.05) 0%, rgba(249, 249, 249, 0) 70%);"></div>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm">
+        <div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-16">
+            <div class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">
+                DevPortfolio
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex gap-gutter items-center">
+                <a class="text-primary font-bold border-b-2 border-primary pb-1 active:scale-95 transition-all duration-300 px-2 rounded hover:bg-primary/5" href="#">Home</a>
+                <a class="text-on-surface-variant hover:text-primary transition-all duration-300 px-2 rounded hover:bg-primary/5" href="#">About</a>
+                <a class="text-on-surface-variant hover:text-primary transition-all duration-300 px-2 rounded hover:bg-primary/5" href="#">Skills</a>
+                <a class="text-on-surface-variant hover:text-primary transition-all duration-300 px-2 rounded hover:bg-primary/5" href="#">Projects</a>
+                <a class="text-on-surface-variant hover:text-primary transition-all duration-300 px-2 rounded hover:bg-primary/5" href="#">Exp.</a>
+                <a class="text-on-surface-variant hover:text-primary transition-all duration-300 px-2 rounded hover:bg-primary/5" href="#">Blog</a>
+                <a class="text-on-surface-variant hover:text-primary transition-all duration-300 px-2 rounded hover:bg-primary/5" href="#">Contact</a>
+            </nav>
+
+            <button class="hidden md:block bg-primary text-on-primary font-label-mono text-label-mono px-6 py-2 rounded glow-button hover:bg-primary/90 active:scale-95 transition-transform">
+                Hire Me
+            </button>
+
+            <!-- Mobile Menu Icon -->
+            <button class="md:hidden text-on-surface p-2">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <!-- Hero Section -->
+        <section class="min-h-[819px] flex flex-col justify-center relative">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+                <!-- Text Content -->
+                <div class="lg:col-span-7 flex flex-col gap-stack-md z-10">
+                    <div class="inline-block w-fit bg-surface-container border border-outline-variant/30 rounded-full px-4 py-1.5 mb-2 glass-card">
+                        <span class="font-label-mono text-label-mono text-primary">Hello, World.</span>
+                    </div>
+
+                    <h1 class="font-headline-xl text-headline-xl text-on-surface">
+                        I'm Alex Mercer<br />
+                        <span class="text-primary">IT Student &amp; Web Developer</span><span class="animate-pulse">|</span>
+                    </h1>
+
+                    <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-4">
+                        Crafting high-performance, future-proof digital experiences. Specializing in modern web architectures, scalable front-end systems, and pixel-perfect UI engineering with a focus on deep technical precision.
+                    </p>
+
+                    <div class="flex flex-wrap gap-stack-sm mt-8">
+                        <button class="bg-primary text-on-primary font-label-mono text-label-mono px-8 py-4 rounded-lg glow-button flex items-center gap-2">
+                            View Projects <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                        </button>
+                        <button class="bg-transparent border border-outline-variant text-on-surface font-label-mono text-label-mono px-8 py-4 rounded-lg hover:bg-surface-variant transition-colors glass-card flex items-center gap-2">
+                            Download CV <span class="material-symbols-outlined text-[18px]">download</span>
+                        </button>
+                    </div>
+
+                    <!-- Socials -->
+                    <div class="flex gap-4 mt-8 pt-4 border-t border-outline-variant/30 w-fit">
+                        <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">
+                            <span class="material-symbols-outlined">code</span>
+                        </a>
+                        <a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">
+                            <span class="material-symbols-outlined">link</span>
+                        </a>
+                        <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">
+                            <span class="material-symbols-outlined">mail</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Image/Visuals -->
+                <div class="lg:col-span-5 relative hidden md:block">
+                    <!-- Decorative element behind image -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-primary/10 to-secondary/10 rounded-xl blur-3xl -z-10"></div>
+                    <div class="glass-card p-2 rounded-xl relative overflow-hidden group">
+                        <!-- Abstract Tech Image Placeholder -->
+                        <div class="w-full h-[500px] bg-surface-container-high rounded-lg overflow-hidden relative">
+                            <img alt="Professional web developer working in a futuristic coding environment" class="w-full h-full object-cover opacity-90 transition-all duration-500" data-alt="A cinematic, high-contrast portrait of a modern web development workspace. The scene features glowing screens displaying lines of code in a sleek, glassmorphic IDE interface, set against a deep charcoal black background. Neon blue and soft violet ambient light washes over a minimalist mechanical keyboard. The mood is highly technical, precise, and sophisticated, perfectly aligned with a premium, future-proof engineering aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHaKObPHASFL-Kzp6SUNc-8XS3S61ONlIsTAALi8GKp3ddJmgJskNf1dnvvB6DBVvZf2vr6lsc7ll6iXA3QaK5_VXoLEwDsfLEqxBmS5cbUyD7zgP82LMOhs5TKp9j0GxkaWXgIBfJ0bd5B6MqLwuZ9SzeVkjSHXk0SUkAslNPCY8PKke_5emFDCKtx353VUBkHlwMNczk4C5Iu0rmqbygVbVZ9dI9NKAr9u1ppy2-P5YniIjgHpnB7JZk9oed-4AShmtwrPBg3A_E" />
+                            <!-- overlay gradient -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+                        </div>
+
+                        <!-- Floating Tech Chips -->
+                        <div class="absolute bottom-6 left-6 flex flex-wrap gap-2">
+                            <span class="font-label-mono text-label-mono text-on-surface bg-surface/90 backdrop-blur border border-outline-variant/50 px-3 py-1 rounded shadow-sm">React</span>
+                            <span class="font-label-mono text-label-mono text-on-surface bg-surface/90 backdrop-blur border border-outline-variant/50 px-3 py-1 rounded shadow-sm">TypeScript</span>
+                            <span class="font-label-mono text-label-mono text-on-surface bg-surface/90 backdrop-blur border border-outline-variant/50 px-3 py-1 rounded shadow-sm">Node.js</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-stack-lg border-t border-outline-variant/30 bg-background">
+        <div class="flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+            <div class="font-label-mono text-label-mono text-on-surface-variant mb-4 md:mb-0">
+                © 2024 The Future-Proof Engineer. Built with precision.
+            </div>
+            <div class="flex gap-gutter font-body-sm text-body-sm">
+                <a class="text-on-surface-variant hover:text-primary transition-all scale-105" href="#">GitHub</a>
+                <a class="text-on-surface-variant hover:text-primary transition-all scale-105" href="#">LinkedIn</a>
+                <a class="text-on-surface-variant hover:text-primary transition-all scale-105" href="#">Twitter</a>
+                <a class="text-on-surface-variant hover:text-primary transition-all scale-105" href="#">Email</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

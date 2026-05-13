@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('nickname');
             $table->string('role');
             $table->text('bio');
-            $table->string('about');
+            $table->text('about');
             $table->string('address');
             $table->string('phone');
             $table->string('email');
