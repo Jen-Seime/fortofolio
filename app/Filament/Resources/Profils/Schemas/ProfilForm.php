@@ -3,14 +3,12 @@
 namespace App\Filament\Resources\Profils\Schemas;
 
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
-use Filament\Tables\Columns\TextColumn;
-use Laravel\Prompts\Grid;
-use Filament\Schemas\Components\Group;
-
 
 class ProfilForm
 {
@@ -18,7 +16,7 @@ class ProfilForm
     {
         return $schema
             ->components([
-                 Group::make()
+                Group::make()
                     ->relationship('image')
                     ->schema([
                         FileUpload::make('url')
@@ -30,83 +28,74 @@ class ProfilForm
                             ->required(),
                     ]),
 
-                Section::make("Profil")
+                Section::make('Profil')
                     ->columnSpanFull()
                     ->columns(3)
                     // ->icon('Heroicon::user')
                     ->schema([
-                        TextInput::make("full_name")
-                        ->label("Nama Lengkap")
-                        ->required(),
+                        TextInput::make('full_name')
+                            ->label('Nama Lengkap')
+                            ->required(),
 
-                        TextInput::make("nickname")
-                        ->label("Nama Panggilan")
-                        ->required(),
+                        TextInput::make('nickname')
+                            ->label('Nama Panggilan')
+                            ->required(),
 
-                        TextInput::make("role")
-                        ->label("Role")
-                        ->required(),
+                        TextInput::make('role')
+                            ->label('Role')
+                            ->required(),
 
-                    
+                        TextInput::make('address')
+                            ->label('Alamat')
+                            ->required(),
 
-                        TextInput::make("address")
-                        ->label("Alamat")
-                        ->required(),
+                        TextInput::make('phone')
+                            ->label('Telepon')
+                            ->required(),
 
-                        TextInput::make("phone")
-                        ->label("Telepon")
-                        ->required(),
+                        TextInput::make('email')
+                            ->label('Email')
+                            ->required(),
 
-                        TextInput::make("email")
-                        ->label("Email")
-                        ->required(),
-
-                        
-                        
                     ]),
 
-                    Section::make("")
+                Section::make('')
                     ->columnSpanFull()
-                    // ->icon('Heroicon::user')
+                // ->icon('Heroicon::user')
                     ->schema([
-                        Textarea::make("bio")
-                        ->rows(10)
-                        ->cols(10)
-                        ->label("Bio Data")
-                        ->required(),
+                        Textarea::make('bio')
+                            ->rows(10)
+                            ->cols(10)
+                            ->label('Bio Data')
+                            ->required(),
 
-                        Textarea::make("about")
-                        ->rows(10)
-                        ->cols(10)
-                        ->label("Tentang Saya")
-                        ->required(),
+                        MarkdownEditor::make('about')
+                            ->label('Tentang Saya')
+                            ->required(),
 
-                        
                     ]),
 
-                    Section::make("Media")
+                Section::make('Media')
                     ->columnSpanFull()
                     ->columns(3)
-                    // ->icon('Heroicon::user')
+                // ->icon('Heroicon::user')
                     ->schema([
                         TextInput::make('github')
-                        ->label("GitHub")
-                        ->required(),
+                            ->label('GitHub')
+                            ->required(),
 
                         TextInput::make('linkedin')
-                        ->label("Linkedin")
-                        ->required(),
+                            ->label('Linkedin')
+                            ->required(),
 
                         TextInput::make('instagram')
-                        ->label("Instagram")
-                        ->required(),
+                            ->label('Instagram')
+                            ->required(),
 
                         TextInput::make('cv_file')
-                        ->label("CV")
-                        
+                            ->label('CV'),
 
-                        
-                    ])
+                    ]),
             ]);
     }
 }
