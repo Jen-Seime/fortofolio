@@ -183,4 +183,9 @@
         .glow-effect {
             box-shadow: 0 0 20px rgba(0, 64, 224, 0.15);
         }
+
+        .skill-item:hover .skill-badge {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 64, 224, 0.1);
+        }
 }

@@ -2,10 +2,9 @@
 
 namespace App\Livewire\Page;
 
-use Livewire\Component;
-
 use App\Services\ProfilService;
 use Livewire\Attributes\Computed;
+use Livewire\Component;
 
 class HomePage extends Component
 {
@@ -14,11 +13,12 @@ class HomePage extends Component
     {
         return app(ProfilService::class)->getProfil();
     }
-    
+
     public function render()
     {
+
         return view('livewire.page.home-page', [
-            'profil' => $this->profil
+            'profil' => $this->profil,
         ]);
     }
 }
