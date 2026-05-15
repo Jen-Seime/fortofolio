@@ -9,7 +9,7 @@
         <nav class="hidden md:flex gap-gutter items-center">
             <a class="{{ Route::is('home') ? 'text-primary font-bold border-b-2 border-primary pb-1 active:scale-95 transition-all duration-300 px-2 rounded hover:bg-primary/5' : 'text-on-surface-variant hover:text-primary transition-all duration-300 px-2 rounded hover:bg-primary/5' }}" href="{{ route('home') }}">Home</a>
             <a class="{{ Route::is('about') ? 'text-primary font-bold border-b-2 border-primary pb-1 active:scale-95 transition-all duration-300 px-2 rounded hover:bg-primary/5' : 'text-on-surface-variant hover:text-primary transition-all duration-300 px-2 rounded hover:bg-primary/5' }}" href="{{ route('about') }}">About</a>
-            <a class="text-on-surface-variant hover:text-primary transition-all duration-300 px-2 rounded hover:bg-primary/5" href="#">Skills</a>
+            <a class="{{ Route::is('skill') ? 'text-primary font-bold border-b-2 border-primary pb-1 active:scale-95 transition-all duration-300 px-2 rounded hover:bg-primary/5' : 'text-on-surface-variant hover:text-primary transition-all duration-300 px-2 rounded hover:bg-primary/5' }}" href="{{ route('skill') }}">Skills</a>
             <a class="text-on-surface-variant hover:text-primary transition-all duration-300 px-2 rounded hover:bg-primary/5" href="#">Projects</a>
             <a class="text-on-surface-variant hover:text-primary transition-all duration-300 px-2 rounded hover:bg-primary/5" href="#">Exp.</a>
             <a class="text-on-surface-variant hover:text-primary transition-all duration-300 px-2 rounded hover:bg-primary/5" href="#">Blog</a>
