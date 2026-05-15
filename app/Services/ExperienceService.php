@@ -14,6 +14,17 @@ class ExperienceService
         });
     }
 
+    public function getTotalYearsOfExperience(): int
+    {
+        $earliest = Experience::min('start_date');
+        
+        if (!$earliest) {
+            return 0;
+        }
+
+        return \Carbon\Carbon::parse($earliest)->diffInYears(now());
+    }
+
     public function clearCache(): void
     {
         Cache::forget('experience_data');

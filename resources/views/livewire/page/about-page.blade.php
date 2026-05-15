@@ -1,276 +1,331 @@
 <!-- Main Content Canvas -->
-    <main class="relative z-10 pt-32 pb-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col gap-section-gap">
-        <!-- Biodata Section (Bento Grid Layout) -->
-        <section class="flex flex-col gap-stack-lg">
-            <header>
-                <h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-surface ">About <span class="text-primary">Me</span></h1>
-                <!-- <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
-                    Bridging the gap between complex architectural patterns and seamless, human-centric user experiences.
-                </p> -->
-            </header>
-            <div class=" gap-gutter">
-                <!-- Main Bio Card -->
-                <div class=" glass-panel  glass-edge rounded-2xl p-stack-md md:p-stack-lg flex flex-col md:flex-row gap-gutter items-start hover:bg-white/80 transition-colors duration-500">
-                    <div class="w-full md:w-1/3 aspect-square rounded-xl overflow-hidden border border-outline-variant/30 flex-shrink-0 relative group">
-                        <div class="absolute inset-0 bg-primary/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-300 z-10"></div>
-                        @if ($tentang?->image)
-                            <img alt="Portrait of the developer" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A" src="{{ asset('storage/' . $tentang->image->url) }}" />
-                        @else
-                            <img alt="Portrait of the developer" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A cinematic, high-contrast portrait of a male software engineer working in a dimly lit, modern studio space. He is illuminated by the cool, soft blue glow of multiple monitors displaying intricate code structures. The aesthetic is moody and highly technical, dominated by deep charcoal blacks and vibrant neon blue accents. The depth of field is shallow, focusing sharply on his concentrated expression while the background blurs into sleek, glassmorphic reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtWB-SJi9bCdK2I6jfr8a3Ds-RuKMNkRT_6MoHNZus6Z2tC4hwVABG8dKLNYZC6H3tmZwiVyJo757fDcOQcDKWOj0o9uu5sf39afIK5F7CKIXBkIfOT9O_Qe69ldTCB1AGA5LR9Sv6Q9_URPVG4NOGYHs0BYYit-prrULZobATRjKUax-o4EqBU4pI-I22bPKj1Fv_PuVtyPzIryGYR4EuFiF9tJB--LZyOhpd10CmdxRrKvSbCLac9YcGAl7M7nVzC-dfHYRzy87r" />
+<main class="relative z-10 pt-28 pb-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col gap-20">
+
+    <!-- ============================================ -->
+    <!-- ABOUT HEADER                                 -->
+    <!-- ============================================ -->
+    <section class="about-fade-in" style="--delay: 0.1s">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 bg-primary/8 text-primary font-label-mono text-label-mono px-4 py-1.5 rounded-full mb-5">
+            <span class="material-symbols-outlined text-[14px]">person</span>
+            About Me
+        </div>
+        <h1 class="font-headline-xl text-[clamp(28px,5vw,44px)] leading-[1.15] text-on-surface font-bold tracking-tight">
+            Get to Know <span class="text-primary">Me</span>
+        </h1>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- BIO SECTION                                  -->
+    <!-- ============================================ -->
+    <section class="about-fade-in" style="--delay: 0.2s">
+        <div class="relative bg-surface/80 border border-outline-variant/20 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500">
+            <!-- Accent bar -->
+            <div class="h-1 bg-gradient-to-r from-primary via-primary-container to-primary/40"></div>
+
+            <div class="p-6 md:p-10 flex flex-col md:flex-row gap-8 items-start">
+                <!-- Profile Image -->
+                <div class="w-full md:w-72 lg:w-80 shrink-0">
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-tr from-primary/20 via-transparent to-secondary/20 rounded-2xl blur-lg opacity-50 group-hover:opacity-80 transition-opacity duration-500"></div>
+                        <div class="relative aspect-square rounded-2xl overflow-hidden border border-outline-variant/20">
+                            @if ($tentang?->image)
+                                <img alt="{{ $tentang->full_name }}"
+                                     class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                                     src="{{ asset('storage/' . $tentang->image->url) }}" />
+                            @else
+                                <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-surface-variant to-surface-container text-on-surface-variant">
+                                    <span class="material-symbols-outlined text-7xl opacity-40">person</span>
+                                </div>
+                            @endif
+                            <div class="absolute inset-0 bg-gradient-to-t from-on-surface/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Info Cards -->
+                    <div class="grid grid-cols-2 gap-2 mt-4">
+                        @if($tentang?->address)
+                            <div class="glass-card rounded-xl p-3 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary text-[16px]">location_on</span>
+                                <span class="text-[11px] font-medium text-on-surface-variant truncate">{{ $tentang->address }}</span>
+                            </div>
+                        @endif
+                        @if($tentang?->email)
+                            <div class="glass-card rounded-xl p-3 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary text-[16px]">mail</span>
+                                <span class="text-[11px] font-medium text-on-surface-variant truncate">{{ $tentang->email }}</span>
+                            </div>
                         @endif
                     </div>
-                    <div class="flex flex-col gap-stack-sm flex-grow">
-                        <h2 class="font-headline-lg text-headline-sm-mobile md:text-headline-lg text-on-surface">The Future-Proof Engineer</h2>
-                        <div class="h-px w-16 bg-gradient-to-r from-primary to-transparent my-2"></div>
-                        <div class="font-body-md text-body-md text-on-surface-variant">
-                            <div class="
-                                font-body-sm
-                                md:text-body-md
-                                text-body-sm
-                                text-justify 
-                                leading-8 
-                                text-on-surface-variant
-                                space-y-6
+
+                    <!-- Social Links -->
+                    <div class="flex items-center gap-2 mt-3">
+                        @if($tentang?->github)
+                            <a href="{{ $tentang->github }}" target="_blank"
+                               class="w-9 h-9 rounded-xl bg-surface-container hover:bg-primary/10 border border-outline-variant/15 flex items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300 hover:-translate-y-0.5">
+                                <i class="fa-brands fa-github text-[15px]"></i>
+                            </a>
+                        @endif
+                        @if($tentang?->linkedin)
+                            <a href="{{ $tentang->linkedin }}" target="_blank"
+                               class="w-9 h-9 rounded-xl bg-surface-container hover:bg-primary/10 border border-outline-variant/15 flex items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300 hover:-translate-y-0.5">
+                                <i class="fa-brands fa-linkedin-in text-[15px]"></i>
+                            </a>
+                        @endif
+                        @if($tentang?->instagram)
+                            <a href="{{ $tentang->instagram }}" target="_blank"
+                               class="w-9 h-9 rounded-xl bg-surface-container hover:bg-primary/10 border border-outline-variant/15 flex items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300 hover:-translate-y-0.5">
+                                <i class="fa-brands fa-instagram text-[15px]"></i>
+                            </a>
+                        @endif
+                    </div>
+                </div>
+
+                <!-- Bio Text -->
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary text-[20px]">info</span>
+                        </div>
+                        <div>
+                            <h2 class="text-[20px] font-bold text-on-surface leading-tight">{{ $tentang?->full_name ?? 'About' }}</h2>
+                            <p class="text-[12px] text-on-surface-variant">{{ $tentang?->role ?? 'Developer' }}</p>
+                        </div>
+                    </div>
+
+                    <div class="h-px w-12 bg-gradient-to-r from-primary to-transparent mb-5"></div>
+
+                    <div class="prose-content text-[14px] md:text-[15px] leading-7 text-on-surface-variant
                                 [&>p]:mb-4
-                                [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:mt-8
-                                [&>h2]:text-2xl [&>h2]:font-semibold [&>h2]:mt-6
-                                [&>h3]:text-xl [&>h3]:font-semibold [&>h3]:mt-4
-                                [&>ul]:list-disc [&>ul]:ml-6
-                                [&>ol]:list-decimal [&>ol]:ml-6
-                                [&>blockquote]:border-l-4 [&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:text-gray-600
-                                [&>img]:rounded-xl [&>img]:my-4
-                            ">
-                                {!! str($tentang?->about)->markdown() !!}
-                            </div>
-                        </div>
-                       
+                                [&>h1]:text-2xl [&>h1]:font-bold [&>h1]:mt-6 [&>h1]:text-on-surface
+                                [&>h2]:text-xl [&>h2]:font-semibold [&>h2]:mt-5 [&>h2]:text-on-surface
+                                [&>h3]:text-lg [&>h3]:font-semibold [&>h3]:mt-4 [&>h3]:text-on-surface
+                                [&>ul]:list-disc [&>ul]:ml-5 [&>ul]:space-y-1
+                                [&>ol]:list-decimal [&>ol]:ml-5 [&>ol]:space-y-1
+                                [&>blockquote]:border-l-3 [&>blockquote]:border-primary/30 [&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:text-on-surface-variant/80
+                                [&>img]:rounded-xl [&>img]:my-4">
+                        {!! str($tentang?->about)->markdown() !!}
                     </div>
                 </div>
-                <!-- Side Cards (Stats & Location) -->
-                <!-- <div class="lg:col-span-4 flex flex-col gap-gutter">
-                    <div class="glass-panel glass-edge rounded-2xl p-stack-md flex-1 flex flex-col justify-center relative overflow-hidden group">
-                        <div class="absolute right-[-20%] top-[-20%] w-[150px] h-[150px] bg-tertiary/10 rounded-full blur-[40px] group-hover:bg-tertiary/20 transition-all duration-500"></div>
-                        <div class="flex items-center gap-4 mb-2">
-                            <span class="material-symbols-outlined text-tertiary text-[28px]" data-icon="location_on">location_on</span>
-                            <h3 class="font-label-mono text-label-mono text-on-surface uppercase tracking-widest">Base of Operations</h3>
-                        </div>
-                        <p class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mt-2">San Francisco, CA</p>
-                        <p class="font-body-sm text-body-sm text-on-surface-variant">Available for remote engagements worldwide.</p>
-                    </div>
-                    <div class="glass-panel glass-edge rounded-2xl p-stack-md flex-1 flex flex-col justify-center relative overflow-hidden group">
-                        <div class="absolute right-[-20%] bottom-[-20%] w-[150px] h-[150px] bg-primary/10 rounded-full blur-[40px] group-hover:bg-primary/20 transition-all duration-500"></div>
-                        <div class="flex items-center gap-4 mb-2">
-                            <span class="material-symbols-outlined text-primary text-[28px]" data-icon="terminal">terminal</span>
-                            <h3 class="font-label-mono text-label-mono text-on-surface uppercase tracking-widest">Current Status</h3>
-                        </div>
-                        <div class="flex items-center gap-3 mt-2">
-                            <span class="relative flex h-3 w-3">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
-                            </span>
-                            <p class="font-body-md text-body-md text-on-surface font-medium">Open to New Opportunities</p>
-                        </div>
-                    </div>
-                </div> -->
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Programming Journey (Timeline) -->
-        <section class="flex flex-col gap-stack-lg relative">
-            <div class="text-center md:text-left flex flex-col items-center md:items-start gap-2">
-                <span class="font-label-mono text-label-mono text-primary uppercase tracking-widest">Evolution</span>
-                <h2 class="font-headline-lg text-headline-lg md:text-headline-xl text-on-surface">The Journey</h2>
+    <!-- ============================================ -->
+    <!-- EXPERIENCE TIMELINE                          -->
+    <!-- ============================================ -->
+    <section class="about-fade-in" style="--delay: 0.35s">
+        <!-- Section Header -->
+        <div class="flex items-center gap-3 mb-10">
+            <div class="inline-flex items-center gap-2 bg-secondary/8 text-secondary font-label-mono text-label-mono px-4 py-1.5 rounded-full">
+                <span class="material-symbols-outlined text-[14px]">work_history</span>
+                Evolution
             </div>
-            <div class="relative pl-6 md:pl-10">
+            <div class="flex-1 h-px bg-gradient-to-r from-outline-variant/30 to-transparent"></div>
+        </div>
+        <h2 class="font-headline-xl text-[clamp(24px,4vw,36px)] text-on-surface font-bold tracking-tight mb-10">
+            The <span class="text-secondary">Journey</span>
+        </h2>
+
+        @if ($pengalamans->isNotEmpty())
+            <div class="relative pl-8 md:pl-12">
                 <!-- Vertical Line -->
-                <div class="absolute left-[11px] md:left-[19px] top-2 bottom-2 w-[2px] bg-gradient-to-b from-primary via-secondary/50 to-transparent"></div>
-                <div class="flex flex-col gap-stack-lg">
-                    @if ($pengalamans->isNotEmpty())
-                    
-                        @foreach ($pengalamans as $index => $pengalaman)
-                            
-                            <!-- Timeline Item 1 -->
-                            @if($index == 0)
-                                <div class="relative group">
-                                    <!-- Node Glow -->
-                                    <div class="absolute left-[-29px] md:left-[-37px] top-1 w-4 h-4 rounded-full bg-background border-2 border-primary z-10 group-hover:shadow-[0_0_15px_rgba(0,64,224,0.3)] transition-all duration-300"></div>
-                                    <div class="glass-panel glass-edge rounded-xl p-stack-md ml-4 hover:border-primary/30 transition-colors duration-300">
-                                        <span class="font-label-mono text-label-mono text-primary mb-2 block">{{ $pengalaman->start_date->format('Y-m-d') }} - {{ $pengalaman->end_date ? $pengalaman->end_date->format('Y-m-d') : 'Present' }}</span>
-                                        <h3 class="font-headline-lg-mobile md:text-headline-lg text-headline-sm-mobile text-on-surface mb-2">{{ $pengalaman?->position }}</h3>
-                                        
-                                            <div class="
-                                                font-body-md
-                                                text-body-sm
-                                                md:text-body-md
-                                               
-                                                leading-6
-                                                text-on-surface-variant
-                                                space-y-4
-                                                [&>p]:mb-2
-                                                [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:mt-8
-                                                [&>h2]:text-2xl [&>h2]:font-semibold [&>h2]:mt-6
-                                                [&>h3]:text-xl [&>h3]:font-semibold [&>h3]:mt-4
-                                                [&>ul]:list-disc [&>ul]:ml-6
-                                                [&>ol]:list-decimal [&>ol]:ml-6
-                                                [&>blockquote]:border-l-4 [&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:text-gray-600
-                                                [&>img]:rounded-xl [&>img]:my-4
-                                            ">
-                                                {!! str($pengalaman?->description)->markdown() !!}
-                                            </div>
-                                        
-                                        <div class="flex flex-wrap gap-2 mt-stack-md">
-                                            @foreach ($pengalaman?->technology as $tech)
-                                                <span class="font-label-mono text-label-mono text-secondary px-3 py-1 rounded-full bg-secondary-container/50 border border-secondary/20">{{ $tech }}</span>
-                                            @endforeach
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            @elseif($loop->index == 1)
+                <div class="absolute left-[11px] md:left-[19px] top-3 bottom-3 w-[2px] bg-gradient-to-b from-primary via-secondary/40 to-outline-variant/20"></div>
 
-                                <!-- Timeline Item 2 -->
-                                <div class="relative group">
-                                    <div class="absolute left-[-29px] md:left-[-37px] top-1 w-4 h-4 rounded-full bg-background border-2 border-secondary z-10 group-hover:shadow-[0_0_15px_rgba(86,94,116,0.3)] transition-all duration-300"></div>
-                                    <div class="glass-panel glass-edge rounded-xl p-stack-md ml-4 hover:border-secondary/30 transition-colors duration-300">
-                                        <span class="font-label-mono text-label-mono text-secondary mb-2 block">{{ $pengalaman->start_date->format('Y-m-d') }} - {{ $pengalaman->end_date ? $pengalaman->end_date->format('Y-m-d') : 'Present' }}</span>
-                                        <h3 class="font-headline-lg-mobile text-headline-sm-mobile md:text-headline-lg text-on-surface mb-2">{{ $pengalaman?->position }}</h3>
-                                        <div class="
-                                            font-body-md
-                                            text-body-sm
-                                            md:text-body-md
-                                            
-                                            leading-6
-                                            text-on-surface-variant
-                                            space-y-4
+                <div class="flex flex-col gap-8">
+                    @foreach ($pengalamans as $index => $pengalaman)
+                        @php
+                            $isFirst = $index === 0;
+                            $dotColor = $isFirst ? 'border-primary' : 'border-secondary';
+                            $glowColor = $isFirst ? 'rgba(0,64,224,0.3)' : 'rgba(86,94,116,0.3)';
+                        @endphp
+                        <div class="relative group">
+                            <!-- Timeline dot -->
+                            <div class="absolute left-[-33px] md:left-[-41px] top-2 z-10">
+                                <div class="w-4 h-4 rounded-full bg-surface border-2 {{ $dotColor }} group-hover:shadow-[0_0_12px_{{ $glowColor }}] transition-all duration-300">
+                                    @if($isFirst)
+                                        <div class="absolute inset-0.5 rounded-full bg-primary/20 animate-ping"></div>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <!-- Card -->
+                            <div class="relative bg-surface/80 border border-outline-variant/20 rounded-2xl p-5 md:p-7 ml-2 hover:shadow-xl hover:shadow-primary/5 hover:border-primary/15 transition-all duration-500 group-hover:-translate-y-0.5 overflow-hidden">
+                                <!-- Subtle gradient corner -->
+                                @if($isFirst)
+                                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/5 to-transparent pointer-events-none"></div>
+                                @endif
+
+                                <!-- Date -->
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="material-symbols-outlined text-[14px] text-on-surface-variant/50">calendar_today</span>
+                                    <span class="font-label-mono text-[11px] text-on-surface-variant/70 uppercase tracking-wider">
+                                        {{ $pengalaman->start_date->format('M Y') }} — {{ $pengalaman->end_date ? $pengalaman->end_date->format('M Y') : 'Present' }}
+                                    </span>
+                                    @if(!$pengalaman->end_date)
+                                        <span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-600 bg-emerald-500/10 px-2 py-0.5 rounded-full">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                            Current
+                                        </span>
+                                    @endif
+                                </div>
+
+                                <!-- Position -->
+                                <h3 class="text-[18px] md:text-[20px] font-bold text-on-surface leading-snug mb-1">{{ $pengalaman->position }}</h3>
+
+                                <!-- Description -->
+                                <div class="mt-3 text-[13px] md:text-[14px] leading-7 text-on-surface-variant
                                             [&>p]:mb-2
-                                            [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:mt-8
-                                            [&>h2]:text-2xl [&>h2]:font-semibold [&>h2]:mt-6
-                                            [&>h3]:text-xl [&>h3]:font-semibold [&>h3]:mt-4
-                                            [&>ul]:list-disc [&>ul]:ml-6
-                                            [&>ol]:list-decimal [&>ol]:ml-6
-                                            [&>blockquote]:border-l-4 [&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:text-gray-600
-                                            [&>img]:rounded-xl [&>img]:my-4
-                                        ">
-                                            {!! str($pengalaman?->description)->markdown() !!}
-                                        </div>
-                                        <div class="flex flex-wrap gap-2 mt-stack-md">
-                                            @foreach ($pengalaman?->technology as $tech)
-                                                <span class="font-label-mono text-label-mono text-secondary px-3 py-1 rounded-full bg-secondary-container/50 border border-secondary/20">{{ $tech }}</span>
-                                            @endforeach
-                                            
-                                        </div>
-                                    </div>
+                                            [&>h1]:text-xl [&>h1]:font-bold [&>h1]:mt-4 [&>h1]:text-on-surface
+                                            [&>h2]:text-lg [&>h2]:font-semibold [&>h2]:mt-3 [&>h2]:text-on-surface
+                                            [&>h3]:text-base [&>h3]:font-semibold [&>h3]:mt-3 [&>h3]:text-on-surface
+                                            [&>ul]:list-disc [&>ul]:ml-5 [&>ul]:space-y-1
+                                            [&>ol]:list-decimal [&>ol]:ml-5
+                                            [&>blockquote]:border-l-3 [&>blockquote]:border-primary/30 [&>blockquote]:pl-4 [&>blockquote]:italic
+                                            [&>img]:rounded-xl [&>img]:my-3">
+                                    {!! str($pengalaman?->description)->markdown() !!}
                                 </div>
-                            @else
 
-                                <!-- Timeline Item 3 -->
-                                <div class="relative group">
-                                <div class="absolute left-[-29px] md:left-[-37px] top-1 w-4 h-4 rounded-full bg-background border-2 border-outline-variant z-10 group-hover:border-tertiary transition-all duration-300"></div>
-                                <div class="glass-panel glass-edge rounded-xl p-stack-md ml-4 opacity-80">
-                                    <span class="font-label-mono text-label-mono text-outline mb-2 block">{{ $pengalaman->start_date->format('Y-m-d') }} - {{ $pengalaman->end_date ? $pengalaman->end_date->format('Y-m-d') : 'Present' }}</span>
-                                    <h3 class="font-headline-lg-mobile md:text-headline-lg text-headline-sm-mobile text-on-surface mb-2">{{ $pengalaman?->position }}</h3>
-                                    <div class="
-                                        font-body-md
-                                        text-body-sm
-                                        md:text-body-md
-                                        
-                                        leading-6
-                                        text-on-surface-variant
-                                        space-y-4
-                                        [&>p]:mb-2
-                                        [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:mt-8
-                                        [&>h2]:text-2xl [&>h2]:font-semibold [&>h2]:mt-6
-                                        [&>h3]:text-xl [&>h3]:font-semibold [&>h3]:mt-4
-                                        [&>ul]:list-disc [&>ul]:ml-6
-                                        [&>ol]:list-decimal [&>ol]:ml-6
-                                        [&>blockquote]:border-l-4 [&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:text-gray-600
-                                        [&>img]:rounded-xl [&>img]:my-4
-                                    ">
-                                        {!! str($pengalaman?->description)->markdown() !!}
-                                    </div>
-                                    <div class="flex flex-wrap gap-2 mt-stack-md">
-                                        @foreach ($pengalaman?->technology as $tech)
-                                            <span class="font-label-mono text-label-mono text-secondary px-3 py-1 rounded-full bg-secondary-container/50 border border-secondary/20">{{ $tech }}</span>
+                                <!-- Tech tags -->
+                                @if($pengalaman->technology)
+                                    <div class="flex flex-wrap gap-1.5 mt-5 pt-4 border-t border-outline-variant/15">
+                                        @foreach ($pengalaman->technology as $tech)
+                                            <span class="text-[10px] font-semibold uppercase tracking-wider text-secondary bg-secondary/8 px-2.5 py-1 rounded-lg border border-secondary/10">{{ $tech }}</span>
                                         @endforeach
-                                        
                                     </div>
+                                @endif
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        @else
+            <!-- Empty State -->
+            <div class="bg-surface/80 border border-outline-variant/20 rounded-2xl p-12 text-center">
+                <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-secondary/8 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-3xl text-secondary">history</span>
+                </div>
+                <h3 class="text-[18px] font-bold text-on-surface mb-2">Belum Ada Riwayat Perjalanan</h3>
+                <p class="text-[14px] text-on-surface-variant max-w-md mx-auto">Perjalanan profesional dan pencapaian akan segera hadir di sini.</p>
+            </div>
+        @endif
+    </section>
+
+    <!-- ============================================ -->
+    <!-- EDUCATION & GOALS                            -->
+    <!-- ============================================ -->
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-6 about-fade-in" style="--delay: 0.5s">
+
+        <!-- Education Card -->
+        <div class="relative bg-surface/80 border border-outline-variant/20 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-secondary/5 transition-all duration-500">
+            <!-- Left accent bar -->
+            <div class="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-secondary via-primary to-secondary/30"></div>
+
+            <div class="p-6 md:p-8 pl-8 md:pl-10">
+                <!-- Header -->
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-secondary text-[20px]">school</span>
+                    </div>
+                    <div>
+                        <h2 class="text-[18px] font-bold text-on-surface leading-tight">Academic Foundation</h2>
+                        <p class="text-[11px] text-on-surface-variant mt-0.5">Education background</p>
+                    </div>
+                </div>
+
+                @if ($pendidikans->isNotEmpty())
+                    <div class="flex flex-col gap-4">
+                        @foreach($pendidikans as $pendidikan)
+                            <div class="group/edu pb-4 {{ !$loop->last ? 'border-b border-outline-variant/15' : '' }}">
+                                <div class="flex items-start justify-between gap-3">
+                                    <div class="min-w-0">
+                                        <h3 class="text-[15px] font-bold text-on-surface leading-snug group-hover/edu:text-secondary transition-colors duration-300">{{ $pendidikan->institution }}</h3>
+                                        <p class="text-[12px] text-on-surface-variant mt-1">{{ $pendidikan->degree }} — {{ $pendidikan->major }}</p>
+                                    </div>
+                                    <span class="text-[10px] font-bold text-secondary bg-secondary/8 px-2.5 py-1 rounded-lg shrink-0 border border-secondary/10">
+                                        {{ $pendidikan->start_year }}–{{ $pendidikan->end_year }}
+                                    </span>
                                 </div>
                             </div>
-                            @endif
-
-                            
                         @endforeach
-
-                    @else
-                       <div class="relative pl-6 md:pl-10"><div class="glass-panel glass-edge rounded-xl p-stack-lg flex flex-col items-center justify-center text-center gap-4">
-                            <span class="material-symbols-outlined text-outline text-5xl">history</span>
-                            <div class="flex flex-col gap-2">
-                                <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Belum Ada Riwayat Perjalanan</h3>
-                                <p class="font-body-md  md:text-body-md text-body-sm  text-center  text-on-surface-variant">
-                                    Perjalanan profesional dan pencapaian akan segera hadir di sini.
-                                </p>
-                            </div>
-                        </div>
-                    @endif
-                    
-                    
-                    
-                </div>
+                    </div>
+                @else
+                    <div class="text-center py-6">
+                        <span class="material-symbols-outlined text-3xl text-outline-variant/40 mb-2">school</span>
+                        <p class="text-[13px] text-on-surface-variant">Belum ada riwayat pendidikan</p>
+                    </div>
+                @endif
             </div>
-        </section>
+        </div>
 
-        <!-- Education & Goals (Asymmetric Layout) -->
-        <section class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
-            <!-- Education -->
-            <div class="glass-panel glass-edge rounded-2xl p-stack-md md:p-stack-lg flex flex-col relative overflow-hidden group">
-                <div class="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-secondary to-primary group-hover:w-2 transition-all duration-300"></div>
-                <div class="flex items-center gap-3 mb-stack-md">
-                    <span class="material-symbols-outlined text-secondary text-[32px]" data-icon="school">school</span>
-                    <h2 class="font-headline-lg md:text-headline-lg text-headline-sm-mobile text-on-surface">Academic Foundation</h2>
-                </div>
-                <div class="flex flex-col gap-4">
-                    @if ($pendidikans->isNotEmpty())
-                            @foreach($pendidikans as $pendidikan)
-                                <div class="border-b border-outline-variant/50 pb-4">
-                                    <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface text-sm md:text-md">{{ $pendidikan->institution }}</h3>
-                                    <p class="font-label-mono text-label-mono text-secondary mt-1">{{ $pendidikan->degree }} | {{ $pendidikan->start_year }} - {{ $pendidikan->end_year }}</p>
-                                    <p class="font-label-mono text-label-mono text-on-surface-variant mt-2">Major {{ $pendidikan->major }}</p>
-                                </div>
-                            @endforeach
+        <!-- Future Goals Card -->
+        <div class="relative bg-surface/80 border border-outline-variant/20 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500">
+            <!-- Decorative glow -->
+            <div class="absolute right-[-15%] bottom-[-15%] w-48 h-48 bg-primary/8 rounded-full blur-[60px] pointer-events-none"></div>
+            <div class="absolute left-[-10%] top-[-10%] w-32 h-32 bg-secondary/5 rounded-full blur-[40px] pointer-events-none"></div>
 
+            <div class="p-6 md:p-8 relative z-10">
+                <!-- Header -->
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-[20px]">rocket_launch</span>
+                    </div>
+                    <div>
+                        <h2 class="text-[18px] font-bold text-on-surface leading-tight">Future Trajectory</h2>
+                        <p class="text-[11px] text-on-surface-variant mt-0.5">Goals & aspirations</p>
+                    </div>
+                </div>
 
-                    @else
-                        <div class="border-b border-outline-variant/50 pb-4">
-                            <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface text-sm md:text-md">Belum Ada Riwayat Pendidikan</h3>
-                            <p class="font-label-mono text-label-mono text-secondary mt-1">Belum ada riwayat pendidikan</p>
-                        </div>
-                    @endif
-                    
-                    
-                </div>
-            </div>
-            <!-- Career Goals -->
-            <div class="glass-panel glass-edge rounded-2xl p-stack-md md:p-stack-lg flex flex-col justify-center relative overflow-hidden bg-gradient-to-br from-surface to-primary/5">
-                <div class="absolute right-[-10%] bottom-[-10%] w-[200px] h-[200px] bg-primary/10 rounded-full blur-[60px]"></div>
-                <div class="flex items-center gap-3 mb-stack-md relative z-10">
-                    <span class="material-symbols-outlined text-primary text-[32px]" data-icon="rocket_launch">rocket_launch</span>
-                    <h2 class="font-headline-lg-mobile text-headline-sm-mobile md:text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface">Future Trajectory</h2>
-                </div>
-                <p class=" md:font-body-md font-body-sm text-body-sm md:text-body-md text-on-surface-variant mb-6 relative z-10">
-                    Tujuan saya saat ini adalah menjadi Full Stack Web Developer profesional yang mampu membangun aplikasi web modern, scalable, dan user friendly menggunakan Laravel dan teknologi frontend modern. 
+                <p class="text-[14px] md:text-[15px] leading-7 text-on-surface-variant mb-6">
+                    Tujuan saya saat ini adalah menjadi Full Stack Web Developer profesional yang mampu membangun aplikasi web modern, scalable, dan user friendly menggunakan Laravel dan teknologi frontend modern.
                 </p>
-                <!-- <div class="grid grid-cols-2 gap-4 relative z-10">
-                    <div class="glass-panel rounded-lg p-3 flex items-center gap-3 border border-black/5">
-                        <span class="material-symbols-outlined text-tertiary" data-icon="architecture">architecture</span>
-                        <span class="font-label-mono text-label-mono text-on-surface text-xs">System Design</span>
-                    </div>
-                    <div class="glass-panel rounded-lg p-3 flex items-center gap-3 border border-black/5">
-                        <span class="material-symbols-outlined text-tertiary" data-icon="memory">memory</span>
-                        <span class="font-label-mono text-label-mono text-on-surface text-xs">WebAssembly</span>
-                    </div>
-                </div> -->
-            </div>
 
-            
-        </section>
-    </main>
+                <!-- Goal items -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <div class="flex items-center gap-3 p-3 rounded-xl bg-surface-container/50 border border-outline-variant/10 hover:bg-primary/5 hover:border-primary/15 transition-all duration-300">
+                        <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-primary text-[16px]">architecture</span>
+                        </div>
+                        <span class="text-[12px] font-semibold text-on-surface">System Design</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-xl bg-surface-container/50 border border-outline-variant/10 hover:bg-primary/5 hover:border-primary/15 transition-all duration-300">
+                        <div class="w-8 h-8 rounded-lg bg-secondary/10 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-secondary text-[16px]">cloud</span>
+                        </div>
+                        <span class="text-[12px] font-semibold text-on-surface">Cloud Deploy</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-xl bg-surface-container/50 border border-outline-variant/10 hover:bg-primary/5 hover:border-primary/15 transition-all duration-300">
+                        <div class="w-8 h-8 rounded-lg bg-tertiary/10 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-tertiary text-[16px]">api</span>
+                        </div>
+                        <span class="text-[12px] font-semibold text-on-surface">API Design</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-xl bg-surface-container/50 border border-outline-variant/10 hover:bg-primary/5 hover:border-primary/15 transition-all duration-300">
+                        <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-primary text-[16px]">groups</span>
+                        </div>
+                        <span class="text-[12px] font-semibold text-on-surface">Team Leadership</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<style>
+    .about-fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: aboutFadeIn 0.6s ease-out forwards;
+        animation-delay: var(--delay, 0s);
+    }
+
+    @keyframes aboutFadeIn {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+</main>
