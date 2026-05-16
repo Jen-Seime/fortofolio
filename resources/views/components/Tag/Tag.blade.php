@@ -1,0 +1,1 @@
+<span class="text-[10px] font-semibold font-label-mono  uppercase tracking-wider text-primary bg-primary/6 px-2.5 py-1 rounded-lg">{{ $tech }}</span>

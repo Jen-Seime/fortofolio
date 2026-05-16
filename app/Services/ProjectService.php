@@ -11,10 +11,18 @@ class ProjectService
      * Mengambil data project.
      * Menggunakan cache selama 24 jam untuk performa.
      */
-    public function getProjects()
+    public function getProjects($page = 1, $category = null)
     {
-        return Cache::remember('projects_data', now()->addDay(), function () {
-            return Project::with('image')->latest('date')->get();
+        $cacheKey = 'projects_data'.$page.$category;
+
+        return Cache::remember($cacheKey, now()->addDay(), function () use ($category) {
+            return Project::with('image')
+                ->when($category, function ($query) use ($category) {
+                    $query->where('category_role_id', $category);
+                })
+                ->latest('date')
+                ->paginate(9);
+
         });
     }
 

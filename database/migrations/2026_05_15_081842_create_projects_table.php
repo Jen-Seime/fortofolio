@@ -11,16 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('projects', function (Blueprint $row) {
-            $row->id();
-            $row->string('title');
-            $row->text('description');
-            $row->json('technology')->nullable();
-            $row->string('link')->nullable();
-            $row->string('github_link')->nullable();
-            $row->date('date')->nullable();
-            $row->boolean('is_featured')->default(false);
-            $row->timestamps();
+        Schema::create('projects', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->text('description');
+            $table->json('technology')->nullable();
+            $table->string('demo_link')->nullable();
+            $table->string('github_link')->nullable();
+            $table->date('date')->nullable();
+            $table->boolean('is_featured')->default(false);
+            $table->timestamps();
         });
     }
 

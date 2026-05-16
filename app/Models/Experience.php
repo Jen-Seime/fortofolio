@@ -3,11 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 
 class Experience extends Model
 {
-    
-
     protected function casts(): array
     {
         return [
@@ -20,11 +19,11 @@ class Experience extends Model
     protected static function booted()
     {
         static::saved(function () {
-            \Illuminate\Support\Facades\Cache::forget('experience_data');
+            Cache::forget('experience_data');
         });
 
         static::deleted(function () {
-            \Illuminate\Support\Facades\Cache::forget('experience_data');
+            Cache::forget('experience_data');
         });
     }
 }

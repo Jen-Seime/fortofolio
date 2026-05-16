@@ -20,6 +20,8 @@
                         ['route' => 'home', 'label' => 'Home'],
                         ['route' => 'about', 'label' => 'About'],
                         ['route' => 'skill', 'label' => 'Skills'],
+                        ['route' => 'project', 'label' => 'Project'],
+                       
                     ];
                 @endphp
                 @foreach($desktopLinks as $link)
@@ -34,18 +36,7 @@
                         @endif
                     </a>
                 @endforeach
-                <a href="#projects"
-                   class="relative px-4 py-2 rounded-full text-[14px] font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-300">
-                    Projects
-                </a>
-                <a href="#"
-                   class="relative px-4 py-2 rounded-full text-[14px] font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-300">
-                    Blog
-                </a>
-                <a href="#"
-                   class="relative px-4 py-2 rounded-full text-[14px] font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-300">
-                    Contact
-                </a>
+               
             </nav>
 
             <!-- Desktop CTA -->

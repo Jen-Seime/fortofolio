@@ -2,9 +2,9 @@
 
 namespace App\Livewire\Page;
 
+use App\Services\ExperienceService;
 use App\Services\ProfilService;
 use App\Services\ProjectService;
-use App\Services\ExperienceService;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 
@@ -30,9 +30,11 @@ class HomePage extends Component
 
     public function render()
     {
+        $projectsIsFeatured = $this->projects->where('is_featured', true);
+
         return view('livewire.page.home-page', [
             'profil' => $this->profil,
-            'projects' => $this->projects,
+            'projects' => $projectsIsFeatured,
             'yearsOfExperience' => $this->yearsOfExperience,
         ]);
     }
