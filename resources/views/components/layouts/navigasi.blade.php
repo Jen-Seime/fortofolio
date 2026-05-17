@@ -25,7 +25,7 @@
                     ];
                 @endphp
                 @foreach($desktopLinks as $link)
-                    <a href="{{ route($link['route']) }}"
+                    <a href="{{ Route::has($link['route']) ? route($link['route']) : $link['route'] }}"
                        class="relative px-4 py-2 rounded-full text-[14px] font-medium transition-all duration-300
                               {{ Route::is($link['route'])
                                   ? 'text-primary bg-primary/8'
@@ -116,7 +116,7 @@
 
             <div class="space-y-1">
                 @foreach($mobileLinks as $index => $link)
-                    <a href="{{ route($link['route']) }}"
+                    <a href="{{ Route::has($link['route']) ? route($link['route']) : $link['route'] }}"
                        @click="mobileMenuOpen = false"
                        class="group flex items-center gap-3.5 px-3 py-3 rounded-2xl transition-all duration-300
                               {{ Route::is($link['route'])
@@ -149,14 +149,14 @@
             <div class="space-y-1">
                 @php
                     $moreLinks = [
-                        ['href' => '#projects', 'icon' => 'work', 'label' => 'Projects', 'desc' => 'Karya & proyek'],
-                        ['href' => '#', 'icon' => 'history_edu', 'label' => 'Experience', 'desc' => 'Pengalaman kerja'],
-                        ['href' => '#', 'icon' => 'article', 'label' => 'Blog', 'desc' => 'Tulisan & artikel'],
-                        ['href' => '#', 'icon' => 'mail', 'label' => 'Contact', 'desc' => 'Hubungi saya'],
+                        ['route' => 'project', 'icon' => 'work', 'label' => 'Projects', 'desc' => 'Karya & proyek'],
+                        ['route' => '#', 'icon' => 'history_edu', 'label' => 'Experience', 'desc' => 'Pengalaman kerja'],
+                        ['route' => '#', 'icon' => 'article', 'label' => 'Blog', 'desc' => 'Tulisan & artikel'],
+                        ['route' => '#', 'icon' => 'mail', 'label' => 'Contact', 'desc' => 'Hubungi saya'],
                     ];
                 @endphp
                 @foreach($moreLinks as $index => $link)
-                    <a href="{{ $link['href'] }}"
+                    <a href="{{ Route::has($link['route']) ? route($link['route']) : $link['route'] }}"
                        @click="mobileMenuOpen = false"
                        class="group flex items-center gap-3.5 px-3 py-3 rounded-2xl text-on-surface hover:bg-surface-container-high transition-all duration-300"
                        style="animation: slideInRight 0.4s ease-out {{ ($index + 4) * 0.06 }}s both;">

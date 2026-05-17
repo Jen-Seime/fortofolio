@@ -26,6 +26,9 @@ class ProjectPage extends Component
     public function projects()
     {
         return Project::with('image')
+            ->when($this->category, function ($query) {
+                $query->where('category_role_id', $this->category);
+            })
             ->latest('date')
             ->paginate(10);
     }

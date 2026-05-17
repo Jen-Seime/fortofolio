@@ -7,6 +7,8 @@ use App\Services\ProfilService;
 use App\Services\ProjectService;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
+use Livewire\Attributes\Lazy;
+
 
 class HomePage extends Component
 {
@@ -19,7 +21,7 @@ class HomePage extends Component
     #[Computed]
     public function projects()
     {
-        return app(ProjectService::class)->getProjects();
+        return app(ProjectService::class)->getFeaturedProjects();
     }
 
     #[Computed]
@@ -30,11 +32,11 @@ class HomePage extends Component
 
     public function render()
     {
-        $projectsIsFeatured = $this->projects->where('is_featured', true);
+       
 
         return view('livewire.page.home-page', [
             'profil' => $this->profil,
-            'projects' => $projectsIsFeatured,
+            'projects' => $this->projects,
             'yearsOfExperience' => $this->yearsOfExperience,
         ]);
     }

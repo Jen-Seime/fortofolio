@@ -213,87 +213,16 @@
 
         <!-- Projects Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            @forelse($projects as $index => $project)
-            <div class="group relative flex flex-col bg-surface/80 border border-outline-variant/20 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-2 scroll-reveal-item"
-                style="--item-delay: {{ $index * 0.1 }}s">
-
-                <!-- Project Image -->
-                <div class="aspect-[16/10] overflow-hidden relative">
-                    @if($project->image)
-                    <img src="{{ asset('storage/' . $project->image->url) }}"
-                        alt="{{ $project->title }}"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    @else
-                    <div class="w-full h-full bg-gradient-to-br from-surface-container-high to-surface-container flex items-center justify-center text-on-surface-variant">
-                        <span class="material-symbols-outlined text-5xl opacity-30">code</span>
-                    </div>
-                    @endif
-
-                    <!-- Gradient overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 via-on-surface/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-
-                    <!-- Hover action buttons -->
-                    <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                        @if($project->demo_link)
-                        <a href="{{ $project->demo_link }}" target="_blank"
-                            class="w-11 h-11 bg-surface/95 backdrop-blur rounded-xl flex items-center justify-center text-primary shadow-xl hover:scale-110 active:scale-95 transition-all duration-200">
-                            <span class="material-symbols-outlined text-[20px]">open_in_new</span>
-                        </a>
-                        @endif
-                        @if($project->github_link)
-                        <a href="{{ $project->github_link }}" target="_blank"
-                            class="w-11 h-11 bg-surface/95 backdrop-blur rounded-xl flex items-center justify-center text-on-surface shadow-xl hover:scale-110 active:scale-95 transition-all duration-200">
-                            <i class="fa-brands fa-github text-[18px]"></i>
-                        </a>
-                        @endif
-                    </div>
-
-                    <!-- Featured badge -->
-                    <!-- @if($project->is_featured)
-                            <div class="absolute top-3 left-3 bg-primary text-on-primary text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg shadow-md">
-                                Featured
-                            </div>
-                        @endif -->
-                </div>
-
-                <!-- Project Info -->
-                <div class="p-5 flex flex-col flex-grow">
-                    <!-- Tech tags -->
-                    <div class="flex flex-wrap gap-1.5 mb-3">
-                        @foreach($project->technology ?? [] as $tech)
-                        <span class="text-[10px] font-semibold font-label-mono  uppercase tracking-wider text-primary bg-primary/6 px-2.5 py-1 rounded-lg">{{ $tech }}</span>
-                        @endforeach
-                    </div>
-
-                    <!-- Title -->
-                    <h3 class="font-bold font-headline-lg text-[18px] text-on-surface mb-2 group-hover:text-primary transition-colors duration-300 leading-snug">
-                        {{ $project->title }}
-                    </h3>
-
-                    <!-- Description -->
-                    <p class="text-[13px] text-on-surface-variant font-body-sm leading-relaxed line-clamp-2 mb-5">
-                        {{ $project->description }}
-                    </p>
-
-                    <!-- Footer -->
-                    <div class="mt-auto pt-4 border-t border-outline-variant/15 flex justify-between items-center">
-                        <span class="text-[11px] font-medium text-on-surface-variant/70 flex items-center gap-1">
-                            <span class="material-symbols-outlined text-[14px]">calendar_today</span>
-                            {{ $project->date?->format('M Y') }}
-                        </span>
-                        <span class="w-8 h-8 rounded-lg bg-surface-container group-hover:bg-primary/10 flex items-center justify-center transition-all duration-300">
-                            <span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:text-primary transition-colors duration-300">north_east</span>
-                        </span>
-                    </div>
-                </div>
-            </div>
+          
+            @forelse($projects as $project)
+                <x-CardItem.CardProject wire:key="{{ $project->id }}" :project="$project" />
             @empty
-                <x-EmptyState.EmptyState />
+            <x-EmptyState.EmptyState />
             @endforelse
         </div>
     </section>
 
 
-    
+
 
 </main>
