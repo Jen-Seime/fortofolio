@@ -29,5 +29,64 @@
         <x-layouts.navigasi />
         {{ $slot }}
         <x-layouts.footer />
+
+        <script>
+        function homeAnimations() {
+            return {
+                init() {
+                    // Intersection Observer for scroll-triggered reveals
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                // Reveal all children with staggered delays
+                                entry.target.querySelectorAll('.scroll-reveal-item').forEach(item => {
+                                    item.classList.add('is-visible');
+                                });
+                            }
+                        });
+                    }, {
+                        threshold: 0.15,
+                        rootMargin: '0px 0px -50px 0px'
+                    });
+
+                    document.querySelectorAll('.scroll-reveal').forEach(section => {
+                        observer.observe(section);
+                    });
+                }
+            }
+        }
+
+        function counter(target) {
+            return {
+                display: 0,
+                init() {
+                    const duration = 2000;
+                    const start = performance.now();
+
+                    const step = (timestamp) => {
+                        const progress = Math.min((timestamp - start) / duration, 1);
+                        // Ease out cubic
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        this.display = Math.floor(eased * target);
+                        if (progress < 1) {
+                            requestAnimationFrame(step);
+                        }
+                    };
+
+                    // Start counting when element is visible
+                    const observer = new IntersectionObserver((entries) => {
+                        if (entries[0].isIntersecting) {
+                            requestAnimationFrame(step);
+                            observer.disconnect();
+                        }
+                    }, {
+                        threshold: 0.5
+                    });
+
+                    observer.observe(this.$el);
+                }
+            }
+        }
+        </script>
     </body>
 </html>

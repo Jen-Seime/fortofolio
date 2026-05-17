@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Illuminate\Support\Facades\Cache;
 
 class Profil extends Model
 {
@@ -17,11 +18,11 @@ class Profil extends Model
     protected static function booted()
     {
         static::saved(function () {
-            \Illuminate\Support\Facades\Cache::forget('profil_data');
+            Cache::forget('profil_data');
         });
 
         static::deleted(function () {
-            \Illuminate\Support\Facades\Cache::forget('profil_data');
+            Cache::forget('profil_data');
         });
     }
 }

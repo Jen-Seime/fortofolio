@@ -1,7 +1,7 @@
 <!-- Main Content -->
 <main class="pt-24 pb-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop"
-      x-data="homeAnimations()"
-      x-init="init()">
+    x-data="homeAnimations()"
+    x-init="init()">
 
     <!-- ============================================ -->
     <!-- HERO SECTION                                 -->
@@ -14,7 +14,7 @@
 
                 <!-- Greeting Badge -->
                 <div class="inline-flex items-center gap-2 w-fit bg-surface-container/80 border border-outline-variant/20 rounded-full px-4 py-2 mb-2 glass-card hero-fade-in"
-                     style="--delay: 0.1s">
+                    style="--delay: 0.1s">
                     <span class="relative flex h-2 w-2">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -29,7 +29,7 @@
                         <span class="relative inline-block">
                             <span class="text-primary">{{ $profil?->full_name ?? 'Alex Mercer' }}</span>
                             <svg class="absolute -bottom-1 left-0 w-full" viewBox="0 0 200 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 5.5C47 2 77 2 199 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="text-primary/40 hero-underline"/>
+                                <path d="M1 5.5C47 2 77 2 199 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="text-primary/40 hero-underline" />
                             </svg>
                         </span>
                     </h1>
@@ -46,17 +46,17 @@
                 <!-- CTA Buttons -->
                 <div class="flex flex-wrap gap-3 mt-8 hero-fade-in" style="--delay: 0.55s">
                     <a href="#projects"
-                       class="group relative bg-primary text-on-primary font-semibold text-[14px] px-7 py-3.5 rounded-2xl shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 active:scale-[0.97] transition-all duration-300 flex items-center gap-2 overflow-hidden">
+                        class="group relative bg-primary text-on-primary font-semibold text-[14px] px-7 py-3.5 rounded-2xl shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 active:scale-[0.97] transition-all duration-300 flex items-center gap-2 overflow-hidden">
                         <span class="relative z-10">View Projects</span>
                         <span class="material-symbols-outlined text-[18px] relative z-10 group-hover:translate-x-1 transition-transform duration-300">arrow_forward</span>
                         <div class="absolute inset-0 bg-gradient-to-r from-primary to-primary-container opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </a>
                     @if($profil?->cv_file)
-                        <a href="{{ asset('storage/' . $profil->cv_file) }}"
-                           class="group bg-surface border border-outline-variant/30 text-on-surface font-semibold text-[14px] px-7 py-3.5 rounded-2xl hover:border-primary/30 hover:bg-primary/5 active:scale-[0.97] transition-all duration-300 glass-card flex items-center gap-2">
-                            <span>Download CV</span>
-                            <span class="material-symbols-outlined text-[18px] group-hover:translate-y-0.5 transition-transform duration-300">download</span>
-                        </a>
+                    <a href="{{ asset('storage/' . $profil->cv_file) }}"
+                        class="group bg-surface border border-outline-variant/30 text-on-surface font-semibold text-[14px] px-7 py-3.5 rounded-2xl hover:border-primary/30 hover:bg-primary/5 active:scale-[0.97] transition-all duration-300 glass-card flex items-center gap-2">
+                        <span>Download CV</span>
+                        <span class="material-symbols-outlined text-[18px] group-hover:translate-y-0.5 transition-transform duration-300">download</span>
+                    </a>
                     @endif
                 </div>
 
@@ -64,28 +64,28 @@
                 <div class="flex items-center gap-4 mt-6 hero-fade-in" style="--delay: 0.65s">
                     <span class="w-8 h-px bg-outline-variant/40"></span>
                     @if($profil?->github)
-                        <a href="{{ $profil->github }}" target="_blank"
-                           class="w-10 h-10 rounded-xl bg-surface-container hover:bg-primary/10 border border-outline-variant/20 flex items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300 hover:-translate-y-1">
-                            <i class="fa-brands fa-github text-[18px]"></i>
-                        </a>
+                    <a href="{{ $profil->github }}" target="_blank"
+                        class="w-10 h-10 rounded-xl bg-surface-container hover:bg-primary/10 border border-outline-variant/20 flex items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300 hover:-translate-y-1">
+                        <i class="fa-brands fa-github text-[18px]"></i>
+                    </a>
                     @endif
                     @if($profil?->linkedin)
-                        <a href="{{ $profil->linkedin }}" target="_blank"
-                           class="w-10 h-10 rounded-xl bg-surface-container hover:bg-primary/10 border border-outline-variant/20 flex items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300 hover:-translate-y-1">
-                            <i class="fa-brands fa-linkedin-in text-[18px]"></i>
-                        </a>
+                    <a href="{{ $profil->linkedin }}" target="_blank"
+                        class="w-10 h-10 rounded-xl bg-surface-container hover:bg-primary/10 border border-outline-variant/20 flex items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300 hover:-translate-y-1">
+                        <i class="fa-brands fa-linkedin-in text-[18px]"></i>
+                    </a>
                     @endif
                     @if($profil?->instagram)
-                        <a href="{{ $profil->instagram }}" target="_blank"
-                           class="w-10 h-10 rounded-xl bg-surface-container hover:bg-primary/10 border border-outline-variant/20 flex items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300 hover:-translate-y-1">
-                            <i class="fa-brands fa-instagram text-[18px]"></i>
-                        </a>
+                    <a href="{{ $profil->instagram }}" target="_blank"
+                        class="w-10 h-10 rounded-xl bg-surface-container hover:bg-primary/10 border border-outline-variant/20 flex items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300 hover:-translate-y-1">
+                        <i class="fa-brands fa-instagram text-[18px]"></i>
+                    </a>
                     @endif
                     @if($profil?->email)
-                        <a href="mailto:{{ $profil->email }}"
-                           class="w-10 h-10 rounded-xl bg-surface-container hover:bg-primary/10 border border-outline-variant/20 flex items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300 hover:-translate-y-1">
-                            <span class="material-symbols-outlined text-[18px]">mail</span>
-                        </a>
+                    <a href="mailto:{{ $profil->email }}"
+                        class="w-10 h-10 rounded-xl bg-surface-container hover:bg-primary/10 border border-outline-variant/20 flex items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300 hover:-translate-y-1">
+                        <span class="material-symbols-outlined text-[18px]">mail</span>
+                    </a>
                     @endif
                 </div>
             </div>
@@ -109,13 +109,13 @@
                     <div class="relative glass-card p-1.5 rounded-full lg:rounded-2xl overflow-hidden">
                         <div class="w-64 h-64 lg:w-full lg:h-[480px] bg-surface-container-high rounded-full lg:rounded-xl overflow-hidden relative">
                             @if($profil?->image)
-                                <img src="{{ asset('storage/' . $profil->image->url) }}"
-                                     alt="{{ $profil->full_name }}"
-                                     class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+                            <img src="{{ asset('storage/' . $profil->image->url) }}"
+                                alt="{{ $profil->full_name }}"
+                                class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
                             @else
-                                <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-surface-variant to-surface-container text-on-surface-variant">
-                                    <span class="material-symbols-outlined text-7xl opacity-40">person</span>
-                                </div>
+                            <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-surface-variant to-surface-container text-on-surface-variant">
+                                <span class="material-symbols-outlined text-7xl opacity-40">person</span>
+                            </div>
                             @endif
                             <div class="absolute inset-0 bg-gradient-to-t from-on-surface/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         </div>
@@ -213,237 +213,16 @@
 
         <!-- Projects Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            @forelse($projects as $index => $project)
-                <div class="group relative flex flex-col bg-surface/80 border border-outline-variant/20 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-2 scroll-reveal-item"
-                     style="--item-delay: {{ $index * 0.1 }}s">
-
-                    <!-- Project Image -->
-                    <div class="aspect-[16/10] overflow-hidden relative">
-                        @if($project->image)
-                            <img src="{{ asset('storage/' . $project->image->url) }}"
-                                 alt="{{ $project->title }}"
-                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        @else
-                            <div class="w-full h-full bg-gradient-to-br from-surface-container-high to-surface-container flex items-center justify-center text-on-surface-variant">
-                                <span class="material-symbols-outlined text-5xl opacity-30">code</span>
-                            </div>
-                        @endif
-
-                        <!-- Gradient overlay -->
-                        <div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 via-on-surface/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-
-                        <!-- Hover action buttons -->
-                        <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                            @if($project->link)
-                                <a href="{{ $project->link }}" target="_blank"
-                                   class="w-11 h-11 bg-surface/95 backdrop-blur rounded-xl flex items-center justify-center text-primary shadow-xl hover:scale-110 active:scale-95 transition-all duration-200">
-                                    <span class="material-symbols-outlined text-[20px]">open_in_new</span>
-                                </a>
-                            @endif
-                            @if($project->github_link)
-                                <a href="{{ $project->github_link }}" target="_blank"
-                                   class="w-11 h-11 bg-surface/95 backdrop-blur rounded-xl flex items-center justify-center text-on-surface shadow-xl hover:scale-110 active:scale-95 transition-all duration-200">
-                                    <i class="fa-brands fa-github text-[18px]"></i>
-                                </a>
-                            @endif
-                        </div>
-
-                        <!-- Featured badge -->
-                        @if($project->is_featured)
-                            <div class="absolute top-3 left-3 bg-primary text-on-primary text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg shadow-md">
-                                Featured
-                            </div>
-                        @endif
-                    </div>
-
-                    <!-- Project Info -->
-                    <div class="p-5 flex flex-col flex-grow">
-                        <!-- Tech tags -->
-                        <div class="flex flex-wrap gap-1.5 mb-3">
-                            @foreach($project->technology ?? [] as $tech)
-                                <span class="text-[10px] font-semibold uppercase tracking-wider text-primary bg-primary/6 px-2.5 py-1 rounded-lg">{{ $tech }}</span>
-                            @endforeach
-                        </div>
-
-                        <!-- Title -->
-                        <h3 class="font-bold text-[18px] text-on-surface mb-2 group-hover:text-primary transition-colors duration-300 leading-snug">
-                            {{ $project->title }}
-                        </h3>
-
-                        <!-- Description -->
-                        <p class="text-[13px] text-on-surface-variant leading-relaxed line-clamp-2 mb-5">
-                            {{ $project->description }}
-                        </p>
-
-                        <!-- Footer -->
-                        <div class="mt-auto pt-4 border-t border-outline-variant/15 flex justify-between items-center">
-                            <span class="text-[11px] font-medium text-on-surface-variant/70 flex items-center gap-1">
-                                <span class="material-symbols-outlined text-[14px]">calendar_today</span>
-                                {{ $project->date?->format('M Y') }}
-                            </span>
-                            <span class="w-8 h-8 rounded-lg bg-surface-container group-hover:bg-primary/10 flex items-center justify-center transition-all duration-300">
-                                <span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:text-primary transition-colors duration-300">north_east</span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
+          
+            @forelse($projects as $project)
+                <x-CardItem.CardProject wire:key="{{ $project->id }}" :project="$project" />
             @empty
-                <!-- Empty State -->
-                <div class="col-span-full py-28 text-center glass-card rounded-2xl">
-                    <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-primary/8 flex items-center justify-center">
-                        <span class="material-symbols-outlined text-4xl text-primary">rocket_launch</span>
-                    </div>
-                    <h3 class="text-on-surface font-bold text-xl mb-2">Projects are landing soon</h3>
-                    <p class="text-on-surface-variant text-[15px] max-w-md mx-auto">I'm currently preparing some exciting new work to showcase. Stay tuned!</p>
-                </div>
+            <x-EmptyState.EmptyState />
             @endforelse
         </div>
     </section>
 
 
-<style>
-    /* ===== Hero fade-in animation ===== */
-    .hero-fade-in {
-        opacity: 0;
-        transform: translateY(24px);
-        animation: heroFadeIn 0.7s ease-out forwards;
-        animation-delay: var(--delay, 0s);
-    }
 
-    @keyframes heroFadeIn {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    /* ===== Blinking cursor ===== */
-    @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
-    }
-    .animate-blink {
-        animation: blink 1s step-end infinite;
-    }
-
-    /* ===== SVG underline draw animation ===== */
-    .hero-underline {
-        stroke-dasharray: 200;
-        stroke-dashoffset: 200;
-        animation: drawUnderline 1s ease-out 0.8s forwards;
-    }
-
-    @keyframes drawUnderline {
-        to { stroke-dashoffset: 0; }
-    }
-
-    /* ===== Floating animations ===== */
-    .floating-slow {
-        animation: floatSlow 6s ease-in-out infinite;
-    }
-    .floating-medium {
-        animation: floatMedium 5s ease-in-out infinite;
-    }
-    .floating-fast {
-        animation: floatFast 4s ease-in-out infinite;
-    }
-
-    @keyframes floatSlow {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
-    }
-    @keyframes floatMedium {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-8px) rotate(1deg); }
-    }
-    @keyframes floatFast {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-12px); }
-    }
-
-    /* ===== Orbit spin ===== */
-    .orbit-spin {
-        animation: orbitSpin 30s linear infinite;
-    }
-    @keyframes orbitSpin {
-        to { transform: rotate(360deg); }
-    }
-
-    /* ===== Scroll dot ===== */
-    .scroll-dot {
-        animation: scrollDot 2s ease-in-out infinite;
-    }
-    @keyframes scrollDot {
-        0% { transform: translateY(0); opacity: 1; }
-        50% { transform: translateY(6px); opacity: 0.3; }
-        100% { transform: translateY(0); opacity: 1; }
-    }
-
-    /* ===== Scroll-triggered reveals ===== */
-    .scroll-reveal-item {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        transition-delay: var(--item-delay, 0s);
-    }
-    .scroll-reveal-item.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-</style>
-
-<script>
-    function homeAnimations() {
-        return {
-            init() {
-                // Intersection Observer for scroll-triggered reveals
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            // Reveal all children with staggered delays
-                            entry.target.querySelectorAll('.scroll-reveal-item').forEach(item => {
-                                item.classList.add('is-visible');
-                            });
-                        }
-                    });
-                }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-
-                document.querySelectorAll('.scroll-reveal').forEach(section => {
-                    observer.observe(section);
-                });
-            }
-        }
-    }
-
-    function counter(target) {
-        return {
-            display: 0,
-            init() {
-                const duration = 2000;
-                const start = performance.now();
-
-                const step = (timestamp) => {
-                    const progress = Math.min((timestamp - start) / duration, 1);
-                    // Ease out cubic
-                    const eased = 1 - Math.pow(1 - progress, 3);
-                    this.display = Math.floor(eased * target);
-                    if (progress < 1) {
-                        requestAnimationFrame(step);
-                    }
-                };
-
-                // Start counting when element is visible
-                const observer = new IntersectionObserver((entries) => {
-                    if (entries[0].isIntersecting) {
-                        requestAnimationFrame(step);
-                        observer.disconnect();
-                    }
-                }, { threshold: 0.5 });
-
-                observer.observe(this.$el);
-            }
-        }
-    }
-</script>
 
 </main>

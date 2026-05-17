@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Support\Facades\Cache;
 
@@ -21,7 +22,17 @@ class Project extends Model
 
     public function image(): MorphOne
     {
-        return $this->morphOne(Image::class, 'imageable');
+        return $this->morphOne(Image::class, 'imageable')->where('type', 'cover');
+    }
+
+    public function thumbnails(): MorphMany
+    {
+        return $this->morphMany(Image::class, 'imageable')->where('type', 'thumbnail');
+    }
+
+    public function category_role()
+    {
+        return $this->belongsTo(CategoryRole::class);
     }
 
     protected static function booted()

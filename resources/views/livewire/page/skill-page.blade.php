@@ -204,23 +204,4 @@
     </div>
 
 
-
-<style>
-    /* ===== Fade-in animation ===== */
-    .skill-fade-in {
-        opacity: 0;
-        transform: translateY(20px);
-        animation: skillFadeIn 0.6s ease-out forwards;
-        animation-delay: var(--delay, 0s);
-    }
-
-    @keyframes skillFadeIn {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-</style>
-
 </main>

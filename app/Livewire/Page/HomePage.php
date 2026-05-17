@@ -2,11 +2,13 @@
 
 namespace App\Livewire\Page;
 
+use App\Services\ExperienceService;
 use App\Services\ProfilService;
 use App\Services\ProjectService;
-use App\Services\ExperienceService;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
+use Livewire\Attributes\Lazy;
+
 
 class HomePage extends Component
 {
@@ -19,7 +21,7 @@ class HomePage extends Component
     #[Computed]
     public function projects()
     {
-        return app(ProjectService::class)->getProjects();
+        return app(ProjectService::class)->getFeaturedProjects();
     }
 
     #[Computed]
@@ -30,6 +32,8 @@ class HomePage extends Component
 
     public function render()
     {
+       
+
         return view('livewire.page.home-page', [
             'profil' => $this->profil,
             'projects' => $this->projects,

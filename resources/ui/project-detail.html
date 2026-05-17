@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Nexus Analytics Platform - DevPortfolio</title>
+
+    <!-- Tailwind CSS with Plugins -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+
+    <!-- Tailwind Custom Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#bec6e0",
+                        "outline-variant": "#c4c5d9",
+                        "on-secondary-container": "#5c647a",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "primary-fixed": "#dde1ff",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#2f3131",
+                        "primary-container": "#2e5bff",
+                        "primary-fixed-dim": "#b8c3ff",
+                        "on-tertiary-container": "#e9f0ff",
+                        "error-container": "#ffdad6",
+                        "secondary": "#565e74",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#124af0",
+                        "on-primary-fixed-variant": "#0035be",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e8e8e8",
+                        "on-primary-fixed": "#001356",
+                        "surface-variant": "#e2e2e2",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "surface-container": "#eeeeee",
+                        "on-secondary-fixed": "#131b2e",
+                        "surface-container-highest": "#e2e2e2",
+                        "inverse-on-surface": "#f0f1f1",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "surface": "#f9f9f9",
+                        "outline": "#747688",
+                        "tertiary-container": "#5e6e85",
+                        "background": "#f9f9f9",
+                        "tertiary": "#46566c",
+                        "surface-dim": "#dadada",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "secondary-fixed": "#dae2fd",
+                        "on-surface-variant": "#434656",
+                        "primary": "#0040e0",
+                        "tertiary-fixed": "#d3e4fe",
+                        "secondary-container": "#dae2fd",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "on-surface": "#1a1c1c",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f3f3f3",
+                        "on-background": "#1a1c1c",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#efefff",
+                        "inverse-primary": "#b8c3ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "48px",
+                        "margin-mobile": "16px",
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Geist"],
+                        "body-sm": ["Inter"],
+                        "headline-lg-mobile": ["Geist"],
+                        "label-mono": ["JetBrains Mono"],
+                        "headline-lg": ["Geist"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "label-mono": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Custom CSS Panel Styles -->
+    <style>
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .soft-shadow-hover:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface font-body-md antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+
+    <!-- TopNavBar -->
+    <nav class="bg-surface/70 backdrop-blur-xl fixed top-0 left-0 w-full z-50 border-b border-outline-variant/30 shadow-sm">
+        <div class="flex items-center justify-between px-margin-desktop h-20 max-w-container-max mx-auto">
+            <div class="font-headline-lg text-headline-lg font-semibold tracking-tight text-on-surface">
+                DevPortfolio
+            </div>
+            <div class="hidden md:flex items-center gap-gutter">
+                <a class="font-body-md text-body-md text-primary border-b-2 border-primary pb-1" href="#">Work</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300" href="#">Expertise</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300" href="#">About</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all duration-300" href="#">Contact</a>
+            </div>
+            <div class="flex items-center gap-unit">
+                <button class="font-body-md text-body-md text-primary hover:text-primary transition-all duration-300 active:scale-95 transition-transform flex items-center gap-2">
+                    <span>Resume</span>
+                    <span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="pt-[120px] pb-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto space-y-32">
+
+        <!-- Hero Section -->
+        <header class="flex flex-col items-center text-center space-y-8">
+            <div class="space-y-4 max-w-3xl">
+                <h1 class="font-headline-xl text-headline-xl text-on-surface">Nexus Analytics Platform</h1>
+                <p class="font-headline-lg text-headline-lg text-on-surface-variant">Real-time analytics dashboard for enterprise data ecosystems.</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-4 pt-4">
+                <button class="bg-primary-container text-on-primary px-8 py-3 rounded-DEFAULT font-body-md text-body-md hover:-translate-y-0.5 transition-transform shadow-sm">
+                    Visit Live Demo
+                </button>
+                <button class="bg-surface-container-lowest border border-outline-variant text-on-surface px-8 py-3 rounded-DEFAULT font-body-md text-body-md hover:bg-surface-variant transition-colors flex items-center gap-2">
+                    <span class="material-symbols-outlined" data-icon="code">code</span>
+                    View Code on GitHub
+                </button>
+            </div>
+
+            <div class="w-full mt-16 rounded-xl overflow-hidden border border-outline-variant/30 shadow-[0_20px_40px_rgba(0,0,0,0.06)] bg-surface-container-lowest">
+                <img class="w-full h-auto object-cover" 
+                     data-alt="A highly realistic, premium digital mockup of a complex data analytics dashboard named Nexus. The interface features sophisticated charts, real-time data streams, and glowing data points displayed on a crisp white surface. The setting is a minimalist, brightly lit design studio environment, emphasizing a clean, architectural light-mode aesthetic. Soft, diffused lighting creates subtle shadows beneath the floating dashboard panels, highlighting the subtle blue accents that denote active elements." 
+                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3yNqeebDkLyolnwEJ05T9biw7Gb9qLb_489TYr9gwcURaMnU4NOfwouq_xxushJQ4ikfkWCHWgn4lgsS2Y_Ipp6TdJPpCGA9xNmpI3oR5PLxQSIm2O24UmdrYxKUCfrLmxvQSi-0EMNGhMFiNRE3_DBkQj4BLp7TgfMLzIQCcHxZBXg-GqUfbpnrXop3AAm7K_h0ZrvQLADE3sIKQCfkJrbZdV-HLL8lk6YaS6dnEpIPibtogeUEqYQAgj5xVWLueRANduXPZHBxh" />
+            </div>
+        </header>
+
+        <!-- Quick Stats (Bento Grid) -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+            <div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-8 soft-shadow-hover transition-all duration-300">
+                <h3 class="font-body-sm text-body-sm text-on-surface-variant mb-4 uppercase tracking-wider">Role &amp; Timeline</h3>
+                <p class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-1">Lead Developer</p>
+                <p class="font-body-md text-body-md text-on-surface-variant">8 Months • 2023</p>
+            </div>
+            
+            <div class="md:col-span-2 bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-8 soft-shadow-hover transition-all duration-300">
+                <h3 class="font-body-sm text-body-sm text-on-surface-variant mb-4 uppercase tracking-wider">Technology Stack</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-surface-container-low text-tertiary font-label-mono text-label-mono px-3 py-1.5 rounded-DEFAULT border border-outline-variant/20">React</span>
+                    <span class="bg-surface-container-low text-tertiary font-label-mono text-label-mono px-3 py-1.5 rounded-DEFAULT border border-outline-variant/20">TypeScript</span>
+                    <span class="bg-surface-container-low text-tertiary font-label-mono text-label-mono px-3 py-1.5 rounded-DEFAULT border border-outline-variant/20">Node.js</span>
+                    <span class="bg-surface-container-low text-tertiary font-label-mono text-label-mono px-3 py-1.5 rounded-DEFAULT border border-outline-variant/20">PostgreSQL</span>
+                    <span class="bg-surface-container-low text-tertiary font-label-mono text-label-mono px-3 py-1.5 rounded-DEFAULT border border-outline-variant/20">Redis</span>
+                    <span class="bg-surface-container-low text-tertiary font-label-mono text-label-mono px-3 py-1.5 rounded-DEFAULT border border-outline-variant/20">Docker</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overview & Features -->
+        <section class="">
+            <div class="">
+                <h2 class="font-headline-lg text-headline-lg text-on-surface">Project Overview</h2>
+                <div class="font-body-md text-body-md text-on-surface-variant space-y-4">
+                    <p>Nexus Analytics was conceived to address the growing latency in processing high-volume transactional data for enterprise clients. The existing infrastructure struggled to maintain real-time accuracy during peak loads, resulting in delayed decision-making capabilities.</p>
+                    <p>By architecting a completely new data pipeline utilizing a robust Node.js microservices backend and a highly responsive React frontend, we achieved a 400% improvement in data rendering speeds, empowering stakeholders with instantaneous operational insights.</p>
+                </div>
+            </div>
+            
+            
+        </section>
+
+        <!-- Challenges & Solutions -->
+        <section class="border-t border-outline-variant/20 pt-16">
+            <h2 class="font-headline-lg text-headline-lg text-on-surface mb-12 text-center">Engineering Challenges</h2>
+            <div class="space-y-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center bg-surface-container-low rounded-xl p-8 border border-outline-variant/10">
+                    <div>
+                        <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-4">State Management at Scale</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-4">Handling thousands of rapid data point updates per minute caused significant render thrashing in the initial React implementation.</p>
+                        <div class="bg-[#18181B] p-4 rounded-DEFAULT font-label-mono text-label-mono text-surface-container-high overflow-x-auto border border-outline-variant/20">
+                            // Optimizing renders with careful memoization<br/>
+                            const MetricCard = React.memo(({ data }) =&gt; (<br/>
+                                &nbsp;&nbsp;&lt;Card value={data.currentValue} trend={data.delta} /&gt;<br/>
+                            ), areEqual);
+                        </div>
+                    </div>
+                    <div class="border-l border-outline-variant/30 pl-8 md:ml-8 mt-8 md:mt-0">
+                        <h4 class="font-body-sm text-body-sm text-on-surface uppercase tracking-wider mb-2">The Solution</h4>
+                        <p class="font-body-md text-body-md text-on-surface-variant">We refactored the global state architecture, moving away from a monolithic store to granular context providers paired with careful component memoization. Heavy data processing was offloaded to Web Workers to keep the main UI thread pristine.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery / System Views -->
+        <section class="space-y-8">
+            <h2 class="font-headline-lg text-headline-lg text-on-surface">System Architecture &amp; Views</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+                <!-- System Architecture Diagram -->
+                <div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg overflow-hidden soft-shadow-hover transition-all duration-300">
+                    <img class="w-full h-64 object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500" 
+                         data-alt="A sleek, modern technical diagram illustrating a complex cloud architecture layout. The diagram uses clean, thin lines typical of architectural blueprints, rendered in a crisp light-mode aesthetic against a pure white background. The connecting nodes and data pipelines are highlighted with precise, subtle blue (#2e5bff) and gray tones. The overall mood is analytical, structured, and highly professional, reflecting precise engineering standards." 
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7AeFM5OLvP8EPxJetdmoEhwGttVREknlHMw3sTI_CTw0OuwPAr4sBhgdz8ZXm5rUKZST_9WG52_DgCMDtb3W17fgpBLRXIEbbXxWnsp_ExT2aMqbS3hz8PdoxZBuALoKDMiee61irkNA5m04Ky0Z5OAesHy-YzM_C1lzQFzKw8puJes7QLL-NQaz3XreRxFWTFS-nAXLZpN6x5NeBhR7Jj7C9zfGP0r_pV1_hT5Y3p4zvdgkIlcP3u-67LyqofIUQe0nHPOtodNoL" />
+                    <div class="p-4 border-t border-outline-variant/20">
+                        <p class="font-body-sm text-body-sm text-on-surface-variant text-center">High-level Cloud Architecture Pipeline</p>
+                    </div>
+                </div>
+                <!-- Mobile Dashboard View -->
+                <div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg overflow-hidden soft-shadow-hover transition-all duration-300">
+                    <img class="w-full h-64 object-cover" 
+                         data-alt="A pristine digital rendering of a mobile application interface showcasing intricate data visualizations and predictive modeling charts. The app is displayed on a generic modern smartphone screen floating slightly above a soft, matte white surface. The lighting is soft and studio-quality, casting gentle ambient shadows. The UI design strictly adheres to a clean, light-mode theme with high-contrast typography and strategic touches of vibrant primary blue." 
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbPgCD0ZgBTRJFus_LWRPpKpmyIkIGJu7daIHjXm2NOhBZS11HDLx2P2SAgokeMeNeHyWb_n8c6BNKWsJSHA1w4_teYNJwsrFbz26P9ARAgRNeldHJ4v5kDARcHn7W2CaSeNwGY39Gw9wfFh8pvX2_mIXs7_8r35mBfTbf3O-5ZwiPT9WOpnDhbVcBgyzVEZ-2zR-b9PZWaYg7VbmBIDh-Xhxk7mkoy95Oqq_jJ59fQVJnaCaKSpQ79OTO164zqElJ6FLY92sZiI7P" />
+                    <div class="p-4 border-t border-outline-variant/20">
+                        <p class="font-body-sm text-body-sm text-on-surface-variant text-center">Responsive Mobile Dashboard View</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface w-full py-12 border-t border-outline-variant/20">
+        <div class="max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-gutter">
+            <div class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface">
+                DevPortfolio
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-6">
+                <a class="font-body-sm text-body-sm text-on-secondary-container hover:text-primary transition-colors underline-offset-4 hover:underline transition-opacity duration-200 hover:opacity-80" href="#">GitHub</a>
+                <a class="font-body-sm text-body-sm text-on-secondary-container hover:text-primary transition-colors underline-offset-4 hover:underline transition-opacity duration-200 hover:opacity-80" href="#">LinkedIn</a>
+                <a class="font-body-sm text-body-sm text-on-secondary-container hover:text-primary transition-colors underline-offset-4 hover:underline transition-opacity duration-200 hover:opacity-80" href="#">Source Code</a>
+                <a class="font-body-sm text-body-sm text-on-secondary-container hover:text-primary transition-colors underline-offset-4 hover:underline transition-opacity duration-200 hover:opacity-80" href="#">Privacy</a>
+            </div>
+            <div class="font-body-sm text-body-sm text-on-surface-variant">
+                © 2024 Engineering Portfolio. Built with technical precision.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
