@@ -17,7 +17,7 @@ class AboutPage extends Component
 
     }
 
-    #[Computed]
+    
     public function pengalamans()
     {
         return app(ExperienceService::class)->getExperience();
@@ -33,7 +33,7 @@ class AboutPage extends Component
     {
         return view('livewire.page.about-page', [
             'tentang' => $this->tentang,
-            'pengalamans' => $this->pengalamans,
+            'pengalamans' => $this->pengalamans(),
             'pendidikans' => $this->pendidikans,
         ]);
     }

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>DevPortfolio - Experience</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f9f9f9",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e2e2e2",
+                        "tertiary-container": "#5e6e85",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#eeeeee",
+                        "surface-bright": "#f9f9f9",
+                        "tertiary-fixed": "#d3e4fe",
+                        "on-background": "#1a1c1c",
+                        "on-primary-container": "#efefff",
+                        "outline-variant": "#c4c5d9",
+                        "on-secondary-container": "#5c647a",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "on-error": "#ffffff",
+                        "primary": "#0040e0",
+                        "primary-container": "#2e5bff",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "primary-fixed-dim": "#b8c3ff",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "secondary-fixed": "#dae2fd",
+                        "inverse-primary": "#b8c3ff",
+                        "inverse-surface": "#2f3131",
+                        "outline": "#747688",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1a1c1c",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#dde1ff",
+                        "on-secondary-fixed": "#131b2e",
+                        "secondary": "#565e74",
+                        "surface-dim": "#dadada",
+                        "on-primary-fixed": "#001356",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "on-surface-variant": "#434656",
+                        "surface-variant": "#e2e2e2",
+                        "surface-tint": "#124af0",
+                        "on-tertiary-container": "#e9f0ff",
+                        "background": "#f9f9f9",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "surface-container-high": "#e8e8e8",
+                        "on-primary-fixed-variant": "#0035be",
+                        "secondary-container": "#dae2fd",
+                        "surface-container-low": "#f3f3f3",
+                        "tertiary": "#46566c",
+                        "inverse-on-surface": "#f0f1f1"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "margin-mobile": "16px",
+                        "margin-desktop": "48px",
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "gutter": "24px"
+                    },
+                    fontFamily: {
+                        "headline-lg": ["Geist"],
+                        "label-mono": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Geist"],
+                        "headline-xl": ["Geist"],
+                        "body-sm": ["Inter"]
+                    },
+                    fontSize: {
+                        "headline-lg": [
+                            "32px",
+                            {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "label-mono": [
+                            "12px",
+                            {
+                                "lineHeight": "16px",
+                                "fontWeight": "500"
+                            }
+                        ],
+                        "body-md": [
+                            "16px",
+                            {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "headline-lg-mobile": [
+                            "28px",
+                            {
+                                "lineHeight": "36px",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "headline-xl": [
+                            "48px",
+                            {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                            }
+                        ],
+                        "body-sm": [
+                            "14px",
+                            {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                            }
+                        ]
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        .glass-card {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            background-image: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.4) 100%);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        .glass-card:hover {
+            border: 1px solid rgba(0, 64, 224, 0.2); /* Primary color low opacity */
+            box-shadow: 0 10px 15px -3px rgba(0, 64, 224, 0.1), 0 4px 6px -2px rgba(0, 64, 224, 0.05);
+        }
+        .glow-bg {
+            background: radial-gradient(circle at 50% 50%, rgba(0, 64, 224, 0.05) 0%, rgba(249, 249, 249, 0) 70%);
+        }
+        .timeline-line {
+            width: 2px;
+            background: linear-gradient(180deg, #0040e0 0%, rgba(0, 64, 224, 0.1) 100%);
+        }
+        .timeline-dot {
+            box-shadow: 0 0 10px rgba(0, 64, 224, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-[#FAFAFA] text-on-surface font-body-md text-body-md antialiased overflow-x-hidden selection:bg-primary/20 selection:text-primary">
+    <!-- Ambient Background Glow -->
+    <div class="fixed inset-0 z-0 pointer-events-none glow-bg"></div>
+
+    <!-- TopNavBar -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-black/5 shadow-sm">
+        <div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-16">
+            <div class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">DevPortfolio</div>
+            
+            <div class="hidden md:flex gap-gutter items-center">
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:bg-primary/5 transition-all duration-300 px-3 py-2 rounded-DEFAULT" href="#">Home</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:bg-primary/5 transition-all duration-300 px-3 py-2 rounded-DEFAULT" href="#">About</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:bg-primary/5 transition-all duration-300 px-3 py-2 rounded-DEFAULT" href="#">Skills</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:bg-primary/5 transition-all duration-300 px-3 py-2 rounded-DEFAULT" href="#">Projects</a>
+                <a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1 px-3 py-2" href="#">Exp.</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:bg-primary/5 transition-all duration-300 px-3 py-2 rounded-DEFAULT" href="#">Blog</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:bg-primary/5 transition-all duration-300 px-3 py-2 rounded-DEFAULT" href="#">Contact</a>
+            </div>
+            
+            <button class="bg-primary text-white font-body-md text-body-md px-6 py-2 rounded-DEFAULT font-medium hover:shadow-md transition-all duration-300 active:scale-95">Hire Me</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="relative z-10 pt-32 pb-24 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop min-h-screen flex flex-col items-center">
+        <header class="text-center mb-16 max-w-2xl">
+            <h1 class="font-headline-xl text-headline-xl text-[#1a1c1c] mb-4 tracking-tight">Experience &amp; Evolution</h1>
+            <p class="font-body-md text-body-md text-on-surface-variant">A timeline of my professional journey, highlighting key roles, technical challenges, and major achievements in building scalable web solutions.</p>
+        </header>
+
+        <!-- Timeline Container -->
+        <div class="relative w-full max-w-4xl py-12">
+            <!-- Center Line (Desktop) / Left Line (Mobile) -->
+            <div class="absolute left-6 md:left-1/2 top-0 bottom-0 timeline-line transform md:-translate-x-1/2 z-0 rounded-full"></div>
+
+            <!-- Timeline Item 1 -->
+            <div class="relative z-10 mb-16 md:mb-24 flex flex-col md:flex-row items-start md:items-center w-full group">
+                <!-- Mobile Dot -->
+                <div class="absolute left-6 w-3 h-3 bg-primary rounded-full timeline-dot transform -translate-x-1/2 mt-6 md:hidden"></div>
+
+                <!-- Content Left (Empty for right-aligned items on desktop) -->
+                <div class="hidden md:block md:w-1/2 pr-gutter text-right">
+                    <div class="font-label-mono text-label-mono text-secondary mb-2">2022 — Present</div>
+                    <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-[#1a1c1c]">Senior Frontend Engineer</h3>
+                    <p class="font-body-sm text-body-sm text-primary mb-2">TechCorp Innovations</p>
+                </div>
+
+                <!-- Desktop Dot -->
+                <div class="hidden md:flex absolute left-1/2 w-4 h-4 bg-primary rounded-full timeline-dot transform -translate-x-1/2 items-center justify-center">
+                    <div class="w-1.5 h-1.5 bg-white rounded-full"></div>
+                </div>
+
+                <!-- Content Right (Card) -->
+                <div class="w-full md:w-1/2 pl-12 md:pl-gutter mt-2 md:mt-0">
+                    <!-- Mobile Header (hidden on desktop) -->
+                    <div class="md:hidden mb-4">
+                        <div class="font-label-mono text-label-mono text-secondary mb-1">2022 — Present</div>
+                        <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-[#1a1c1c] leading-tight">Senior Frontend Engineer</h3>
+                        <p class="font-body-sm text-body-sm text-primary">TechCorp Innovations</p>
+                    </div>
+
+                    <div class="glass-card rounded-lg p-6 transition-all duration-300">
+                        <ul class="list-none space-y-3 font-body-sm text-body-sm text-on-surface-variant">
+                            <li class="flex items-start">
+                                <span class="material-symbols-outlined text-primary text-[18px] mr-2 mt-0.5" style="font-variation-settings: 'FILL' 1;">terminal</span>
+                                <span>Architected and delivered a micro-frontend architecture using React and Webpack Module Federation, reducing build times by 40%.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="material-symbols-outlined text-primary text-[18px] mr-2 mt-0.5" style="font-variation-settings: 'FILL' 1;">speed</span>
+                                <span>Led the performance optimization initiative, improving Core Web Vitals across the primary SaaS product.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="material-symbols-outlined text-primary text-[18px] mr-2 mt-0.5" style="font-variation-settings: 'FILL' 1;">group</span>
+                                <span>Mentored a team of 4 junior developers, establishing code review standards and CI/CD best practices.</span>
+                            </li>
+                        </ul>
+                        <div class="mt-6 flex flex-wrap gap-2">
+                            <span class="font-label-mono text-[11px] px-2 py-1 rounded bg-secondary/5 text-secondary border border-secondary/20">React</span>
+                            <span class="font-label-mono text-[11px] px-2 py-1 rounded bg-secondary/5 text-secondary border border-secondary/20">TypeScript</span>
+                            <span class="font-label-mono text-[11px] px-2 py-1 rounded bg-secondary/5 text-secondary border border-secondary/20">GraphQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline Item 2 -->
+            <div class="relative z-10 mb-16 md:mb-24 flex flex-col md:flex-row items-start md:items-center w-full group">
+                <!-- Mobile Dot -->
+                <div class="absolute left-6 w-3 h-3 bg-tertiary rounded-full shadow-[0_0_10px_rgba(94,110,133,0.3)] transform -translate-x-1/2 mt-6 md:hidden"></div>
+
+                <!-- Content Left (Card for left-aligned items on desktop) -->
+                <div class="w-full md:w-1/2 pl-12 md:pl-0 md:pr-gutter mt-2 md:mt-0 order-2 md:order-1">
+                    <!-- Mobile Header (hidden on desktop) -->
+                    <div class="md:hidden mb-4">
+                        <div class="font-label-mono text-label-mono text-tertiary mb-1">2019 — 2022</div>
+                        <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-[#1a1c1c] leading-tight">Full Stack Developer</h3>
+                        <p class="font-body-sm text-body-sm text-tertiary">Digital Dynamics Agency</p>
+                    </div>
+
+                    <div class="glass-card rounded-lg p-6 transition-all duration-300 md:text-right">
+                        <ul class="list-none space-y-3 font-body-sm text-body-sm text-on-surface-variant">
+                            <li class="flex items-start md:flex-row-reverse md:justify-end">
+                                <span class="material-symbols-outlined text-tertiary text-[18px] mr-2 md:mr-0 md:ml-2 mt-0.5" style="font-variation-settings: 'FILL' 1;">database</span>
+                                <span>Developed full-stack web applications for enterprise clients using Node.js, Express, and Vue.js.</span>
+                            </li>
+                            <li class="flex items-start md:flex-row-reverse md:justify-end">
+                                <span class="material-symbols-outlined text-tertiary text-[18px] mr-2 md:mr-0 md:ml-2 mt-0.5" style="font-variation-settings: 'FILL' 1;">cloud</span>
+                                <span>Migrated legacy monolithic applications to AWS serverless architectures, decreasing infrastructure costs.</span>
+                            </li>
+                            <li class="flex items-start md:flex-row-reverse md:justify-end">
+                                <span class="material-symbols-outlined text-tertiary text-[18px] mr-2 md:mr-0 md:ml-2 mt-0.5" style="font-variation-settings: 'FILL' 1;">api</span>
+                                <span>Designed and implemented RESTful APIs consumed by multiple client platforms.</span>
+                            </li>
+                        </ul>
+                        <div class="mt-6 flex flex-wrap gap-2 md:justify-end">
+                            <span class="font-label-mono text-[11px] px-2 py-1 rounded bg-secondary/5 text-secondary border border-secondary/20">Vue.js</span>
+                            <span class="font-label-mono text-[11px] px-2 py-1 rounded bg-secondary/5 text-secondary border border-secondary/20">Node.js</span>
+                            <span class="font-label-mono text-[11px] px-2 py-1 rounded bg-secondary/5 text-secondary border border-secondary/20">AWS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Dot -->
+                <div class="hidden md:flex absolute left-1/2 w-4 h-4 bg-tertiary rounded-full shadow-[0_0_10px_rgba(94,110,133,0.3)] transform -translate-x-1/2 items-center justify-center order-1 md:order-2">
+                    <div class="w-1.5 h-1.5 bg-white rounded-full"></div>
+                </div>
+
+                <!-- Content Right (Empty for left-aligned items on desktop) -->
+                <div class="hidden md:block md:w-1/2 pl-gutter text-left order-3">
+                    <div class="font-label-mono text-label-mono text-tertiary mb-2">2019 — 2022</div>
+                    <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-[#1a1c1c]">Full Stack Developer</h3>
+                    <p class="font-body-sm text-body-sm text-tertiary mb-2">Digital Dynamics Agency</p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 3 -->
+            <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center w-full group">
+                <!-- Mobile Dot -->
+                <div class="absolute left-6 w-3 h-3 bg-secondary rounded-full shadow-[0_0_10px_rgba(86,94,116,0.3)] transform -translate-x-1/2 mt-6 md:hidden"></div>
+
+                <!-- Content Left -->
+                <div class="hidden md:block md:w-1/2 pr-gutter text-right">
+                    <div class="font-label-mono text-label-mono text-tertiary mb-2">2018 — 2019</div>
+                    <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-[#1a1c1c]">Frontend Intern</h3>
+                    <p class="font-body-sm text-body-sm text-secondary mb-2">StartUp Inc.</p>
+                </div>
+
+                <!-- Desktop Dot -->
+                <div class="hidden md:flex absolute left-1/2 w-4 h-4 bg-secondary rounded-full shadow-[0_0_10px_rgba(86,94,116,0.3)] transform -translate-x-1/2 items-center justify-center">
+                    <div class="w-1.5 h-1.5 bg-white rounded-full"></div>
+                </div>
+
+                <!-- Content Right (Card) -->
+                <div class="w-full md:w-1/2 pl-12 md:pl-gutter mt-2 md:mt-0">
+                    <!-- Mobile Header -->
+                    <div class="md:hidden mb-4">
+                        <div class="font-label-mono text-label-mono text-tertiary mb-1">2018 — 2019</div>
+                        <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-[#1a1c1c] leading-tight">Frontend Intern</h3>
+                        <p class="font-body-sm text-body-sm text-secondary">StartUp Inc.</p>
+                    </div>
+
+                    <div class="glass-card rounded-lg p-6 transition-all duration-300">
+                        <ul class="list-none space-y-3 font-body-sm text-body-sm text-on-surface-variant">
+                            <li class="flex items-start">
+                                <span class="material-symbols-outlined text-secondary text-[18px] mr-2 mt-0.5" style="font-variation-settings: 'FILL' 1;">code</span>
+                                <span>Assisted in building responsive landing pages using HTML, CSS, and plain JavaScript.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="material-symbols-outlined text-secondary text-[18px] mr-2 mt-0.5" style="font-variation-settings: 'FILL' 1;">bug_report</span>
+                                <span>Participated in daily stand-ups and contributed to QA testing and bug squashing.</span>
+                            </li>
+                        </ul>
+                        <div class="mt-6 flex flex-wrap gap-2">
+                            <span class="font-label-mono text-[11px] px-2 py-1 rounded bg-secondary/5 text-secondary border border-secondary/20">JavaScript</span>
+                            <span class="font-label-mono text-[11px] px-2 py-1 rounded bg-secondary/5 text-secondary border border-secondary/20">HTML/CSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-12 border-t border-outline-variant/30 bg-[#FAFAFA] flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto px-margin-mobile">
+        <div class="font-label-mono text-label-mono text-secondary mb-4 md:mb-0">
+            © 2024 The Future-Proof Engineer. Built with precision.
+        </div>
+        <div class="flex gap-gutter items-center">
+            <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors scale-105 transition-transform" href="#">GitHub</a>
+            <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors scale-105 transition-transform" href="#">LinkedIn</a>
+            <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors scale-105 transition-transform" href="#">Twitter</a>
+            <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors scale-105 transition-transform" href="#">Email</a>
+        </div>
+    </footer>
+</body>
+</html>

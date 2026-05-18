@@ -1,5 +1,5 @@
 <!-- Main Content Canvas -->
-<main class="relative z-10 pt-28 pb-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col gap-20">
+<main class="relative z-10 pt-28 pb-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col gap-20 " wire:init="pengalamans">
 
     <!-- ============================================ -->
     <!-- ABOUT HEADER                                 -->
@@ -114,100 +114,35 @@
     <!-- ============================================ -->
     <!-- EXPERIENCE TIMELINE                          -->
     <!-- ============================================ -->
-    <section class="about-fade-in" style="--delay: 0.35s">
+    <section class="about-fade-in flex flex-col items-center w-full" style="--delay: 0.35s">
         <!-- Section Header -->
-        <div class="flex items-center gap-3 mb-10">
-            <div class="inline-flex items-center gap-2 bg-secondary/8 text-secondary font-label-mono text-label-mono px-4 py-1.5 rounded-full">
-                <span class="material-symbols-outlined text-[14px]">work_history</span>
-                Evolution
-            </div>
-            <div class="flex-1 h-px bg-gradient-to-r from-outline-variant/30 to-transparent"></div>
-        </div>
-        <h2 class="font-headline-xl text-[clamp(24px,4vw,36px)] text-on-surface font-bold tracking-tight mb-10">
-            The <span class="text-secondary">Journey</span>
-        </h2>
+        <header class="text-center mb-16 max-w-2xl w-full">
+            <h1 class="font-headline-xl text-[clamp(28px,5vw,48px)] text-[#1a1c1c] mb-4 tracking-tight">Experience &amp; Evolution</h1>
+            <p class="font-body-md text-[15px] md:text-body-md text-on-surface-variant">A timeline of my professional journey, highlighting key roles, technical challenges, and major achievements in building scalable web solutions.</p>
+        </header>
 
         @if ($pengalamans->isNotEmpty())
-            <div class="relative pl-8 md:pl-12">
-                <!-- Vertical Line -->
-                <div class="absolute left-[11px] md:left-[19px] top-3 bottom-3 w-[2px] bg-gradient-to-b from-primary via-secondary/40 to-outline-variant/20"></div>
+            <!-- Timeline Container -->
+            <div class="relative w-full max-w-4xl py-12">
+                <!-- Center Line (Desktop) / Left Line (Mobile) -->
+                <div class="absolute left-6 md:left-1/2 top-0 bottom-0 timeline-line transform md:-translate-x-1/2 z-0 rounded-full"></div>
 
-                <div class="flex flex-col gap-8">
-                    @foreach ($pengalamans as $index => $pengalaman)
-                        @php
-                            $isFirst = $index === 0;
-                            $dotColor = $isFirst ? 'border-primary' : 'border-secondary';
-                            $glowColor = $isFirst ? 'rgba(0,64,224,0.3)' : 'rgba(86,94,116,0.3)';
-                        @endphp
-                        <div class="relative group">
-                            <!-- Timeline dot -->
-                            <div class="absolute left-[-33px] md:left-[-41px] top-2 z-10">
-                                <div class="w-4 h-4 rounded-full bg-surface border-2 {{ $dotColor }} group-hover:shadow-[0_0_12px_{{ $glowColor }}] transition-all duration-300">
-                                    @if($isFirst)
-                                        <div class="absolute inset-0.5 rounded-full bg-primary/20 animate-ping"></div>
-                                    @endif
-                                </div>
-                            </div>
+                @for ($i = 0; $i < 6; $i++)
+                    <div class="contents" wire:delay.100ms wire:loading wire:target="pengalamans" wire:key="{{ $i }}">
+                        <x-CardExp.CardExpSkeleton />
+                    </div>
+                @endfor
 
-                            <!-- Card -->
-                            <div class="relative bg-surface/80 border border-outline-variant/20 rounded-2xl p-5 md:p-7 ml-2 hover:shadow-xl hover:shadow-primary/5 hover:border-primary/15 transition-all duration-500 group-hover:-translate-y-0.5 overflow-hidden">
-                                <!-- Subtle gradient corner -->
-                                @if($isFirst)
-                                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/5 to-transparent pointer-events-none"></div>
-                                @endif
-
-                                <!-- Date -->
-                                <div class="flex items-center gap-2 mb-3">
-                                    <span class="material-symbols-outlined text-[14px] text-on-surface-variant/50">calendar_today</span>
-                                    <span class="font-label-mono text-[11px] text-on-surface-variant/70 uppercase tracking-wider">
-                                        {{ $pengalaman->start_date->format('M Y') }} — {{ $pengalaman->end_date ? $pengalaman->end_date->format('M Y') : 'Present' }}
-                                    </span>
-                                    @if(!$pengalaman->end_date)
-                                        <span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-600 bg-emerald-500/10 px-2 py-0.5 rounded-full">
-                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                                            Current
-                                        </span>
-                                    @endif
-                                </div>
-
-                                <!-- Position -->
-                                <h3 class="text-[18px] md:text-[20px] font-bold text-on-surface leading-snug mb-1">{{ $pengalaman->position }}</h3>
-
-                                <!-- Description -->
-                                <div class="mt-3 text-[13px] md:text-[14px] leading-7 text-on-surface-variant
-                                            [&>p]:mb-2
-                                            [&>h1]:text-xl [&>h1]:font-bold [&>h1]:mt-4 [&>h1]:text-on-surface
-                                            [&>h2]:text-lg [&>h2]:font-semibold [&>h2]:mt-3 [&>h2]:text-on-surface
-                                            [&>h3]:text-base [&>h3]:font-semibold [&>h3]:mt-3 [&>h3]:text-on-surface
-                                            [&>ul]:list-disc [&>ul]:ml-5 [&>ul]:space-y-1
-                                            [&>ol]:list-decimal [&>ol]:ml-5
-                                            [&>blockquote]:border-l-3 [&>blockquote]:border-primary/30 [&>blockquote]:pl-4 [&>blockquote]:italic
-                                            [&>img]:rounded-xl [&>img]:my-3">
-                                    {!! str($pengalaman?->description)->markdown() !!}
-                                </div>
-
-                                <!-- Tech tags -->
-                                @if($pengalaman->technology)
-                                    <div class="flex flex-wrap gap-1.5 mt-5 pt-4 border-t border-outline-variant/15">
-                                        @foreach ($pengalaman->technology as $tech)
-                                            <span class="text-[10px] font-semibold uppercase tracking-wider text-secondary bg-secondary/8 px-2.5 py-1 rounded-lg border border-secondary/10">{{ $tech }}</span>
-                                        @endforeach
-                                    </div>
-                                @endif
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
+                @foreach ($pengalamans as $pengalaman)
+                    <div class="contents" wire:delay.100ms wire:loading.remove wire:target="pengalamans" wire:key="{{ $pengalaman->id }}">
+                        <x-CardExp.CardExp :pengalaman="$pengalaman" :loop="$loop" />
+                    </div>
+                @endforeach
             </div>
         @else
             <!-- Empty State -->
-            <div class="bg-surface/80 border border-outline-variant/20 rounded-2xl p-12 text-center">
-                <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-secondary/8 flex items-center justify-center">
-                    <span class="material-symbols-outlined text-3xl text-secondary">history</span>
-                </div>
-                <h3 class="text-[18px] font-bold text-on-surface mb-2">Belum Ada Riwayat Perjalanan</h3>
-                <p class="text-[14px] text-on-surface-variant max-w-md mx-auto">Perjalanan profesional dan pencapaian akan segera hadir di sini.</p>
-            </div>
+            <x-EmptyState.EmptyState title='Belum Ada Riwayat Perjalanan' description="'Perjalanan profesional dan pencapaian akan segera hadir di sini."/>
+            
         @endif
     </section>
 
@@ -312,20 +247,6 @@
     </section>
 
 
-<style>
-    .about-fade-in {
-        opacity: 0;
-        transform: translateY(20px);
-        animation: aboutFadeIn 0.6s ease-out forwards;
-        animation-delay: var(--delay, 0s);
-    }
 
-    @keyframes aboutFadeIn {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-</style>
 
 </main>
