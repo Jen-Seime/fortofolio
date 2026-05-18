@@ -13,13 +13,11 @@ class ProjectService
      */
     public function getProjects()
     {
-       
 
-        return Cache::remember('projects_data',now()->addDay(), function () {
+        return Cache::remember('projects_data', now()->addDay(), function () {
             return Project::with('image')
                 ->latest('date')
                 ->get();
-               
 
         });
     }

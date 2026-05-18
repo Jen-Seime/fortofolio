@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Certificates - DevPortfolio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f9f9f9",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e2e2e2",
+                        "tertiary-container": "#5e6e85",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#eeeeee",
+                        "surface-bright": "#f9f9f9",
+                        "tertiary-fixed": "#d3e4fe",
+                        "on-background": "#1a1c1c",
+                        "on-primary-container": "#efefff",
+                        "outline-variant": "#c4c5d9",
+                        "on-secondary-container": "#5c647a",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "on-error": "#ffffff",
+                        "primary": "#0040e0",
+                        "primary-container": "#2e5bff",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "primary-fixed-dim": "#b8c3ff",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "secondary-fixed": "#dae2fd",
+                        "inverse-primary": "#b8c3ff",
+                        "inverse-surface": "#2f3131",
+                        "outline": "#747688",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1a1c1c",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#dde1ff",
+                        "on-secondary-fixed": "#131b2e",
+                        "secondary": "#565e74",
+                        "surface-dim": "#dadada",
+                        "on-primary-fixed": "#001356",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "on-surface-variant": "#434656",
+                        "surface-variant": "#e2e2e2",
+                        "surface-tint": "#124af0",
+                        "on-tertiary-container": "#e9f0ff",
+                        "background": "#f9f9f9",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "surface-container-high": "#e8e8e8",
+                        "on-primary-fixed-variant": "#0035be",
+                        "secondary-container": "#dae2fd",
+                        "surface-container-low": "#f3f3f3",
+                        "tertiary": "#46566c",
+                        "inverse-on-surface": "#f0f1f1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "margin-desktop": "48px",
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "stack-md": "24px",
+                        "stack-lg": "48px",
+                        "section-gap": "120px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": [
+                            "Geist"
+                        ],
+                        "label-mono": [
+                            "JetBrains Mono"
+                        ],
+                        "body-md": [
+                            "Inter"
+                        ],
+                        "headline-lg-mobile": [
+                            "Geist"
+                        ],
+                        "headline-xl": [
+                            "Geist"
+                        ],
+                        "body-sm": [
+                            "Inter"
+                        ]
+                    },
+                    "fontSize": {
+                        "headline-lg": [
+                            "32px",
+                            {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "label-mono": [
+                            "12px",
+                            {
+                                "lineHeight": "16px",
+                                "fontWeight": "500"
+                            }
+                        ],
+                        "body-md": [
+                            "16px",
+                            {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "headline-lg-mobile": [
+                            "28px",
+                            {
+                                "lineHeight": "36px",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "headline-xl": [
+                            "48px",
+                            {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                            }
+                        ],
+                        "body-sm": [
+                            "14px",
+                            {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                            }
+                        ]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        .glow-border {
+            position: relative;
+        }
+        .glow-border::before {
+            content: "";
+            position: absolute;
+            top: -1px; left: -1px; right: -1px; bottom: -1px;
+            background: linear-gradient(135deg, rgba(0, 64, 224, 0.15), transparent 40%);
+            z-index: -1;
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .glow-border:hover::before {
+            opacity: 1;
+        }
+        .bg-glow-primary {
+            position: fixed;
+            top: 20%;
+            left: 10%;
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, rgba(0, 64, 224, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .bg-glow-secondary {
+            position: fixed;
+            bottom: 10%;
+            right: 5%;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, rgba(86, 94, 116, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen relative overflow-x-hidden">
+    <!-- Ambient Glow Backgrounds -->
+    <div class="bg-glow-primary"></div>
+    <div class="bg-glow-secondary"></div>
+
+    <!-- TopNavBar -->
+    <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-black/5 shadow-[0_0_20px_rgba(0,64,224,0.05)]">
+        <div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-16">
+            <a class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary" href="#">DevPortfolio</a>
+            <nav class="hidden md:flex gap-stack-md">
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:bg-primary/10 transition-all duration-300 px-3 py-2 rounded" href="#">Home</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:bg-primary/10 transition-all duration-300 px-3 py-2 rounded" href="#">About</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:bg-primary/10 transition-all duration-300 px-3 py-2 rounded" href="#">Skills</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:bg-primary/10 transition-all duration-300 px-3 py-2 rounded" href="#">Projects</a>
+                <a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1 px-3 py-2" href="#">Exp.</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:bg-primary/10 transition-all duration-300 px-3 py-2 rounded" href="#">Blog</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:bg-primary/10 transition-all duration-300 px-3 py-2 rounded" href="#">Contact</a>
+            </nav>
+            <button class="bg-primary text-on-primary font-label-mono text-label-mono px-6 py-2 rounded hover:shadow-[0_0_15px_rgba(0,64,224,0.3)] transition-all active:scale-95">Hire Me</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <!-- Page Header -->
+        <div class="mb-stack-lg text-center md:text-left">
+            <h1 class="font-headline-xl text-headline-xl text-on-surface mb-stack-sm">Certifications</h1>
+            <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">A curated collection of professional credentials, demonstrating a commitment to continuous learning and mastery of modern web technologies.</p>
+        </div>
+
+        <!-- Certificates Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+            <!-- Certificate Card 1 -->
+            <div class="glass-panel rounded-xl p-stack-md glow-border group flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+                <div class="flex items-start justify-between mb-stack-md">
+                    <div class="w-12 h-12 rounded bg-surface-container-highest flex items-center justify-center border border-outline-variant/50">
+                        <span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">cloud_done</span>
+                    </div>
+                    <span class="font-label-mono text-label-mono text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">2023</span>
+                </div>
+                <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2 group-hover:text-primary transition-colors">AWS Certified Developer – Associate</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mb-stack-md flex-grow">Amazon Web Services (AWS)</p>
+                <div class="flex items-center gap-2 mt-auto pt-stack-sm border-t border-outline-variant/30">
+                    <a class="font-label-mono text-label-mono text-primary hover:text-primary-container transition-colors flex items-center gap-1" href="#">
+                        View Credential
+                        <span class="material-symbols-outlined text-sm">open_in_new</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Certificate Card 2 -->
+            <div class="glass-panel rounded-xl p-stack-md glow-border group flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+                <div class="flex items-start justify-between mb-stack-md">
+                    <div class="w-12 h-12 rounded bg-surface-container-highest flex items-center justify-center border border-outline-variant/50">
+                        <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">code_blocks</span>
+                    </div>
+                    <span class="font-label-mono text-label-mono text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">2022</span>
+                </div>
+                <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2 group-hover:text-primary transition-colors">Meta Front-End Developer Professional Certificate</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mb-stack-md flex-grow">Meta via Coursera</p>
+                <div class="flex items-center gap-2 mt-auto pt-stack-sm border-t border-outline-variant/30">
+                    <a class="font-label-mono text-label-mono text-primary hover:text-primary-container transition-colors flex items-center gap-1" href="#">
+                        View Credential
+                        <span class="material-symbols-outlined text-sm">open_in_new</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Certificate Card 3 -->
+            <div class="glass-panel rounded-xl p-stack-md glow-border group flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+                <div class="flex items-start justify-between mb-stack-md">
+                    <div class="w-12 h-12 rounded bg-surface-container-highest flex items-center justify-center border border-outline-variant/50">
+                        <span class="material-symbols-outlined text-tertiary-container" style="font-variation-settings: 'FILL' 1;">database</span>
+                    </div>
+                    <span class="font-label-mono text-label-mono text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">2021</span>
+                </div>
+                <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2 group-hover:text-primary transition-colors">MongoDB Node.js Developer Path</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mb-stack-md flex-grow">MongoDB University</p>
+                <div class="flex items-center gap-2 mt-auto pt-stack-sm border-t border-outline-variant/30">
+                    <a class="font-label-mono text-label-mono text-primary hover:text-primary-container transition-colors flex items-center gap-1" href="#">
+                        View Credential
+                        <span class="material-symbols-outlined text-sm">open_in_new</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Certificate Card 4 -->
+            <div class="glass-panel rounded-xl p-stack-md glow-border group flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+                <div class="flex items-start justify-between mb-stack-md">
+                    <div class="w-12 h-12 rounded bg-surface-container-highest flex items-center justify-center border border-outline-variant/50">
+                        <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">security</span>
+                    </div>
+                    <span class="font-label-mono text-label-mono text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">2023</span>
+                </div>
+                <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2 group-hover:text-primary transition-colors">Web Security Essentials</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mb-stack-md flex-grow">FreeCodeCamp</p>
+                <div class="flex items-center gap-2 mt-auto pt-stack-sm border-t border-outline-variant/30">
+                    <a class="font-label-mono text-label-mono text-primary hover:text-primary-container transition-colors flex items-center gap-1" href="#">
+                        View Credential
+                        <span class="material-symbols-outlined text-sm">open_in_new</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-stack-lg border-t border-outline-variant/30 bg-background">
+        <div class="flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto px-margin-mobile">
+            <span class="font-label-mono text-label-mono text-secondary mb-stack-sm md:mb-0">© 2024 The Future-Proof Engineer. Built with precision.</span>
+            <div class="flex gap-stack-md">
+                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors scale-105 transition-transform" href="#">GitHub</a>
+                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors scale-105 transition-transform" href="#">LinkedIn</a>
+                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors scale-105 transition-transform" href="#">Twitter</a>
+                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors scale-105 transition-transform" href="#">Email</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -21,11 +21,13 @@
                         ['route' => 'about', 'label' => 'About'],
                         ['route' => 'skill', 'label' => 'Skills'],
                         ['route' => 'project', 'label' => 'Project'],
+                        ['route' => 'certification', 'label' => 'Certification'],
                        
                     ];
                 @endphp
                 @foreach($desktopLinks as $link)
                     <a href="{{ Route::has($link['route']) ? route($link['route']) : $link['route'] }}"
+                        wire:navigate
                        class="relative px-4 py-2 rounded-full text-[14px] font-medium transition-all duration-300
                               {{ Route::is($link['route'])
                                   ? 'text-primary bg-primary/8'
@@ -111,6 +113,8 @@
                     ['route' => 'home', 'icon' => 'home', 'label' => 'Home', 'desc' => 'Halaman utama'],
                     ['route' => 'about', 'icon' => 'person', 'label' => 'About', 'desc' => 'Tentang saya'],
                     ['route' => 'skill', 'icon' => 'code', 'label' => 'Skills', 'desc' => 'Kemampuan teknis'],
+                    ['route' => 'project', 'icon' => 'work', 'label' => 'Project', 'desc' => 'Proyek yang telah dikerjakan'],
+                   
                 ];
             @endphp
 
@@ -150,6 +154,7 @@
                 @php
                     $moreLinks = [
                         ['route' => 'project', 'icon' => 'work', 'label' => 'Projects', 'desc' => 'Karya & proyek'],
+                        ['route' => 'certification', 'icon' => 'license', 'label' => 'Certification', 'desc' => 'Sertifikasi yang telah diperoleh'],
                         ['route' => '#', 'icon' => 'history_edu', 'label' => 'Experience', 'desc' => 'Pengalaman kerja'],
                         ['route' => '#', 'icon' => 'article', 'label' => 'Blog', 'desc' => 'Tulisan & artikel'],
                         ['route' => '#', 'icon' => 'mail', 'label' => 'Contact', 'desc' => 'Hubungi saya'],
@@ -157,6 +162,7 @@
                 @endphp
                 @foreach($moreLinks as $index => $link)
                     <a href="{{ Route::has($link['route']) ? route($link['route']) : $link['route'] }}"
+                        wire:navigate
                        @click="mobileMenuOpen = false"
                        class="group flex items-center gap-3.5 px-3 py-3 rounded-2xl text-on-surface hover:bg-surface-container-high transition-all duration-300"
                        style="animation: slideInRight 0.4s ease-out {{ ($index + 4) * 0.06 }}s both;">

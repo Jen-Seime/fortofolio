@@ -3,18 +3,21 @@
 namespace App\Livewire\Page;
 
 use App\Models\CategoryRole;
-use App\Services\ProjectService;
+use App\Models\Project;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\Project;
 
 class ProjectPage extends Component
-
 {
     use WithPagination;
 
     public $category = null;
+
+
+
+
 
     public function selectCategory($category)
     {
@@ -22,25 +25,26 @@ class ProjectPage extends Component
         $this->resetPage();
     }
 
-    #[Computed]
-    public function projects()
+   
+    public function loadProjects()
     {
-        return Project::with('image')
+
+
+        $data = Project::with('image')
             ->when($this->category, function ($query) {
                 $query->where('category_role_id', $this->category);
             })
             ->latest('date')
             ->paginate(10);
+
+
+        return $data;
     }
 
     public function render()
     {
-
         return view('livewire.page.project-page', [
-            'categories' => CategoryRole::all(),
-            'data' => $this->projects,
+            'categories' => CategoryRole::all()
         ]);
-
-
     }
 }
