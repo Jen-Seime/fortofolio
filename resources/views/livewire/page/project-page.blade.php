@@ -1,5 +1,5 @@
 <!-- Main Content -->
-<main class="relative z-10 pt-32 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<main class="relative z-10 pt-32 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" wire:init="loadProjects">
     <!-- Header Section -->
     <header class="mb-stack-lg text-center md:text-left">
         <h1 class="font-headline-xl font-bold text-[clamp(28px,5vw,44px)] leading-[1.15] text-primary skill-fade-in mb-stack-sm" style="--delay: 0.1s"><span class=" text-on-surface">Featured</span> Projects</h1>
@@ -29,26 +29,26 @@
     <!-- Projects Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
 
-       
+
 
         <!-- Loading Skeletons -->
         @for ($i = 0; $i < 6; $i++)
-            <div wire:loading.delay wire:target="selectCategory, category">
-                <x-CardItem.CardSkeleton />
-            </div>
-        @endfor
+            <div wire:loading.delay wire:target="selectCategory, category, loadProjects">
+            <x-CardItem.CardSkeleton />
+    </div>
+    @endfor
 
-        <!-- Project Cards -->
-        @forelse ($data as $index => $project)
-            <div wire:loading.remove wire:target="selectCategory, category" class="contents">
-                <x-CardItem.CardProject wire:key="{{ $project->id }}" :project="$project" :index="$index" />
-            </div>
-        @empty
-            <x-EmptyState.EmptyState />
-        @endforelse
+    <!-- Project Cards -->
+    @forelse ($this->loadProjects() as $index => $project)
+    <div wire:loading.remove wire:target="selectCategory, category, loadProjects" class="contents">
+        <x-CardItem.CardProject wire:key="{{ $project->id }}" :project="$project" :index="$index" />
+    </div>
+    @empty
+    <x-EmptyState.EmptyState />
+    @endforelse
     </div>
 
     <div class="mt-10 flex justify-center">
-        {{ $data->links('vendor.livewire.custom-pagination') }}
+        {{ $this->loadProjects()->links('vendor.livewire.custom-pagination') }}
     </div>
 </main>
