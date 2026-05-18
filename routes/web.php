@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Component\CertificationDetail;
 use App\Livewire\Component\ProjectDetail;
 use App\Livewire\Page\AboutPage;
 use App\Livewire\Page\CertificationPage;
@@ -14,3 +15,4 @@ Route::get('/skill', SkillPage::class)->name('skill');
 Route::get('/project', ProjectPage::class)->name('project');
 Route::get('/project/{project:slug}', ProjectDetail::class)->name('project.detail');
 Route::get('/certification', CertificationPage::class)->name('certification');
+Route::get('/certification/{certification:slug}', CertificationDetail::class)->name('certification.detail');

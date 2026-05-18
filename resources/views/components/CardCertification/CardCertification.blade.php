@@ -18,7 +18,7 @@
     <p class="font-body-sm text-body-sm text-on-surface-variant mb-stack-md flex-grow">{{ $certification->issuer }}</p>
     <div class="flex items-center gap-2 mt-auto pt-stack-sm border-t border-outline-variant/30">
         @if ($certification->verification_url)
-            <a class="font-label-mono text-label-mono text-primary hover:text-primary-container transition-colors flex items-center gap-1" href="{{ $certification->verification_url }}" target="_blank" rel="noopener noreferrer">
+            <a class="font-label-mono text-label-mono text-primary hover:text-primary-container transition-colors flex items-center gap-1" href="{{ route('certification.detail', $certification->slug) }}" wire:navigate target="_blank" rel="noopener noreferrer">
                 View Credential
                 <span class="material-symbols-outlined text-sm">open_in_new</span>
             </a>
