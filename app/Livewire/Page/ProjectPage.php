@@ -3,14 +3,12 @@
 namespace App\Livewire\Page;
 
 use App\Models\CategoryRole;
-use App\Services\ProjectService;
+use App\Models\Project;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\Project;
 
 class ProjectPage extends Component
-
 {
     use WithPagination;
 
@@ -40,7 +38,6 @@ class ProjectPage extends Component
             'categories' => CategoryRole::all(),
             'data' => $this->projects,
         ]);
-
 
     }
 }

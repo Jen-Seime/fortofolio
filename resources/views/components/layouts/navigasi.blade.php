@@ -21,6 +21,7 @@
                         ['route' => 'about', 'label' => 'About'],
                         ['route' => 'skill', 'label' => 'Skills'],
                         ['route' => 'project', 'label' => 'Project'],
+                        ['route' => 'certification', 'label' => 'Certification'],
                        
                     ];
                 @endphp
