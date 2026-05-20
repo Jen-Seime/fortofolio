@@ -5,6 +5,7 @@
             <h1 class="font-headline-xl text-[clamp(28px,5vw,44px)] text-on-surface mb-stack-sm skill-fade-in" style="--delay: 0.1s">Sertifikasi</h1>
             <p class="font-body-md text-[15px] text-on-surface-variant max-w-2xl skill-fade-in" style="--delay: 0.2s">Koleksi kredensial profesional pilihan yang menunjukkan komitmen untuk terus belajar dan menguasai teknologi web modern.</p>
         </div>
+        
 
         <!-- Certificates Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">

@@ -22,6 +22,7 @@
                         ['route' => 'skill', 'label' => 'Skills'],
                         ['route' => 'project', 'label' => 'Project'],
                         ['route' => 'certification', 'label' => 'Certification'],
+                        ['route' => 'contact', 'label' => 'contact']
                        
                     ];
                 @endphp
@@ -113,7 +114,7 @@
                     ['route' => 'home', 'icon' => 'home', 'label' => 'Home', 'desc' => 'Halaman utama'],
                     ['route' => 'about', 'icon' => 'person', 'label' => 'About', 'desc' => 'Tentang saya'],
                     ['route' => 'skill', 'icon' => 'code', 'label' => 'Skills', 'desc' => 'Kemampuan teknis'],
-                    ['route' => 'project', 'icon' => 'work', 'label' => 'Project', 'desc' => 'Proyek yang telah dikerjakan'],
+                  
                    
                 ];
             @endphp
@@ -155,9 +156,8 @@
                     $moreLinks = [
                         ['route' => 'project', 'icon' => 'work', 'label' => 'Projects', 'desc' => 'Karya & proyek'],
                         ['route' => 'certification', 'icon' => 'license', 'label' => 'Certification', 'desc' => 'Sertifikasi yang telah diperoleh'],
-                        ['route' => '#', 'icon' => 'history_edu', 'label' => 'Experience', 'desc' => 'Pengalaman kerja'],
                         ['route' => '#', 'icon' => 'article', 'label' => 'Blog', 'desc' => 'Tulisan & artikel'],
-                        ['route' => '#', 'icon' => 'mail', 'label' => 'Contact', 'desc' => 'Hubungi saya'],
+                        ['route' => 'contact', 'icon' => 'mail', 'label' => 'Contact', 'desc' => 'Hubungi saya'],
                     ];
                 @endphp
                 @foreach($moreLinks as $index => $link)
