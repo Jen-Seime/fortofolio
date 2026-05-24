@@ -2,9 +2,11 @@
 
 namespace App\Livewire\Page;
 
+use App\Mail\ContactMail;
 use App\Models\Profil;
 use App\Services\ProfilService;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class ContactPage extends Component
@@ -54,34 +56,34 @@ class ContactPage extends Component
 
     public function kirimPesan(): void
     {
-        // $this->validate();
+        $this->validate();
 
-        $emailResmi = $this->contact()->email;
+        $contact = $this->contact();
 
-        // dd($emailResmi);
-        dd($emailResmi);
+        if (! $contact || ! $contact->email) {
+            session()->flash('error', 'Konfigurasi email belum diatur. Silakan hubungi administrator.');
 
-        // Cek apakah email resmi ada di database
-        // if (!$emailResmi || !$emailResmi->deskripsi) {
-        //     session()->flash('error', 'Konfigurasi email sekolah belum diatur. Silakan hubungi administrator.');
-        //     return;
-        // }
+            return;
+        }
 
-        // // Validasi format email tujuan
-        // if (!filter_var($emailResmi->deskripsi, FILTER_VALIDATE_EMAIL)) {
-        //     session()->flash('error', 'Email tujuan tidak valid. Silakan hubungi administrator.');
-        //     return;
-        // }
+        $emailResmi = $contact->email;
 
-        // try {
-        //     Mail::to($emailResmi->deskripsi)->queue(new ContactMail($kontakData));
+        // Validasi format email tujuan
+        if (! filter_var($emailResmi, FILTER_VALIDATE_EMAIL)) {
+            session()->flash('error', 'Email tujuan tidak valid. Silakan hubungi administrator.');
 
-        //     $this->reset('pesan');
+            return;
+        }
 
-        //     session()->flash('success', 'Pesan berhasil dikirim! Kami akan segera menghubungi Anda.');
-        // } catch (\Exception $e) {
-        //     session()->flash('error', 'Gagal mengirim pesan. Silakan coba lagi nanti.');
-        // }
+        try {
+            Mail::to($emailResmi)->send(new ContactMail($this->kontak));
+
+            $this->reset('kontak');
+
+            session()->flash('success', 'Pesan berhasil dikirim! Kami akan segera menghubungi Anda.');
+        } catch (\Exception $e) {
+            session()->flash('error', 'Gagal mengirim pesan. Silakan coba lagi nanti.');
+        }
     }
 
     public function render(): View

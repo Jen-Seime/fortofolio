@@ -69,14 +69,24 @@
 
         <!-- Right Column: The Form (Col Span 7) -->
         <div class="lg:col-span-7 relative">
-            <!-- Success Message Simulation (Visible for demonstration, usually hidden by default) -->
-            <div class="mb-6 bg-tertiary-fixed border border-tertiary/30 rounded-lg p-4 flex items-start gap-3 backdrop-blur-md">
-                <span class="material-symbols-outlined text-tertiary mt-0.5">check_circle</span>
-                <div>
-                    <h4 class="font-label-mono text-label-mono text-tertiary mb-1">Transmission Successful</h4>
-                    <p class="font-body-sm text-body-sm text-on-surface-variant">Your message has been received. I will review the payload and respond within 24 hours.</p>
+            @if(session()->has('success'))
+                <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 5000)" x-transition.opacity.duration.500ms class="fixed bottom-6 left-6 z-50 bg-tertiary-fixed border border-tertiary/30 rounded-lg p-4 flex items-start gap-3 backdrop-blur-md shadow-lg max-w-md">
+                    <span class="material-symbols-outlined text-tertiary mt-0.5">check_circle</span>
+                    <div>
+                        <h4 class="font-label-mono text-label-mono text-tertiary mb-1">Transmission Successful</h4>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant">{{ session()->get('success') }}</p>
+                    </div>
                 </div>
-            </div>
+            @endif
+            @if(session()->has('error'))
+                <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 5000)" x-transition.opacity.duration.500ms class="fixed bottom-6 left-6 z-50 bg-red-100/90 border border-red-300 rounded-lg p-4 flex items-start gap-3 backdrop-blur-md shadow-lg max-w-md">
+                    <span class="material-symbols-outlined text-red-600 mt-0.5">error</span>
+                    <div>
+                        <h4 class="font-label-mono text-label-mono text-red-600 mb-1">Transmission Failed</h4>
+                        <p class="font-body-sm text-body-sm text-red-800">{{ session()->get('error') }}</p>
+                    </div>
+                </div>
+            @endif
             
             <!-- Form Container (Glass) -->
             <div class="bg-surface-container-lowest/80 backdrop-blur-[16px] border border-outline-variant/40 rounded-xl p-8 md:p-10 shadow-lg relative">
