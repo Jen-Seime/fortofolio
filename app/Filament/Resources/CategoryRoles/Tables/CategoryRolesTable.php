@@ -14,7 +14,14 @@ class CategoryRolesTable
     {
         return $table
             ->columns([
-                TextColumn::make('id'),
+                TextColumn::make('id')
+                    ->label('ID')
+                    ->sortable(),
+
+                TextColumn::make('name')
+                    ->label('Nama Kategori Peran')
+                    ->searchable()
+                    ->sortable(),
             ])
             ->filters([
                 //

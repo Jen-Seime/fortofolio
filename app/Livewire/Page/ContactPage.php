@@ -7,8 +7,10 @@ use App\Models\Profil;
 use App\Services\ProfilService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Mail;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title('Contact')]
 class ContactPage extends Component
 {
     public array $kontak = [

@@ -18,20 +18,22 @@ class CertificationForm
     {
         return $schema
             ->components([
-
-                Section::make('')
+                Section::make('Berkas & Logo Sertifikasi')
+                    ->description('Unggah logo penerbit sertifikat serta salinan digital sertifikat Anda.')
                     ->columns(2)
                     ->schema([
                         Group::make()
                             ->relationship('issuerLogo')
                             ->schema([
                                 FileUpload::make('url')
-                                    ->label('Issuer Logo')
+                                    ->label('Logo Penerbit (Issuer Logo)')
                                     ->directory('Issuer-Logo')
                                     ->disk('public')
                                     ->visibility('public')
                                     ->image()
-                                    ->required(),
+                                    ->imageEditor()
+                                    ->required()
+                                    ->helperText('Unggah logo penerbit (Rekomendasi rasio 1:1, format PNG/JPG).'),
 
                                 Hidden::make('type')
                                     ->default('logo'),
@@ -41,62 +43,73 @@ class CertificationForm
                             ->relationship('pdfFile')
                             ->schema([
                                 FileUpload::make('url')
-                                    ->label('File Pdf')
+                                    ->label('Berkas Sertifikat (PDF)')
                                     ->directory('File-Pdf')
-                                    ->acceptedFileTypes(['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'])
+                                    ->acceptedFileTypes(['application/pdf'])
                                     ->maxSize(5120) // 5MB
                                     ->disk('public')
                                     ->getUploadedFileNameForStorageUsing(function ($file) {
                                         return time().'_'.$file->getClientOriginalName();
                                     })
-                                    ->required(),
+                                    ->required()
+                                    ->helperText('Unggah salinan sertifikat resmi Anda (Format: PDF, Maksimal 5MB).'),
 
                                 Hidden::make('type')
                                     ->default('pdf'),
                             ]),
-
                     ])->columnSpanFull(),
 
-                Section::make('Certification Detail')
+                Section::make('Detail Kredensial Sertifikasi')
+                    ->description('Lengkapi data resmi sertifikat untuk verifikasi kredensial.')
                     ->columns(2)
                     ->schema([
                         TextInput::make('title')
-                            ->label('Title')
+                            ->label('Nama Sertifikasi')
+                            ->placeholder('Contoh: AWS Certified Solutions Architect')
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(fn ($state, callable $set) => $set('slug', \Illuminate\Support\Str::slug($state)))
                             ->required(),
 
                         TextInput::make('slug')
-                            ->label('slug')
-                            ->required(),
+                            ->label('Slug URL')
+                            ->placeholder('otomatis-dibuat-dari-judul')
+                            ->required()
+                            ->helperText('Digunakan untuk identifikasi unik halaman detail sertifikasi.'),
 
                         TextInput::make('issuer')
-                            ->label('Penerbit')
+                            ->label('Organisasi Penerbit')
+                            ->placeholder('Contoh: Amazon Web Services, Google, Dicoding')
                             ->required(),
 
                         DatePicker::make('issue_date')
-                            ->label('Issue Date')
-                            ->required(),
-
-                        TextInput::make('verification_url')
-                            ->label('Verification Url')
+                            ->label('Tanggal Terbit')
+                            ->native(false)
+                            ->displayFormat('d M Y')
                             ->required(),
 
                         TextInput::make('credential_id')
-                            ->label('Credential Id')
+                            ->label('ID Kredensial (Credential ID)')
+                            ->placeholder('Contoh: AWS-12345ABC')
+                            ->required(),
+
+                        TextInput::make('verification_url')
+                            ->label('Tautan Verifikasi Kredensial')
+                            ->placeholder('https://verify.org/cert/123')
+                            ->prefix('https://')
                             ->required(),
 
                         TagsInput::make('skills_covered')
-                            ->label('Skills Covered')
-                            ->placeholder('Tambah teknologi...')
+                            ->label('Keahlian / Materi yang Dicakup')
+                            ->placeholder('Ketik keahlian lalu tekan enter (Contoh: Cloud Computing, DevOps, Python)')
                             ->columnSpanFull()
                             ->required(),
 
                         MarkdownEditor::make('description')
                             ->columnSpanFull()
-                            ->label('Description')
+                            ->label('Deskripsi & Silabus Sertifikasi')
+                            ->placeholder('Tuliskan ringkasan materi, apa yang Anda pelajari, dan kompetensi yang diujikan dalam sertifikasi ini...')
                             ->required(),
-
                     ])->columnSpanFull(),
             ]);
-
     }
 }

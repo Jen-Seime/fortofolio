@@ -44,7 +44,7 @@
         <x-CardItem.CardProject wire:key="{{ $project->id }}" :project="$project" :index="$index" />
     </div>
     @empty
-    <x-EmptyState.EmptyState />
+    <x-EmptyState.EmptyState class=" col-span-full" :title="'No Projects'" :description="'No projects found'" />
     @endforelse
     </div>
 

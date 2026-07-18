@@ -14,22 +14,29 @@ class ExperiencesTable
     {
         return $table
             ->columns([
-                TextColumn::make('company_name')
-                    ->label('Nama Perusahaan')
-                    ->searchable()
-                    ->sortable(),
                 TextColumn::make('position')
-                    ->label('Posisi')
+                    ->label('Posisi / Jabatan')
                     ->searchable()
-                    ->sortable(),
+                    ->sortable()
+                    ->description(fn ($record) => $record->company_name),
+
                 TextColumn::make('start_date')
-                    ->label('Tanggal Mulai')
-                    ->searchable()
+                    ->label('Mulai Kerja')
+                    ->date('M Y')
                     ->sortable(),
+
                 TextColumn::make('end_date')
-                    ->label('Tanggal Berakhir')
-                    ->searchable()
+                    ->label('Selesai Kerja')
+                    ->date('M Y')
+                    ->default('Sekarang (Aktif)')
+                    ->badge()
+                    ->color(fn ($state) => $state === null ? 'success' : 'gray')
                     ->sortable(),
+
+                TextColumn::make('technology')
+                    ->label('Teknologi')
+                    ->badge()
+                    ->color('gray'),
             ])
             ->filters([
                 //

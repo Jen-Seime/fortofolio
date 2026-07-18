@@ -30,10 +30,10 @@
                             <span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">location_on</span>
                         </div>
                         <div>
-                            <p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Base of Operations</p>
+                            <p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Location</p>
                             <p class="font-body-md text-body-md text-on-background">
-                                San Francisco, CA<br />
-                                <span class="text-outline text-sm">Remote Global Available</span>
+                                {{ $contact?->address }}<br />
+                              
                             </p>
                         </div>
                     </div>
@@ -56,15 +56,15 @@
             </div>
 
             <!-- Map Visual Placeholder -->
-            <div class="h-48 rounded-xl border border-outline-variant/50 overflow-hidden relative group bg-surface-container" data-alt="A stylized map view of San Francisco" data-location="San Francisco, CA" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD3xmpj9sxrzUrmuD9AZLE7nMfrBB7hnufNews5ehraMDoZlSW4QrkxO8wScAoDh8aRMhtePSHH5hmj5Dnronx1VmZL_Qa6Q1gzAUe8X7mDTShzU7r00BHPOkxjHSaikeShbVxD2DNkGQhr3LEnMMrt34iXsDxufQqbu0QttQ0tfxc768p10OnxrCtnX_yESnJ6psZGf5K6p4RNxyctz6c95zCZxA8zw9QFUURuWeouvLtuMRwCqBW3lm9uQQBsVC4IL1Qrt3aXjwkN'); background-size: cover; background-position: center;">
+            <!-- <div class="h-48 rounded-xl border border-outline-variant/50 overflow-hidden relative group bg-surface-container" data-alt="A stylized map view of San Francisco" data-location="San Francisco, CA" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD3xmpj9sxrzUrmuD9AZLE7nMfrBB7hnufNews5ehraMDoZlSW4QrkxO8wScAoDh8aRMhtePSHH5hmj5Dnronx1VmZL_Qa6Q1gzAUe8X7mDTShzU7r00BHPOkxjHSaikeShbVxD2DNkGQhr3LEnMMrt34iXsDxufQqbu0QttQ0tfxc768p10OnxrCtnX_yESnJ6psZGf5K6p4RNxyctz6c95zCZxA8zw9QFUURuWeouvLtuMRwCqBW3lm9uQQBsVC4IL1Qrt3aXjwkN'); background-size: cover; background-position: center;">
                 <div class="absolute inset-0 bg-background/40 backdrop-blur-[2px] group-hover:backdrop-blur-0 transition-all duration-700"></div>
                 <div class="absolute inset-0 border border-white/20 rounded-xl pointer-events-none"></div>
                 
-                <!-- Location Marker Overlay -->
+               
                 <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
                     <div class="w-4 h-4 bg-primary rounded-full shadow-[0_0_15px_rgba(0,64,224,0.6)] animate-pulse"></div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <!-- Right Column: The Form (Col Span 7) -->
@@ -101,7 +101,7 @@
                             wire:model="kontak.name"
                             title="Identifier (Name)"
                             name="kontak.name"
-                            placeholder="Komang"
+                            placeholder="Enter Your Name"
                             type="text"
                         />
 

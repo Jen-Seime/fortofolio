@@ -6,8 +6,10 @@ use App\Services\EducationService;
 use App\Services\ExperienceService;
 use App\Services\ProfilService;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title('About')]
 class AboutPage extends Component
 {
     #[Computed]

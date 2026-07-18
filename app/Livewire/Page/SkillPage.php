@@ -4,8 +4,10 @@ namespace App\Livewire\Page;
 
 use App\Services\SkillService;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title('Skill')]
 class SkillPage extends Component
 {
     #[Computed]

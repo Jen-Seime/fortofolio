@@ -9,11 +9,14 @@
 
         <!-- Certificates Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
-            @foreach ($certifications as $certification)
+            @forelse ($certifications as $certification)
                
-                    <x-CardCertification.CardCertification :certification="$certification" />
+                <x-CardCertification.CardCertification :certification="$certification" />
+            @empty
+                <x-EmptyState.EmptyState class="col-span-full" title="Sertifikasi Belum Tersedia" description="Belum ada data sertifikasi yang ditambahkan." />
                 
-            @endforeach
+            @endforelse
+            
 
             {{ $certifications->links() }}
         </div>

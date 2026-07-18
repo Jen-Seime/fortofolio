@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Education\Schemas;
 
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
@@ -13,37 +14,45 @@ class EducationForm
         return $schema
             ->components([
                 Section::make('Detail Pendidikan')
+                    ->description('Kelola riwayat pendidikan formal, gelar, institusi, dan tahun studi Anda.')
                     ->columns(2)
                     ->schema([
                         TextInput::make('institution')
-                            ->label('Nama Institusi')
-                            ->placeholder('Contoh: Universitas Indonesia')
+                            ->label('Nama Institusi / Universitas')
+                            ->placeholder('Contoh: Universitas Indonesia, ITB')
                             ->required(),
+
                         TextInput::make('major')
-                            ->label('Jurusan')
-                            ->placeholder('Contoh: Teknik Informatika')
+                            ->label('Jurusan / Program Studi')
+                            ->placeholder('Contoh: Teknik Informatika, Sistem Informasi')
                             ->required(),
+
                         TextInput::make('degree')
-                            ->label('Gelar')
-                            ->placeholder('Contoh: Sarjana Teknik Informatika')
+                            ->label('Gelar Akademik')
+                            ->placeholder('Contoh: Sarjana Komputer (S.Kom)')
                             ->required(),
+
                         TextInput::make('start_year')
-                            ->label('Tanggal Mulai')
+                            ->label('Tahun Mulai')
                             ->numeric()
                             ->minLength(4)
                             ->maxLength(4)
-                            ->placeholder('YYYY') // Explicit placeholder for year
+                            ->placeholder('Contoh: 2020')
                             ->required(),
+
                         TextInput::make('end_year')
-                            ->label('Tahun Berakhir')
+                            ->label('Tahun Lulus / Berakhir')
                             ->numeric()
                             ->minLength(4)
                             ->maxLength(4)
-                            ->placeholder('YYYY')
-                            ->helperText('Kosongkan jika masih belajar di sini')
+                            ->placeholder('Contoh: 2024')
+                            ->helperText('Kosongkan jika Anda masih menempuh studi di institusi ini.')
                             ->nullable(),
-                        TextInput::make('description')
-                            ->label('Deskripsi Pendidikan')
+
+                        Textarea::make('description')
+                            ->label('Deskripsi Pendidikan / Catatan Tambahan')
+                            ->placeholder('Tuliskan pencapaian, organisasi, IPK, atau fokus studi Anda di sini...')
+                            ->rows(4)
                             ->columnSpanFull()
                             ->nullable(),
                     ])->columnSpanFull(),
