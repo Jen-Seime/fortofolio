@@ -4,9 +4,11 @@ namespace App\Livewire\Page;
 
 use App\Services\CertificationService;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
 
+#[Title('Certifications')]
 class CertificationPage extends Component
 {
     use WithPagination;

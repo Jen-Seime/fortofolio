@@ -25,11 +25,29 @@ class ProfilsTable
                     ->searchable()
                     ->sortable(),
 
-                TextColumn::make('email')
-                    ->label('Email')
+                TextColumn::make('nickname')
+                    ->label('Nama Panggilan')
                     ->searchable()
                     ->sortable(),
 
+                TextColumn::make('role')
+                    ->label('Role / Jabatan')
+                    ->badge()
+                    ->color('primary')
+                    ->searchable()
+                    ->sortable(),
+
+                TextColumn::make('email')
+                    ->label('Email')
+                    ->icon('heroicon-m-envelope')
+                    ->searchable()
+                    ->sortable(),
+
+                TextColumn::make('phone')
+                    ->label('Telepon')
+                    ->icon('heroicon-m-phone')
+                    ->prefix('+62')
+                    ->searchable(),
             ])
             ->filters([
                 //

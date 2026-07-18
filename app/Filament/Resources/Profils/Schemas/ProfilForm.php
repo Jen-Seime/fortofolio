@@ -16,85 +16,112 @@ class ProfilForm
     {
         return $schema
             ->components([
-                Group::make()
-                    ->relationship('image')
+                Section::make('Foto Profil')
+                    ->description('Unggah foto profil resmi Anda.')
                     ->schema([
-                        FileUpload::make('url')
-                            ->label('Foto')
-                            ->directory('Foto-profil')
-                            ->disk('public')
-                            ->visibility('public')
-                            ->image()
-                            ->required(),
+                        Group::make()
+                            ->relationship('image')
+                            ->schema([
+                                FileUpload::make('url')
+                                    ->label('Foto')
+                                    ->directory('Foto-profil')
+                                    ->disk('public')
+                                    ->visibility('public')
+                                    ->image()
+                                    ->avatar()
+                                    
+                                    ->imageEditor()
+                                    ->required()
+                                    ->alignCenter(),
+                            ]),
                     ]),
 
-                Section::make('Profil')
+                Section::make('Informasi Pribadi')
+                    ->description('Lengkapi detail biodata dan kontak Anda.')
                     ->columnSpanFull()
                     ->columns(3)
-                    // ->icon('Heroicon::user')
                     ->schema([
                         TextInput::make('full_name')
                             ->label('Nama Lengkap')
+                            ->placeholder('Contoh: Alex Mercer')
                             ->required(),
 
                         TextInput::make('nickname')
                             ->label('Nama Panggilan')
+                            ->placeholder('Contoh: Alex')
                             ->required(),
 
                         TextInput::make('role')
-                            ->label('Role')
-                            ->required(),
-
-                        TextInput::make('address')
-                            ->label('Alamat')
+                            ->label('Pekerjaan / Role')
+                            ->placeholder('Contoh: IT Student & Web Developer')
                             ->required(),
 
                         TextInput::make('phone')
-                            ->label('Telepon')
+                            ->label('Nomor Telepon')
+                            ->placeholder('Contoh: 8123456789')
+                            ->tel()
+                            ->prefix('+62')
                             ->required(),
 
                         TextInput::make('email')
-                            ->label('Email')
+                            ->label('Alamat Email')
+                            ->placeholder('Contoh: alex@domain.com')
+                            ->email()
                             ->required(),
 
+                        TextInput::make('address')
+                            ->label('Alamat Tinggal')
+                            ->placeholder('Contoh: Jakarta, Indonesia')
+                            ->required(),
                     ]),
 
-                Section::make('')
+                Section::make('Deskripsi & Narasi')
+                    ->description('Tuliskan bio singkat dan cerita tentang diri Anda secara mendalam.')
                     ->columnSpanFull()
-                // ->icon('Heroicon::user')
                     ->schema([
                         Textarea::make('bio')
-                            ->rows(10)
-                            ->cols(10)
-                            ->label('Bio Data')
+                            ->rows(3)
+                            ->label('Bio Singkat')
+                            ->placeholder('Tuliskan bio singkat satu kalimat yang menarik...')
                             ->required(),
 
                         MarkdownEditor::make('about')
-                            ->label('Tentang Saya')
+                            ->label('Tentang Saya (Detail)')
+                            ->placeholder('Ceritakan tentang latar belakang, keahlian, minat, dan apa yang Anda pelajari...')
                             ->required(),
-
                     ]),
 
-                Section::make('Media')
+                Section::make('Sosial Media & Berkas')
+                    ->description('Hubungkan profil sosial media dan berkas CV profesional Anda.')
                     ->columnSpanFull()
-                    ->columns(3)
-                // ->icon('Heroicon::user')
+                    ->columns(2)
                     ->schema([
                         TextInput::make('github')
-                            ->label('GitHub')
+                            ->label('Tautan GitHub')
+                            ->placeholder('github.com/username')
+                            ->prefix('github.com/')
                             ->required(),
 
                         TextInput::make('linkedin')
-                            ->label('Linkedin')
+                            ->label('Tautan LinkedIn')
+                            ->placeholder('linkedin.com/in/username')
+                            ->prefix('linkedin.com/in/')
                             ->required(),
 
                         TextInput::make('instagram')
-                            ->label('Instagram')
+                            ->label('Tautan Instagram')
+                            ->placeholder('instagram.com/username')
+                            ->prefix('instagram.com/')
                             ->required(),
 
-                        TextInput::make('cv_file')
-                            ->label('CV'),
-
+                        FileUpload::make('cv_file')
+                            ->label('Unduh Berkas CV (PDF)')
+                            ->directory('cv')
+                            ->disk('public')
+                            ->visibility('public')
+                            ->acceptedFileTypes(['application/pdf'])
+                            ->maxSize(5120)
+                            ->helperText('Unggah berkas CV terbaru Anda (Format: PDF, Maksimal 5MB)'),
                     ]),
             ]);
     }

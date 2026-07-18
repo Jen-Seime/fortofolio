@@ -33,8 +33,10 @@
                             </svg>
                         </span>
                     </h1>
-                    <h2 class="font-headline-xl text-[clamp(24px,4.5vw,44px)] leading-[1.2] text-on-surface-variant font-semibold mt-2">
-                        {{ $profil?->role ?? 'IT Student & Web Developer' }}<span class="text-primary animate-blink">|</span>
+                    <h2 id="typing" class="font-headline-xl text-[clamp(24px,4.5vw,44px)] leading-[1.2] text-on-surface-variant font-semibold mt-2">
+                        <!-- {{ $profil?->role ?? 'IT Student & Web Developer' }} -->
+                        <!-- <span class="text-primary animate-blink">|</span> -->
+                         
                     </h2>
                 </div>
 
@@ -229,6 +231,20 @@
         
     </section>
 
+    
+   
+
+    <script>
+        new TypeIt("#typing", {
+            speed: 80,
+            loop: true,
+        })
+        .type("{{ $profil?->role ?? 'IT Student & Web Developer' }}")
+        .pause(1000)
+        .delete()
+        
+        .go();
+    </script>
 
 
 

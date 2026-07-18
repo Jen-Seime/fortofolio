@@ -6,11 +6,7 @@
 @source "../**/*.js";
 @source "../**/*.vue";
 
-@import '@fontsource-variable/inter/opsz-italic.css';
-@import "@fortawesome/fontawesome-free/css/all.min.css";
-@import 'material-symbols';
-@import "@fontsource/jetbrains-mono";
-@import "@fontsource/space-grotesk";
+
 
 @theme {
     

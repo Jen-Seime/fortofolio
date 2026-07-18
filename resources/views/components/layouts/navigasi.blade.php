@@ -14,7 +14,7 @@
             </a>
 
             <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center gap-1">
+            <nav class="hidden lg:flex items-center gap-1">
                 @php
                     $desktopLinks = [
                         ['route' => 'home', 'label' => 'Home'],
@@ -22,6 +22,7 @@
                         ['route' => 'skill', 'label' => 'Skills'],
                         ['route' => 'project', 'label' => 'Project'],
                         ['route' => 'certification', 'label' => 'Certification'],
+                        ['route' => 'contact', 'label' => 'contact']
                        
                     ];
                 @endphp
@@ -42,15 +43,15 @@
             </nav>
 
             <!-- Desktop CTA -->
-            <a href="#"
-               class="hidden md:flex items-center gap-2 bg-primary text-on-primary font-medium text-[13px] px-5 py-2.5 rounded-full shadow-md hover:shadow-lg hover:shadow-primary/20 active:scale-[0.97] transition-all duration-300">
+            <a href="{{ route('contact') }}" wire:navigate
+               class="hidden lg:flex items-center gap-2 bg-primary text-on-primary font-medium text-[13px] px-5 py-2.5 rounded-full shadow-md hover:shadow-lg hover:shadow-primary/20 active:scale-[0.97] transition-all duration-300">
                 <span>Hire Me</span>
                 <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
             </a>
 
             <!-- Mobile Menu Toggle (Animated Hamburger) -->
             <button @click="mobileMenuOpen = !mobileMenuOpen"
-                    class="md:hidden relative w-10 h-10 flex items-center justify-center rounded-xl hover:bg-surface-container-high active:scale-90 transition-all duration-200"
+                    class="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-xl hover:bg-surface-container-high active:scale-90 transition-all duration-200"
                     aria-label="Toggle menu">
                 <div class="w-5 h-4 flex flex-col justify-between">
                     <span class="block h-[2px] w-full bg-on-surface rounded-full transition-all duration-300 origin-center"
@@ -73,7 +74,7 @@
          x-transition:leave-start="opacity-100"
          x-transition:leave-end="opacity-0"
          @click="mobileMenuOpen = false"
-         class="fixed inset-0 bg-on-surface/40 backdrop-blur-sm z-[60] md:hidden"
+         class="fixed inset-0 bg-on-surface/40 backdrop-blur-sm z-[60] lg:hidden"
          style="display: none;">
     </div>
 
@@ -85,7 +86,7 @@
          x-transition:leave="transition ease-in duration-300 transform"
          x-transition:leave-start="translate-x-0"
          x-transition:leave-end="translate-x-full"
-         class="fixed right-0 top-0 h-full w-[80%] max-w-[320px] bg-surface/95 backdrop-blur-2xl shadow-[-8px_0_30px_rgba(0,0,0,0.1)] z-[70] md:hidden flex flex-col"
+         class="fixed right-0 top-0 h-full w-[80%] max-w-[320px] bg-surface/95 backdrop-blur-2xl shadow-[-8px_0_30px_rgba(0,0,0,0.1)] z-[70] lg:hidden flex flex-col"
          style="display: none;">
 
         <!-- Drawer Header -->
@@ -113,7 +114,7 @@
                     ['route' => 'home', 'icon' => 'home', 'label' => 'Home', 'desc' => 'Halaman utama'],
                     ['route' => 'about', 'icon' => 'person', 'label' => 'About', 'desc' => 'Tentang saya'],
                     ['route' => 'skill', 'icon' => 'code', 'label' => 'Skills', 'desc' => 'Kemampuan teknis'],
-                    ['route' => 'project', 'icon' => 'work', 'label' => 'Project', 'desc' => 'Proyek yang telah dikerjakan'],
+                  
                    
                 ];
             @endphp
@@ -155,9 +156,8 @@
                     $moreLinks = [
                         ['route' => 'project', 'icon' => 'work', 'label' => 'Projects', 'desc' => 'Karya & proyek'],
                         ['route' => 'certification', 'icon' => 'license', 'label' => 'Certification', 'desc' => 'Sertifikasi yang telah diperoleh'],
-                        ['route' => '#', 'icon' => 'history_edu', 'label' => 'Experience', 'desc' => 'Pengalaman kerja'],
                         ['route' => '#', 'icon' => 'article', 'label' => 'Blog', 'desc' => 'Tulisan & artikel'],
-                        ['route' => '#', 'icon' => 'mail', 'label' => 'Contact', 'desc' => 'Hubungi saya'],
+                        ['route' => 'contact', 'icon' => 'mail', 'label' => 'Contact', 'desc' => 'Hubungi saya'],
                     ];
                 @endphp
                 @foreach($moreLinks as $index => $link)
@@ -181,7 +181,7 @@
 
         <!-- Drawer Footer -->
         <div class="px-4 pb-6 pt-2">
-            <a href="#"
+            <a href="{{ route('contact') }}" wire:navigate
                class="flex items-center justify-center gap-2 w-full bg-primary text-on-primary font-semibold text-[14px] px-6 py-3.5 rounded-2xl shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 active:scale-[0.97] transition-all duration-300">
                 <span>Hire Me</span>
                 <span class="material-symbols-outlined text-[18px]">send</span>

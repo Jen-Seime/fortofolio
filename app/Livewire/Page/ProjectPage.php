@@ -6,9 +6,11 @@ use App\Models\CategoryRole;
 use App\Models\Project;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
 
+#[Title('Project')]
 class ProjectPage extends Component
 {
     use WithPagination;

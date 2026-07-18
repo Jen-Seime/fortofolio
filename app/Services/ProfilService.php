@@ -13,16 +13,10 @@ class ProfilService
      */
     public function getProfil(): ?Profil
     {
-        return Cache::remember('profil_data', now()->addDay(), function () {
-            return Profil::with('image')->first();
-        });
+        return Profil::with('image')->first();
     }
 
     /**
      * Membersihkan cache profil.
      */
-    public function clearCache(): void
-    {
-        Cache::forget('profil_data');
-    }
 }

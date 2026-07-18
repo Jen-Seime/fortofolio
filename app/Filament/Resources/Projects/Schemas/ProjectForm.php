@@ -21,20 +21,22 @@ class ProjectForm
     {
         return $schema
             ->components([
-                Section::make('Image Project')
+                Section::make('Gambar & Galeri Project')
+                    ->description('Kelola gambar utama dan galeri tambahan untuk project Anda.')
                     ->columns(2)
                     ->schema([
-
                         Group::make()
                             ->relationship('image')
                             ->schema([
                                 FileUpload::make('url')
-                                    ->label('Gambar Project')
+                                    ->label('Gambar Utama (Cover)')
                                     ->directory('Gambar-project')
                                     ->disk('public')
                                     ->visibility('public')
                                     ->image()
-                                    ->required(),
+                                    ->imageEditor()
+                                    ->required()
+                                    ->helperText('Gambar ini akan ditampilkan sebagai cover utama project.'),
                                 Hidden::make('type')
                                     ->default('cover'),
                             ]),
@@ -43,61 +45,83 @@ class ProjectForm
                             ->relationship('thumbnails')
                             ->schema([
                                 FileUpload::make('url')
-
-                                    ->label('Thumbnail')
+                                    ->label('Foto Galeri / Detail')
                                     ->directory('Gambar-project')
                                     ->disk('public')
                                     ->visibility('public')
                                     ->image()
+                                    ->imageEditor()
                                     ->required(),
                                 Hidden::make('type')
                                     ->default('thumbnail'),
-                            ]),
+                            ])
+                            ->label('Galeri Pendukung')
+                            ->grid(2)
+                            ->helperText('Unggah beberapa gambar pendukung atau screenshot detail project.'),
 
                     ])->columnSpanFull(),
 
-                Section::make('Project Details')
+                Section::make('Detail Informasi Project')
+                    ->description('Lengkapi data informasi dan tautan project Anda.')
                     ->columns(2)
                     ->schema([
                         TextInput::make('title')
                             ->label('Judul Project')
+                            ->placeholder('Contoh: Sistem Informasi Keuangan')
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(fn ($state, callable $set) => $set('slug', \Illuminate\Support\Str::slug($state)))
                             ->required(),
 
                         TextInput::make('slug')
-                            ->label('Slug')
-                            ->required(),
+                            ->label('Slug URL')
+                            ->placeholder('otomatis-dibuat-dari-judul')
+                            ->required()
+                            ->helperText('Digunakan untuk URL halaman detail project.'),
 
                         Select::make('category_role_id')
                             ->relationship('category_role', 'name')
-                            ->label('Category Role')
+                            ->label('Peran Kategori (Category Role)')
+                            ->searchable()
+                            ->preload()
                             ->required(),
 
-                        MarkdownEditor::make('description')
-                            ->columnSpanFull()
-
-                            ->label('Deskripsi Project')
+                        DatePicker::make('date')
+                            ->label('Tanggal Selesai / Rilis')
+                            ->native(false)
+                            ->displayFormat('d M Y')
                             ->required(),
 
                         TagsInput::make('technology')
-                            ->label('Teknologi')
-                            ->required(),
+                            ->label('Teknologi yang Digunakan')
+                            ->placeholder('Ketik lalu tekan enter (Contoh: Laravel, TailwindCSS, Livewire)')
+                            ->required()
+                            ->columnSpanFull(),
 
                         TextInput::make('demo_link')
-                            ->label('Link Project')
+                            ->label('Tautan Live Demo')
+                            ->placeholder('https://myproject.com')
+                            ->prefix('https://')
                             ->nullable(),
 
                         TextInput::make('github_link')
-                            ->label('Link Source Code')
+                            ->label('Tautan Source Code (GitHub)')
+                            ->placeholder('github.com/username/project')
+                            ->prefix('github.com/')
                             ->nullable(),
 
-                        DatePicker::make('date')
-                            ->label('Tanggal')
-                            ->required(),
-
                         Toggle::make('is_featured')
-                            ->label('Project Pilihan')
-                            ->required(),
+                            ->label('Tampilkan Sebagai Project Pilihan (Featured)')
+                            ->helperText('Aktifkan agar project ini tampil secara eksklusif di halaman depan portofolio.')
+                            ->onColor('success')
+                            ->offColor('danger')
+                            ->required()
+                            ->columnSpanFull(),
 
+                        MarkdownEditor::make('description')
+                            ->columnSpanFull()
+                            ->label('Deskripsi Lengkap Project')
+                            ->placeholder('Tuliskan detail tantangan, solusi, fitur-fitur, dan proses pembuatan project ini...')
+                            ->required(),
                     ])->columnSpanFull(),
             ]);
     }

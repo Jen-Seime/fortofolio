@@ -141,7 +141,7 @@
             </div>
         @else
             <!-- Empty State -->
-            <x-EmptyState.EmptyState title='Belum Ada Riwayat Perjalanan' description="'Perjalanan profesional dan pencapaian akan segera hadir di sini."/>
+            <x-EmptyState.EmptyState class="w-[80%]" title='Belum Ada Riwayat Perjalanan' description="'Perjalanan profesional dan pencapaian akan segera hadir di sini."/>
             
         @endif
     </section>

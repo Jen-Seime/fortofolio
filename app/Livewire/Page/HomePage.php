@@ -6,8 +6,10 @@ use App\Services\ExperienceService;
 use App\Services\ProfilService;
 use App\Services\ProjectService;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title('Home')]
 class HomePage extends Component
 {
     #[Computed]

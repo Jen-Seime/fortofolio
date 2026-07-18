@@ -15,24 +15,17 @@ class SkillForm
     {
         return $schema
             ->components([
-                Section::make('Detail Skill')
+                Section::make('Detail Keahlian / Skill')
+                    ->description('Kelola keahlian teknologi Anda yang akan ditampilkan di portofolio.')
                     ->columns(2)
                     ->schema([
                         TextInput::make('name')
-                            ->label('Skill')
-                            ->placeholder('Contoh: PHP')
+                            ->label('Nama Skill')
+                            ->placeholder('Contoh: PHP, React, Laravel')
                             ->required(),
-                        Select::make('level')
-                            ->label('Level')
-                            ->options([
-                                'Beginner' => 'Beginner',
-                                'Intermediate' => 'Intermediate',
-                                'Advanced' => 'Advanced',
-                                'Expert' => 'Expert',
-                            ])
-                            ->required(),
+
                         Select::make('category')
-                            ->label('Category')
+                            ->label('Kategori')
                             ->options([
                                 'Backend' => 'Backend',
                                 'Frontend' => 'Frontend',
@@ -40,18 +33,29 @@ class SkillForm
                             ])
                             ->required(),
 
+                        Select::make('level')
+                            ->label('Tingkat Kemahiran')
+                            ->options([
+                                'Beginner' => 'Beginner',
+                                'Intermediate' => 'Intermediate',
+                                'Advanced' => 'Advanced',
+                                'Expert' => 'Expert',
+                            ])
+                            ->required(),
+
                         Group::make()
                             ->relationship('image')
                             ->schema([
                                 FileUpload::make('url')
-                                    ->label('Icon (PNG)')
+                                    ->label('Icon Skill (PNG/SVG)')
                                     ->image()
                                     ->directory('skills')
-                                    ->disk('public'),
+                                    ->disk('public')
+                                    ->maxSize(1024)
+                                    ->helperText('Gunakan gambar dengan format PNG/SVG dengan rasio 1:1.'),
                             ]),
                     ])
                     ->columnSpanFull(),
-
             ]);
     }
 }
