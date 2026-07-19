@@ -21,7 +21,7 @@
                         </div>
                         <div>
                             <p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Electronic Mail</p>
-                            <a class="font-body-md text-body-md text-on-background hover:text-primary transition-colors" href="mailto:mailto:{{ $contact->email }}">{{ $contact->email  }}</a>
+                            <a class="font-body-md text-body-md text-on-background hover:text-primary transition-colors" href="mailto:mailto:{{ $contact->email ?? '' }}">{{ $contact->email ?? ''  }}</a>
                         </div>
                     </div>
                     
@@ -44,11 +44,11 @@
             <div class="bg-surface-container-lowest/80 backdrop-blur-[12px] border border-outline-variant/40 rounded-xl p-8 shadow-sm">
                 <h3 class="font-label-mono text-label-mono text-secondary mb-6 uppercase tracking-wider">Digital Footprint</h3>
                 <div class="flex gap-4">
-                    <a href="{{ $contact->github }}" class="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-surface-container-low/50 border border-outline-variant/50 hover:border-secondary hover:bg-secondary/5 transition-all group" href="#">
+                    <a href="{{ $contact?->github }}" class="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-surface-container-low/50 border border-outline-variant/50 hover:border-secondary hover:bg-secondary/5 transition-all group" href="#">
                         <span class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary transition-colors">code</span>
                         <span class="font-body-sm text-body-sm text-on-surface group-hover:text-secondary transition-colors">GitHub</span>
                     </a>
-                    <a href="{{ $contact->linkedin }}" class="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-surface-container-low/50 border border-outline-variant/50 hover:border-primary hover:bg-primary/5 transition-all group" href="#">
+                    <a href="{{ $contact?->linkedin }}" class="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-surface-container-low/50 border border-outline-variant/50 hover:border-primary hover:bg-primary/5 transition-all group" href="#">
                         <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">work</span>
                         <span class="font-body-sm text-body-sm text-on-surface group-hover:text-primary transition-colors">LinkedIn</span>
                     </a>
