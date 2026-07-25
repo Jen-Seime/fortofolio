@@ -4,7 +4,7 @@
     <header class="mb-stack-lg text-center md:text-left">
         <h1 class="font-headline-xl font-bold text-[clamp(28px,5vw,44px)] leading-[1.15] text-primary skill-fade-in mb-stack-sm" style="--delay: 0.1s"><span class=" text-on-surface">Featured</span> Projects</h1>
         <p class="font-body-md text-[15px] text-on-surface-variant skill-fade-in max-w-2xl" style="--delay: 0.2s">
-            A curated selection of my technical work, showcasing problem-solving through clean code, modern architectures, and scalable solutions.
+           Kumpulan pilihan karya teknis terbaik saya yang menampilkan kemampuan dalam memecahkan masalah melalui kode yang bersih, arsitektur modern, dan solusi yang skalabel.
         </p>
     </header>
 

@@ -4,12 +4,12 @@
     <div class="bg-surface/70 backdrop-blur-2xl border-b border-outline-variant/20 shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
         <div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-16">
             <!-- Logo -->
-            <a href="{{ route('home') }}" class="flex items-center gap-2 group">
-                <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center shadow-md group-hover:shadow-primary/30 transition-all duration-300 group-hover:scale-105">
+            <a wire:navigate href="{{ route('home') }}" class="flex items-center gap-2 group">
+                {{-- <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center shadow-md group-hover:shadow-primary/30 transition-all duration-300 group-hover:scale-105">
                     <span class="text-on-primary font-bold text-sm">D</span>
-                </div>
+                </div> --}}
                 <span class="font-headline-lg text-[20px] font-bold text-on-surface tracking-tight">
-                    Dev<span class="text-primary">Portfolio</span>
+                    Jen<span class="text-primary">Seime</span>
                 </span>
             </a>
 
@@ -46,7 +46,7 @@
             <a href="{{ route('contact') }}" wire:navigate
                class="hidden lg:flex items-center gap-2 bg-primary text-on-primary font-medium text-[13px] px-5 py-2.5 rounded-full shadow-md hover:shadow-lg hover:shadow-primary/20 active:scale-[0.97] transition-all duration-300">
                 <span>Hire Me</span>
-                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                <span class="material-symbols-outlined text-[18px]">send</span>
             </a>
 
             <!-- Mobile Menu Toggle (Animated Hamburger) -->
@@ -92,11 +92,11 @@
         <!-- Drawer Header -->
         <div class="flex items-center justify-between px-6 py-5 border-b border-outline-variant/15">
             <div class="flex items-center gap-2">
-                <div class="w-7 h-7 rounded-lg bg-primary flex items-center justify-center">
+                {{-- <div class="w-7 h-7 rounded-lg bg-primary flex items-center justify-center">
                     <span class="text-on-primary font-bold text-xs">D</span>
-                </div>
+                </div> --}}
                 <span class="font-headline-lg text-[16px] font-semibold text-on-surface">
-                    Dev<span class="text-primary">Portfolio</span>
+                    Jen<span class="text-primary">Seime</span>
                 </span>
             </div>
             <button @click="mobileMenuOpen = false"
@@ -156,7 +156,6 @@
                     $moreLinks = [
                         ['route' => 'project', 'icon' => 'work', 'label' => 'Projects', 'desc' => 'Karya & proyek'],
                         ['route' => 'certification', 'icon' => 'license', 'label' => 'Certification', 'desc' => 'Sertifikasi yang telah diperoleh'],
-                        ['route' => '#', 'icon' => 'article', 'label' => 'Blog', 'desc' => 'Tulisan & artikel'],
                         ['route' => 'contact', 'icon' => 'mail', 'label' => 'Contact', 'desc' => 'Hubungi saya'],
                     ];
                 @endphp
@@ -181,7 +180,7 @@
 
         <!-- Drawer Footer -->
         <div class="px-4 pb-6 pt-2">
-            <a href="{{ route('contact') }}" wire:navigate
+            <a wire:navigate href="{{ route('contact') }}"
                class="flex items-center justify-center gap-2 w-full bg-primary text-on-primary font-semibold text-[14px] px-6 py-3.5 rounded-2xl shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 active:scale-[0.97] transition-all duration-300">
                 <span>Hire Me</span>
                 <span class="material-symbols-outlined text-[18px]">send</span>
@@ -189,13 +188,13 @@
 
             <!-- Social Links -->
             <div class="flex items-center justify-center gap-3 mt-4">
-                <a href="#" class="w-9 h-9 rounded-xl bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300">
+                <a href="{{ $github ?? '#' }}" class="w-9 h-9 rounded-xl bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300">
                     <i class="fa-brands fa-github text-[16px]"></i>
                 </a>
-                <a href="#" class="w-9 h-9 rounded-xl bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300">
+                <a href="{{ $linkedin ?? '#' }}" class="w-9 h-9 rounded-xl bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300">
                     <i class="fa-brands fa-linkedin-in text-[16px]"></i>
                 </a>
-                <a href="#" class="w-9 h-9 rounded-xl bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300">
+                <a href="{{ $instagram ?? '#' }}" class="w-9 h-9 rounded-xl bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300">
                     <i class="fa-brands fa-instagram text-[16px]"></i>
                 </a>
             </div>

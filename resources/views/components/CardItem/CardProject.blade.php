@@ -1,5 +1,5 @@
 <!-- Project Card 1 -->
-<a class="contents" href="{{ route('project.detail', $project) }}">
+<a wire:navigate class="contents" href="{{ route('project.detail', $project) }}">
 
 <div class="glass-panel rounded-xl overflow-hidden group glow-effect hover:border-primary/30  transition-all duration-500 hover:-translate-y-2 ">
     <div class="relative h-48 w-full overflow-hidden bg-surface-container-high">
@@ -12,7 +12,7 @@
     </div>
 
     <div class="p-stack-md flex flex-col h-[calc(100%-12rem)]">
-        <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">{{ $project?->title }}</h3>
+        <h3 class="font-headline-lg-mobile text-headline-sm-mobile text-on-surface mb-2">{{ $project?->title }}</h3>
         <p class="font-body-sm text-body-sm text-on-surface-variant mb-stack-md flex-grow">
             {{  substr($project?->description, 0, 100)  }}
         </p>

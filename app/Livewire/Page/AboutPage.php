@@ -33,6 +33,7 @@ class AboutPage extends Component
 
     public function render()
     {
+       
         return view('livewire.page.about-page', [
             'tentang' => $this->tentang,
             'pengalamans' => $this->pengalamans(),
