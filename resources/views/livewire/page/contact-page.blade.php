@@ -1,7 +1,7 @@
  <!-- Main Content Canvas -->
 <main class="relative z-10 pt-32 pb-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
     <!-- Page Header -->
-    <x-Header.Header title_first=" Initialize" title_least="Connection" description=" Whether you have a specific project outline or just want to explore possibilities, my inbox is open. Let's discuss architecture, code, and creating scalable digital experiences." />
+    <x-Header.Header title_first=" Initialize" title_least="Connection" description="Punya ide proyek yang udah jelas atau masih pengen ngobrolin kemungkinan-kemungkinan, kotak masuk gue selalu kebuka. Yuk bahas arsitektur, kode, sampai bikin pengalaman digital yang scalable." />
 
    
 
@@ -14,26 +14,29 @@
                 <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <h3 class="font-label-mono text-label-mono text-primary mb-6 uppercase tracking-wider">Direct Access</h3>
                 
-                <div class="space-y-6 relative z-10">
-                    <div class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
-                            <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">mail</span>
+                <div class="space-y-4 relative z-10">
+                    <a href="mailto:{{ $contact->email ?? '' }}"
+                        class="group/item relative flex items-start gap-4 rounded-2xl border border-outline-variant/30 bg-surface-container-low/50 p-4 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-primary/5 hover:shadow-lg hover:shadow-primary/10">
+                        <div class="absolute inset-y-0 left-0 w-1 bg-primary scale-y-0 origin-bottom transition-transform duration-300 group-hover/item:scale-y-100"></div>
+                        <div class="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 transition-all duration-300 group-hover/item:bg-primary group-hover/item:shadow-md group-hover/item:shadow-primary/25">
+                            <span class="material-symbols-outlined text-primary transition-colors duration-300 group-hover/item:text-on-primary" style="font-variation-settings: 'FILL' 1;">mail</span>
                         </div>
-                        <div>
-                            <p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Electronic Mail</p>
-                            <a class="font-body-md text-body-md text-on-background hover:text-primary transition-colors" href="mailto:mailto:{{ $contact->email ?? '' }}">{{ $contact->email ?? ''  }}</a>
+                        <div class="min-w-0 flex-1">
+                            <p class="font-body-sm text-body-sm text-on-surface-variant mb-1 transition-colors duration-300 group-hover/item:text-primary">Electronic Mail</p>
+                            <p class="font-body-md text-body-md text-on-background break-all transition-colors duration-300 group-hover/item:text-primary">{{ $contact->email ?? '' }}</p>
                         </div>
-                    </div>
+                        
+                    </a>
                     
-                    <div class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center shrink-0 border border-tertiary/20">
-                            <span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">location_on</span>
+                    <div class="group/item relative flex items-start gap-4 rounded-2xl border border-outline-variant/30 bg-surface-container-low/50 p-4 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-tertiary/30 hover:bg-tertiary/5 hover:shadow-lg hover:shadow-tertiary/10">
+                        <div class="absolute inset-y-0 left-0 w-1 bg-tertiary scale-y-0 origin-bottom transition-transform duration-300 group-hover/item:scale-y-100"></div>
+                        <div class="w-11 h-11 rounded-xl bg-tertiary/10 flex items-center justify-center shrink-0 border border-tertiary/20 transition-all duration-300 group-hover/item:bg-tertiary group-hover/item:shadow-md group-hover/item:shadow-tertiary/25">
+                            <span class="material-symbols-outlined text-tertiary transition-colors duration-300 group-hover/item:text-on-tertiary" style="font-variation-settings: 'FILL' 1;">location_on</span>
                         </div>
-                        <div>
-                            <p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Location</p>
-                            <p class="font-body-md text-body-md text-on-background">
-                                {{ $contact?->address }}<br />
-                              
+                        <div class="min-w-0 flex-1">
+                            <p class="font-body-sm text-body-sm text-on-surface-variant mb-1 transition-colors duration-300 group-hover/item:text-tertiary">Location</p>
+                            <p class="font-body-md text-body-md text-on-background transition-colors duration-300 group-hover/item:text-tertiary">
+                                {{ $contact?->address }}
                             </p>
                         </div>
                     </div>
@@ -43,15 +46,32 @@
             <!-- Socials Card -->
             <div class="bg-surface-container-lowest/80 backdrop-blur-[12px] border border-outline-variant/40 rounded-xl p-8 shadow-sm">
                 <h3 class="font-label-mono text-label-mono text-secondary mb-6 uppercase tracking-wider">Digital Footprint</h3>
-                <div class="flex gap-4">
-                    <a href="{{ $contact?->github }}" class="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-surface-container-low/50 border border-outline-variant/50 hover:border-secondary hover:bg-secondary/5 transition-all group" href="#">
-                        <span class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary transition-colors">code</span>
-                        <span class="font-body-sm text-body-sm text-on-surface group-hover:text-secondary transition-colors">GitHub</span>
+                <div class="flex items-center gap-4 mt-6 hero-fade-in" style="--delay: 0.65s">
+                    <span class="w-8 h-px bg-outline-variant/40"></span>
+                    @if($contact?->github)
+                    <a href="{{ $contact->github }}" target="_blank"
+                        class="w-10 h-10 rounded-xl bg-surface-container hover:bg-primary/10 border border-outline-variant/20 flex items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300 hover:-translate-y-1">
+                        <i class="fa-brands fa-github text-[18px]"></i>
                     </a>
-                    <a href="{{ $contact?->linkedin }}" class="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-surface-container-low/50 border border-outline-variant/50 hover:border-primary hover:bg-primary/5 transition-all group" href="#">
-                        <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">work</span>
-                        <span class="font-body-sm text-body-sm text-on-surface group-hover:text-primary transition-colors">LinkedIn</span>
+                    @endif
+                    @if($contact?->linkedin)
+                    <a href="{{ $contact->linkedin }}" target="_blank"
+                        class="w-10 h-10 rounded-xl bg-surface-container hover:bg-primary/10 border border-outline-variant/20 flex items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300 hover:-translate-y-1">
+                        <i class="fa-brands fa-linkedin-in text-[18px]"></i>
                     </a>
+                    @endif
+                    @if($contact?->instagram)
+                    <a href="{{ $contact->instagram }}" target="_blank"
+                        class="w-10 h-10 rounded-xl bg-surface-container hover:bg-primary/10 border border-outline-variant/20 flex items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300 hover:-translate-y-1">
+                        <i class="fa-brands fa-instagram text-[18px]"></i>
+                    </a>
+                    @endif
+                    @if($contact?->email)
+                    <a href="mailto:{{ $contact->email }}"
+                        class="w-10 h-10 rounded-xl bg-surface-container hover:bg-primary/10 border border-outline-variant/20 flex items-center justify-center text-on-surface-variant hover:text-primary transition-all duration-300 hover:-translate-y-1">
+                        <span class="material-symbols-outlined text-[18px]">mail</span>
+                    </a>
+                    @endif
                 </div>
             </div>
 

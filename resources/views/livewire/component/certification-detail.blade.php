@@ -52,10 +52,16 @@
 
                 <!-- Description -->
                 <div class="mb-10">
-                    <h2 class="font-body-sm text-body-sm text-outline uppercase tracking-wider mb-3 font-semibold">About the Certification</h2>
-                    <p class="font-body-md text-[15px] text-on-surface-variant leading-relaxed">
-                        {!! $certification->description !!}
-                    </p>
+                    <h2 class="font-body-sm text-body-sm text-outline uppercase tracking-wider mb-3 font-semibold pb-2 border-b border-outline-variant/20">
+                        About the Certification
+                    </h2>
+                    <div class="prose-content text-[15px] leading-relaxed text-on-surface-variant
+                        [&>p]:mb-4
+                        [&>strong]:font-semibold [&>strong]:text-on-surface
+                        [&>ol]:list-decimal [&>ol]:ml-5 [&>ol]:mb-4 [&>ol]:space-y-1
+                        [&>ul]:list-disc [&>ul]:ml-5 [&>ul]:mb-4 [&>ul]:space-y-1">
+                        {!! str($certification->description)->markdown() !!}
+                    </div>
                 </div>
 
                 <!-- Skills Covered -->
@@ -86,8 +92,5 @@
 
             </div>
         </div>
-
-
-
     </div>
 </main>

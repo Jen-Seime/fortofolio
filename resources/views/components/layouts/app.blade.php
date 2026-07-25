@@ -38,7 +38,7 @@
 
 </head>
 
-<body class="bg-background text-on-background min-h-screen relative overflow-x-hidden font-body-md text-body-md">
+<body class="bg-background text-on-background min-h-screen flex flex-col   relative overflow-x-hidden font-body-md text-body-md">
     <!-- Background Glows -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none -z-10" aria-hidden="true">
         <div class="radial-glow top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
@@ -58,7 +58,8 @@
 
 
     {{ $slot }}
-    <x-layouts.footer />
+
+    @livewire('component.footer')
 
     <script>
         function homeAnimations() {

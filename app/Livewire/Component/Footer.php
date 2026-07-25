@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Livewire\Component;
+
+use App\Services\ProfilService;
+use Livewire\Component;
+
+class Footer extends Component
+{
+    public function profil()
+    {
+        return app(ProfilService::class)->getProfil();
+    }
+
+    public function render()
+    {
+        $email = $this->profil()->email;
+        $instagram = $this->profil()->instagram;
+        $linkedin = $this->profil()->linkedin;
+        $github = $this->profil()->github;
+
+        
+        return view('livewire.component.footer', [
+            'email' => $email,
+            'instagram' => $instagram,
+            'linkedin' => $linkedin,
+            'github' => $github,
+        ]);
+    }
+}

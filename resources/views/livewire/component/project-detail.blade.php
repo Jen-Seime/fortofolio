@@ -6,7 +6,7 @@
     <!-- BACK NAVIGATION                              -->
     <!-- ============================================ -->
     <div class="mb-8 skill-fade-in" style="--delay: 0.05s">
-        <a href="{{ route('project') }}"
+        <a wire:navigate href="{{ route('project') }}"
             class="group inline-flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-sm text-[14px]">
             <span
                 class="w-8 h-8 rounded-lg bg-surface-container group-hover:bg-primary/10 flex items-center justify-center transition-all duration-300 group-hover:-translate-x-1">

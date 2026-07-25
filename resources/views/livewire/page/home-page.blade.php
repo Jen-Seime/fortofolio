@@ -1,12 +1,11 @@
 <!-- Main Content -->
-<main class="pt-24 pb-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop"
-    x-data="homeAnimations()"
-    x-init="init()">
+<main class="pt-24 pb-section-gap  flex-grow max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop"
+   >
 
     <!-- ============================================ -->
     <!-- HERO SECTION                                 -->
     <!-- ============================================ -->
-    <section class="min-h-[85vh] flex flex-col justify-center relative mb-32">
+    <section class="min-h-[85vh] md:mt-32 flex flex-col justify-center relative mb-10">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
 
             <!-- Text Content -->
@@ -33,8 +32,8 @@
                             </svg>
                         </span>
                     </h1>
-                    <h2 id="typing" class="font-headline-xl text-[clamp(24px,4.5vw,44px)] leading-[1.2] text-on-surface-variant font-semibold mt-2">
-                        <!-- {{ $profil?->role ?? 'IT Student & Web Developer' }} -->
+                    <h2 id="" class="font-headline-xl text-[clamp(24px,4.5vw,44px)] leading-[1.2] text-on-surface-variant font-semibold mt-2">
+                        {{ $profil?->role ?? 'IT Student & Web Developer' }}
                         <!-- <span class="text-primary animate-blink">|</span> -->
                          
                     </h2>
@@ -46,16 +45,16 @@
                 </p>
 
                 <!-- CTA Buttons -->
-                <div class="flex flex-wrap gap-3 mt-8 hero-fade-in" style="--delay: 0.55s">
+                <div class="flex flex-row  md:flex-row  gap-3 mt-8 hero-fade-in" style="--delay: 0.55s">
                     <a href="#projects"
-                        class="group relative bg-primary text-on-primary font-semibold text-[14px] px-7 py-3.5 rounded-2xl shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 active:scale-[0.97] transition-all duration-300 flex items-center gap-2 overflow-hidden">
+                        class="group relative bg-primary text-on-primary font-semibold  text-[14px] px-5 py-3 md:px-7 md:py-3.5 rounded-2xl shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 active:scale-[0.97] transition-all duration-300 flex items-center gap-2 overflow-hidden">
                         <span class="relative z-10">View Projects</span>
                         <span class="material-symbols-outlined text-[18px] relative z-10 group-hover:translate-x-1 transition-transform duration-300">arrow_forward</span>
                         <div class="absolute inset-0 bg-gradient-to-r from-primary to-primary-container opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </a>
                     @if($profil?->cv_file)
                     <a href="{{ asset('storage/' . $profil->cv_file) }}"
-                        class="group bg-surface border border-outline-variant/30 text-on-surface font-semibold text-[14px] px-7 py-3.5 rounded-2xl hover:border-primary/30 hover:bg-primary/5 active:scale-[0.97] transition-all duration-300 glass-card flex items-center gap-2">
+                        class="group bg-surface border border-outline-variant/30 text-on-surface font-semibold text-[14px] px-5 py-3 md:px-7 md:py-3.5 rounded-2xl hover:border-primary/30 hover:bg-primary/5 active:scale-[0.97] transition-all duration-300 glass-card flex items-center gap-2">
                         <span>Download CV</span>
                         <span class="material-symbols-outlined text-[18px] group-hover:translate-y-0.5 transition-transform duration-300">download</span>
                     </a>
@@ -96,11 +95,11 @@
             <div class="lg:col-span-5 relative order-first lg:order-last mb-16 lg:mb-0 flex justify-center lg:block hero-fade-in" style="--delay: 0.3s">
 
                 <!-- Decorative floating elements -->
-                <div class="absolute -top-6 -right-6 w-24 h-24 bg-primary/5 rounded-full blur-2xl floating-slow"></div>
-                <div class="absolute -bottom-8 -left-8 w-32 h-32 bg-secondary/5 rounded-full blur-2xl floating-medium"></div>
+                <div class="absolute hidden md:block -top-6 -right-6 w-24 h-24 bg-primary/5 rounded-full blur-2xl floating-slow"></div>
+                <div class="absolute hidden md:block -bottom-8 -left-8 w-32 h-32 bg-secondary/5 rounded-full blur-2xl floating-medium"></div>
 
                 <!-- Orbit ring decoration -->
-                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div class="absolute hidden md:flex items-center justify-center pointer-events-none">
                     <div class="w-[110%] h-[110%] rounded-full border border-dashed border-outline-variant/15 orbit-spin"></div>
                 </div>
 
@@ -124,7 +123,7 @@
                     </div>
 
                     <!-- Tech badges floating on image -->
-                    <div class="absolute -bottom-3 -left-3 lg:bottom-6 lg:-left-4 glass-panel px-3 py-2 rounded-xl shadow-lg flex items-center gap-2 floating-slow">
+                    <div class="absolute hidden md:flex -bottom-3 -left-3 lg:bottom-6 lg:-left-4 glass-panel px-3 py-2 rounded-xl shadow-lg flex items-center gap-2 floating-slow">
                         <div class="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center">
                             <span class="material-symbols-outlined text-primary text-[16px]">code</span>
                         </div>
@@ -134,7 +133,7 @@
                         </div>
                     </div>
 
-                    <div class="absolute -top-2 -right-2 lg:top-8 lg:-right-4 glass-panel px-3 py-2 rounded-xl shadow-lg flex items-center gap-2 floating-medium">
+                    <div class="absolute hidden md:flex -top-2 -right-2 lg:top-8 lg:-right-4 glass-panel px-3 py-2 rounded-xl shadow-lg flex items-center gap-2 floating-medium">
                         <div class="w-7 h-7 rounded-lg bg-secondary/10 flex items-center justify-center">
                             <span class="material-symbols-outlined text-secondary text-[16px]">palette</span>
                         </div>
@@ -144,7 +143,7 @@
                         </div>
                     </div>
 
-                    <div class="absolute bottom-16 -right-3 lg:bottom-24 lg:-right-6 glass-panel px-3 py-2 rounded-xl shadow-lg flex items-center gap-2 floating-fast hidden lg:flex">
+                    <div class="absolute hidden md:flex bottom-16 -right-3 lg:bottom-24 lg:-right-6 glass-panel px-3 py-2 rounded-xl shadow-lg flex items-center gap-2 floating-fast">
                         <div class="w-7 h-7 rounded-lg bg-tertiary/10 flex items-center justify-center">
                             <span class="material-symbols-outlined text-tertiary text-[16px]">bolt</span>
                         </div>
@@ -160,11 +159,11 @@
         <!-- Stats Row -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-20 hero-fade-in" style="--delay: 0.75s">
             <div class="glass-card rounded-2xl p-5 text-center group hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-300">
-                <div class="text-[28px] font-bold text-primary mb-1" x-data="counter({{ $yearsOfExperience }})" x-text="display + '+'">{{ $yearsOfExperience }}+</div>
+                <div class="text-[28px] font-bold text-primary mb-1" id="counter1" data-target="{{ $yearsOfExperience }}">{{ $yearsOfExperience }}+</div>
                 <div class="text-[12px] text-on-surface-variant uppercase tracking-wider font-medium">Years Exp.</div>
             </div>
             <div class="glass-card rounded-2xl p-5 text-center group hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-300">
-                <div class="text-[28px] font-bold text-primary mb-1" x-data="counter({{ count($projects) }})" x-text="display + '+'">{{ count($projects) }}+</div>
+                <div class="text-[28px] font-bold text-primary mb-1" id="counter2" data-target="{{ count($projects) }}">{{ count($projects) }}+</div>
                 <div class="text-[12px] text-on-surface-variant uppercase tracking-wider font-medium">Projects</div>
             </div>
             <div class="glass-card rounded-2xl p-5 text-center group hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-300">
@@ -195,19 +194,19 @@
 
         <!-- Section Header -->
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-14 gap-6">
-            <div>
+            <div class="flex flex-col items-center md:items-start text-center md:text-left">
                 <div class="inline-flex items-center gap-2 bg-primary/8 text-primary font-label-mono text-label-mono px-4 py-1.5 rounded-full mb-4">
                     <span class="material-symbols-outlined text-[14px]">work</span>
                     Portfolio
                 </div>
-                <h2 class="font-headline-xl text-[clamp(28px,4vw,40px)] text-on-surface font-bold tracking-tight">
+                <h2 class="font-headline-xl text-center md:text-left text-[clamp(28px,4vw,40px)] text-on-surface font-bold tracking-tight">
                     Selected <span class="text-primary">Projects</span>
                 </h2>
                 <p class="text-on-surface-variant mt-3 max-w-lg text-[15px] leading-relaxed">
                     A curated collection of digital experiences crafted with performance and user experience at the core.
                 </p>
             </div>
-            <a href="#" class="group flex items-center gap-2 text-primary font-semibold text-[14px] bg-primary/5 hover:bg-primary/10 px-5 py-2.5 rounded-full transition-all duration-300">
+            <a href="#" class="group flex self-end items-center gap-2 text-primary font-semibold text-[14px] bg-primary/5 hover:bg-primary/10 px-5 py-2.5 rounded-full transition-all duration-300">
                 View All
                 <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform duration-300">arrow_forward</span>
             </a>
@@ -235,15 +234,40 @@
    
 
     <script>
-        new TypeIt("#typing", {
-            speed: 80,
-            loop: true,
-        })
-        .type("{{ $profil?->role ?? 'IT Student & Web Developer' }}")
-        .pause(1000)
-        .delete()
+        // new TypeIt("#typing", {
+        //     speed: 80,
+        //     loop: true,
+        // })
+        // .type("{{ $profil?->role ?? 'IT Student & Web Developer' }}")
+        // .pause(1000)
+        // .delete()
         
-        .go();
+        // .go();
+
+        function startShuffleCounter(elementId, duration = 1500) {
+            const el = document.getElementById(elementId);
+            const target = parseInt(el.getAttribute('data-target'), 10);
+            const startTime = Date.now();
+            const speed = 40; // Kecepatan acak per ms
+
+            const interval = setInterval(() => {
+                const elapsedTime = Date.now() - startTime;
+
+                if (elapsedTime < duration) {
+                    // Angka acak sementara
+                    el.textContent = Math.floor(Math.random() * Math.max(target * 2, 99));
+                } else {
+                    // Tampilkan angka asli & berhentikan timer
+                    el.textContent = target;
+                    clearInterval(interval);
+                }
+            }, speed);
+        }
+
+        // Jalankan fungsi
+        startShuffleCounter('counter1');
+        startShuffleCounter('counter2');
+
     </script>
 
 

@@ -12,11 +12,11 @@ class Education extends Model
     protected static function booted()
     {
         static::saved(function () {
-            Cache::forget('experience_data');
+            Cache::forget('education_data');
         });
 
         static::deleted(function () {
-            Cache::forget('experience_data');
+            Cache::forget('education_data');
         });
     }
 }
