@@ -40,7 +40,7 @@
                                 @if ($tentang?->image)
                                     <img alt="{{ $tentang->full_name }}"
                                          class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-                                         src="{{ asset('storage/' . $tentang->image->url) }}" />
+                                         src="{{ asset('uploads/' . $tentang->image->url) }}" />
                                 @else
                                     <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-surface-variant to-surface-container text-on-surface-variant">
                                         <span class="material-symbols-outlined text-7xl opacity-40">person</span>

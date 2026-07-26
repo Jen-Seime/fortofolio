@@ -4,7 +4,7 @@
 <div class="glass-panel rounded-xl overflow-hidden group glow-effect hover:border-primary/30  transition-all duration-500 hover:-translate-y-2 ">
     <div class="relative h-48 w-full overflow-hidden bg-surface-container-high">
         @if($project?->image)
-            <img alt="Project Thumbnail" class="w-full h-full object-cover opacity-90 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500" src="{{ asset('storage/' . $project?->image->url) }}" />
+            <img alt="Project Thumbnail" class="w-full h-full object-cover opacity-90 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500" src="{{ asset('uploads/' . $project?->image->url) }}" />
         @else
             <img alt="Project Thumbnail" class="w-full h-full object-cover opacity-90 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500" src="{{ asset('/fotokosong.png') }}" />
         @endif

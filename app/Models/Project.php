@@ -30,6 +30,11 @@ class Project extends Model
         return $this->morphMany(Image::class, 'imageable')->where('type', 'thumbnail');
     }
 
+    public function images(): MorphMany
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
     public function category_role()
     {
         return $this->belongsTo(CategoryRole::class);
@@ -39,6 +44,10 @@ class Project extends Model
     {
         static::saved(function () {
             Cache::forget('projects_data');
+        });
+
+        static::deleting(function ($project) {
+            $project->images->each->delete();
         });
 
         static::deleted(function () {

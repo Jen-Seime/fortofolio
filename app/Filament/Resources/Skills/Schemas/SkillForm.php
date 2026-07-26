@@ -50,7 +50,8 @@ class SkillForm
                                     ->label('Icon Skill (PNG/SVG)')
                                     ->image()
                                     ->directory('skills')
-                                    ->disk('public')
+                                    ->disk('public_uploads')
+                                    ->visibility('public')
                                     ->maxSize(1024)
                                     ->helperText('Gunakan gambar dengan format PNG/SVG dengan rasio 1:1.'),
                             ]),

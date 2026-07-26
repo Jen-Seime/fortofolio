@@ -14,10 +14,10 @@ class Footer extends Component
 
     public function render()
     {
-        $email = $this->profil()->email;
-        $instagram = $this->profil()->instagram;
-        $linkedin = $this->profil()->linkedin;
-        $github = $this->profil()->github;
+        $email = $this->profil()?->email ?? "[EMAIL_ADDRESS]";
+        $instagram = $this->profil()?->instagram ?? "";
+        $linkedin = $this->profil()?->linkedin ?? "";
+        $github = $this->profil()?->github ?? "";
 
         
         return view('livewire.component.footer', [
