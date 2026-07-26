@@ -110,7 +110,7 @@
                     <div class="relative glass-card p-1.5 rounded-full lg:rounded-2xl overflow-hidden">
                         <div class="w-64 h-64 lg:w-full lg:h-[480px] bg-surface-container-high rounded-full lg:rounded-xl overflow-hidden relative">
                             @if($profil?->image)
-                            <img src="{{ asset('storage/' . $profil->image->url) }}"
+                            <img src="{{ asset('uploads/' . $profil->image->url) }}"
                                 alt="{{ $profil->full_name }}"
                                 class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
                             @else
@@ -206,7 +206,7 @@
                     A curated collection of digital experiences crafted with performance and user experience at the core.
                 </p>
             </div>
-            <a href="#" class="group flex self-end items-center gap-2 text-primary font-semibold text-[14px] bg-primary/5 hover:bg-primary/10 px-5 py-2.5 rounded-full transition-all duration-300">
+            <a wire:navigate href="{{ route('project') }}" class="group flex self-end items-center gap-2 text-primary font-semibold text-[14px] bg-primary/5 hover:bg-primary/10 px-5 py-2.5 rounded-full transition-all duration-300">
                 View All
                 <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform duration-300">arrow_forward</span>
             </a>

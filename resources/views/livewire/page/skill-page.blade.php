@@ -58,7 +58,7 @@
                         <div class="flex items-center gap-3">
                             <div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center overflow-hidden group-hover/item:bg-primary/8 transition-all duration-300">
                                 @if($skill->image?->url)
-                                <img src="{{ asset('storage/' . $skill->image->url) }}" alt="{{ $skill->name }}" class="w-5 h-5 object-contain">
+                                <img src="{{ asset('uploads/' . $skill->image->url) }}" alt="{{ $skill->name }}" class="w-5 h-5 object-contain">
                                 @else
                                 <span class="material-symbols-outlined text-primary/60 text-[16px]">code</span>
                                 @endif
@@ -115,7 +115,7 @@
                         <div class="flex items-center gap-3">
                             <div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center overflow-hidden group-hover/item:bg-secondary/8 transition-all duration-300">
                                 @if($skill->image?->url)
-                                <img src="{{ asset('storage/' . $skill->image->url) }}" alt="{{ $skill->name }}" class="w-5 h-5 object-contain">
+                                <img src="{{ asset('uploads/' . $skill->image->url) }}" alt="{{ $skill->name }}" class="w-5 h-5 object-contain">
                                 @else
                                 <span class="material-symbols-outlined text-secondary/60 text-[16px]">terminal</span>
                                 @endif
@@ -171,7 +171,7 @@
                     <div class="group/tool flex items-center gap-2.5 px-3 py-3 rounded-xl bg-surface-container/60 border border-outline-variant/10 hover:bg-tertiary/6 hover:border-tertiary/20 transition-all duration-300 cursor-default">
                         <div class="w-8 h-8 rounded-lg bg-surface flex items-center justify-center overflow-hidden shrink-0 group-hover/tool:bg-tertiary/10 transition-all duration-300">
                             @if($skill->image?->url)
-                            <img src="{{ asset('storage/' . $skill->image->url) }}" alt="{{ $skill->name }}" class="w-4 h-4 object-contain">
+                            <img src="{{ asset('uploads/' . $skill->image->url) }}" alt="{{ $skill->name }}" class="w-4 h-4 object-contain">
                             @else
                             <span class="material-symbols-outlined text-tertiary/60 text-[14px]">extension</span>
                             @endif

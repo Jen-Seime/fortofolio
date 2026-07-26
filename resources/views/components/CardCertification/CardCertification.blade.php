@@ -7,7 +7,7 @@
     <div class="flex items-start justify-between mb-stack-md">
         <div class="w-12 h-12 rounded bg-surface-container-highest flex items-center justify-center border border-outline-variant/50 overflow-hidden">
             @if ($certification->issuerLogo?->url)
-                <img src="{{ asset('storage/' . $certification->issuerLogo->url) }}" alt="{{ $certification->issuer }}" class="w-full h-full object-cover">
+                <img src="{{ asset('uploads/' . $certification->issuerLogo->url) }}" alt="{{ $certification->issuer }}" class="w-full h-full object-cover">
             @else
                 <span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">cloud_done</span>
             @endif

@@ -28,7 +28,7 @@ class CertificationForm
                                 FileUpload::make('url')
                                     ->label('Logo Penerbit (Issuer Logo)')
                                     ->directory('Issuer-Logo')
-                                    ->disk('public')
+                                    ->disk('public_uploads')
                                     ->visibility('public')
                                     ->image()
                                     ->imageEditor()
@@ -47,7 +47,7 @@ class CertificationForm
                                     ->directory('File-Pdf')
                                     ->acceptedFileTypes(['application/pdf'])
                                     ->maxSize(5120) // 5MB
-                                    ->disk('public')
+                                    ->disk('public_uploads')
                                     ->getUploadedFileNameForStorageUsing(function ($file) {
                                         return time().'_'.$file->getClientOriginalName();
                                     })

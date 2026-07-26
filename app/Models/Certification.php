@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Certification extends Model
@@ -25,5 +26,17 @@ class Certification extends Model
     public function pdfFile(): MorphOne
     {
         return $this->morphOne(Image::class, 'imageable')->where('type', 'pdf');
+    }
+
+    public function images(): MorphMany
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
+    protected static function booted()
+    {
+        static::deleting(function ($certification) {
+            $certification->images->each->delete();
+        });
     }
 }

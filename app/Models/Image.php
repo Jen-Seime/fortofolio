@@ -18,12 +18,14 @@ class Image extends Model
     protected static function booted()
     {
         static::deleting(function ($image) {
-            Storage::disk('public')->delete($image->url);
+            if (! empty($image->url)) {
+                Storage::disk('public_uploads')->delete($image->url);
+            }
         });
 
         static::updating(function ($image) {
-            if ($image->isDirty('url')) {
-                Storage::disk('public')->delete($image->getOriginal('url'));
+            if ($image->isDirty('url') && ! empty($image->getOriginal('url'))) {
+                Storage::disk('public_uploads')->delete($image->getOriginal('url'));
             }
         });
     }
