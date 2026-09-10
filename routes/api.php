@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\CertificationController;
 use App\Http\Controllers\Api\EducationController;
+use App\Http\Controllers\Api\ExperiencesController;
 use App\Http\Controllers\Api\ProfilController;
 use App\Http\Controllers\Api\ProjectController;
 use App\Http\Controllers\Api\SkillController;
@@ -21,3 +22,5 @@ Route::get('skill', [SkillController::class, 'index']);
 Route::get('Certification',[CertificationController::class, 'index']);
 
 Route::get('education', [EducationController::class, 'index']);
+
+Route::get('experiences', [ExperiencesController::class, 'index']);
