@@ -14,9 +14,18 @@ class SkillController extends Controller
      */
     public function index(SkillService $service)
     {
-        $skill = $service->getSkills();
-        
-        return SkillResource::collection($skill);
+        $skills = $service->getSkills();
+
+        $skillGroup = $skills->groupBy('category')->map(function ($items, $category) {
+            return [
+                'category' => $category,
+                'skills' => SkillResource::collection($items),
+            ];
+        })->values();
+
+        return response()->json([
+            'data' => $skillGroup,
+        ]);
     }
 
     /**

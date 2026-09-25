@@ -11,7 +11,7 @@ class ExperienceService
     public function getExperience()
     {
         return Cache::remember('experience_data', now()->addDay(), function () {
-            return Experience::all();
+            return Experience::with('issuerLogo', 'pdfFile')->get();
         });
     }
 

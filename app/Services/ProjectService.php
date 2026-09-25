@@ -34,6 +34,15 @@ class ProjectService
             ->get();
     }
 
+    public function getrelatedProjects(int $categoryRoleId)
+    {
+        return Project::with('image')
+            ->where('category_role_id', $categoryRoleId)
+            ->latest('date')
+            ->limit(3)
+            ->get();
+    }
+
     /**
      * Membersihkan cache projects.
      */

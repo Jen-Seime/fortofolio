@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Education\Schemas;
 
+use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
@@ -55,6 +56,19 @@ class EducationForm
                             ->rows(4)
                             ->columnSpanFull()
                             ->nullable(),
+
+                        TagsInput::make('coursework')
+                            ->label('Materi/ilmu kuliah')
+                            ->placeholder('contoh : alogoritma')
+                            ->columnSpanFull()
+                            ->required(),
+
+                        TextInput::make('gpa')
+                            ->label('IPK')
+                            ->numeric()
+                            ->placeholder('Contoh: 4.0')
+                            ->nullable(),
+
                     ])->columnSpanFull(),
             ]);
     }

@@ -30,9 +30,11 @@ class CertificationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $slug, CertificationService $service)
     {
-        //
+        $certificationBySlug = $service->getCertificationBySlug($slug);
+
+        return new CertificationResource($certificationBySlug);
     }
 
     /**

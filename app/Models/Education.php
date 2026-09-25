@@ -9,6 +9,14 @@ class Education extends Model
 {
     protected $guarded = [];
 
+    protected function casts(): array
+    {
+        return [
+
+            'coursework' => 'array',
+        ];
+    }
+
     protected static function booted()
     {
         static::saved(function () {

@@ -6,13 +6,17 @@ use App\Models\Certification;
 
 class CertificationService
 {
-
     public function getCertifications()
     {
         return Certification::query()
             ->latest('issue_date')
             ->with('issuerLogo', 'pdfFile')
             ->paginate();
+    }
+
+    public function getCertificationBySlug(string $slug)
+    {
+        return Certification::query()->where('slug', $slug)->firstOrFail();
     }
 
     // public function getCertifications(int $limit = 10)

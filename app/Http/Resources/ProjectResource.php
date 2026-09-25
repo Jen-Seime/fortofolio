@@ -22,13 +22,21 @@ class ProjectResource extends JsonResource
             'content' => $this->content,
             'client' => $this->client,
             'date' => $this->date?->format('Y-m-d'),
-            'link' => $this->link,
+            'demo_link' => $this->demo_link,
             'github_link' => $this->github_link,
             'technology' => $this->technology,
             'is_featured' => $this->is_featured,
             'category_role_id' => $this->category_role_id,
             'category_role' => $this->whenLoaded('category_role'),
             'image' => isset($this->image?->url) ? asset('uploads/'.$this->image->url) : null,
+
+            'thumbnails' => $this->thumbnails->map(function ($thumbnail) {
+                return [
+                    'id' => $thumbnail->id,
+                    'url' => asset('uploads/'.$thumbnail->url),
+                ];
+            }),
+
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ProjectResource;
 use App\Models\Project;
+use App\Services\ProjectService;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -24,6 +25,13 @@ class ProjectController extends Controller
         return ProjectResource::collection($projects);
     }
 
+    public function relatedProjects(Request $request, int $category_role_id, ProjectService $service)
+    {
+        $related = $service->getrelatedProjects($category_role_id);
+
+        return ProjectResource::collection($related);
+    }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -35,9 +43,11 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $slug)
     {
-        //
+        $project = Project::with('image', 'thumbnails', 'category_role')->where('slug', $slug)->firstOrFail();
+
+        return new ProjectResource($project);
     }
 
     /**

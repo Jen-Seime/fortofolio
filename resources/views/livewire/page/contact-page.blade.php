@@ -159,7 +159,7 @@
 
                     <div class="pt-4 flex justify-end">
                         
-                        <x-button.button title="Execute Send" icon="send" type="submit"/>
+                        <x-Button.Button title="Execute Send" icon="send" type="submit"/>
                     </div>
                 </form>
             </div>
